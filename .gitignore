@@ -1,0 +1,62 @@
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+auth.json
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Laravel
+/public/hot
+/public/storage
+/storage/*.key
+/storage/app/*
+!/storage/app/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# SQLite / local DB
+*.sqlite
+*.sqlite-journal
+/database/*.sqlite
+
+# Build
+/public/build
+/public/mix-manifest.json
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs & dumps
+*.log
+*.sql
+*.sql.gz
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+
+# Backups (keep on disk, do not commit)
+*.pre-nova.bak
+*.bak
+*.old
+
+# Local deploy
+.deploy/
+deploy.env
