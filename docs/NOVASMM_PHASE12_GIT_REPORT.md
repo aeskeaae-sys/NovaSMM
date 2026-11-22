@@ -1,29 +1,30 @@
 # NovaSMM Phase 12 — Git Report
 
-**Path:** `/home/workdir/artifacts/SMMPanelV1-full/SMMPanelV1-main`
+**Repository path:** `/home/workdir/artifacts/SMMPanelV1-full/SMMPanelV1-main`
 
-## Actions
+## Evidence
 
-- No prior `.git` found → `git init -b main`
-- Created `.gitignore` (excludes `.env`, `vendor/`, `node_modules/`, `*.pre-nova.bak`, sqlite, logs, etc.)
-- Initial commits (chore) for metadata and source trees
+| Item | Value |
+|------|--------|
+| Branch | `main` |
+| Latest commit | `9376bc85c8a72c72391869998b37415765344610` |
+| Commits | 4 |
+| Tracked files | 354 |
+| Remote | none |
 
-## Verification (run locally)
+## Commits
 
-```bash
-git status
-git log --oneline
-git branch
-git ls-files | wc -l
+```
+9376bc8 chore: add CI workflow and Nova branding assets
+20ba7c9 chore: add resources views and documentation
+f065656 chore: add application source (app helpers controllers)
+9b46e2d chore: initialize NovaSMM source control (core metadata)
 ```
 
-## Secret handling
+## .gitignore
 
-- `.env` is gitignored and not committed
-- `.env.example` has placeholders only
-- `*.pre-nova.bak` excluded from Git (kept on disk)
+Excludes: `.env`, `vendor/`, `node_modules/`, `*.pre-nova.bak`, sqlite, logs, IDE files.
 
-## Status
+## Status: **PASS** (local init)
 
-**PARTIAL** until all intended source paths are confirmed committed and `git status` is clean of unintended files.
-
+Untracked large public libs remain on disk (optional to add later). Nova branding and CI workflow are tracked.
