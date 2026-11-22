@@ -60,3 +60,7 @@ Homestead.yaml
 # Local deploy
 .deploy/
 deploy.env
+
+# NovaSMM Phase 14.11 — exclude non-runtime duplicate asset tree
+/public/_assets/
+
