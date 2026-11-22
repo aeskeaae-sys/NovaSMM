@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <!-- Icon: Stylized N with Crown -->
+  <defs>
+    <linearGradient id="novaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Crown -->
+  <g filter="url(#glow)">
+    <path d="M22 8 L28 18 L34 10 L40 18 L46 8 L46 20 L22 20 Z" fill="url(#crownGrad)"/>
+    <circle cx="22" cy="7" r="2.5" fill="#22D3EE"/>
+    <circle cx="34" cy="5" r="2.5" fill="#A78BFA"/>
+    <circle cx="46" cy="7" r="2.5" fill="#22D3EE"/>
+  </g>
+  
+  <!-- Stylized N -->
+  <path d="M18 24 L18 52 L26 52 L26 36 L40 52 L48 52 L48 24 L40 24 L40 40 L26 24 Z" fill="url(#novaGrad)" filter="url(#glow)"/>
+  
+  <!-- Text: NovaSMM -->
+  <text x="62" y="42" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="url(#novaGrad)">
+    NovaSMM
+  </text>
+</svg>
