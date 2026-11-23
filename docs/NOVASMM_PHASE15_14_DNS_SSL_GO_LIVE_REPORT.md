@@ -101,6 +101,20 @@ TTL: `21600`
 - ยังพบ IP เก่า `34.174.96.8` → ตามข้อกำหนดต้องคงสถานะ **NO-GO**
 - ไม่ได้แก้ DNS จาก Repository หรือ host ตามข้อจำกัด
 
+### B.6 Re-verification
+
+Timestamp ของการตรวจซ้ำ: `2026-11-23T23:00:25.6626987+07:00`
+
+| Resolver | `uploading.com` | TTL | `www.uploading.com` | TTL |
+|---|---|---:|---|---:|
+| Google `8.8.8.8` | `A 34.174.96.8` | 21484 | `A 34.174.96.8` | 21431 |
+| Cloudflare `1.1.1.1` | `A 34.174.96.8` | 86400 | `A 34.174.96.8` | 86400 |
+| Quad9 `9.9.9.9` | `A 34.174.96.8` | 25979 | `A 34.174.96.8` | 28726 |
+
+- `AAAA NONE`, `CNAME NONE` สำหรับทั้งสอง hostname ทุก resolver
+- MX/SPF/site verification/NS ยังคงเดิม (ค่า site verification ยัง redacted)
+- ผลตรวจซ้ำตรงกับรอบแรก → ยัง **FAIL** และยัง **NO-GO**
+
 ---
 
 ## C. SSL Verification
@@ -118,6 +132,8 @@ TTL: `21600`
 | `https://www.uploading.com/` resolve → `122.154.34.166` | `000` | — | `60` |
 
 **ผล: FAIL สำหรับ host เป้าหมาย** — exit `60` คือ certificate verification/hostname mismatch
+
+Re-verification ที่ `2026-11-23T23:00:25+07:00` ให้ผลเหมือนเดิม: public `200|0|34.174.96.8 exit=0`, public `www` `301|0|34.174.96.8 exit=0`, target ทั้งสอง hostname `000|0| exit=60`
 
 ### C.2 Certificate บน public IP เดิม `34.174.96.8`
 
