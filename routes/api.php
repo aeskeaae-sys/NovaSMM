@@ -114,5 +114,5 @@ Route::middleware(['auth:sanctum', Admin::class])->prefix('/admin')->group(funct
 });
 
 // SMM Panel API v2
-Route::get('/v2', [App\Http\Controllers\Api\V2Controller::class, 'process'])->name('api.v2');
+Route::get('/v2', [App\Http\Controllers\Api\V2Controller::class, 'process'])->name('api.v2.get');
 Route::post('/v2', [App\Http\Controllers\Api\V2Controller::class, 'process'])->name('api.v2');

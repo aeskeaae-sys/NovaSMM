@@ -199,7 +199,7 @@ Route::middleware(['auth', Admin::class, CheckLastLogin::class])->prefix('/admin
     Route::post('/change-category', [App\Http\Controllers\Admin\ServiceController::class, 'changeCategory'])->name('admin.services.change-category');
     Route::post('/delete', [App\Http\Controllers\Admin\ServiceController::class, 'delete'])->name('admin.services.delete');
     // API Provider Forms
-    Route::get('/load-forms/{type}', [App\Http\Controllers\Admin\ServiceController::class, 'forms'])->name('admin.providers.forms');
+    Route::get('/load-forms/{type}', [App\Http\Controllers\Admin\ServiceController::class, 'forms'])->name('admin.providers.forms.get');
     Route::post('/load-forms/{type}', [App\Http\Controllers\Admin\ServiceController::class, 'forms'])->name('admin.providers.forms');
   });
 
