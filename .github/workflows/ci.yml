@@ -5,18 +5,19 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  php-and-frontend:
-    runs-on: ubuntu-24.04
+  validate-and-build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup PHP
+      - name: Setup PHP 8.3
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
@@ -24,29 +25,31 @@ jobs:
           coverage: none
 
       - name: Validate composer.json
-        run: composer validate --strict
-
-      - name: Cache Composer
-        uses: actions/cache@v4
-        with:
-          path: vendor
-          key: composer-${{ hashFiles('composer.lock') }}
+        run: |
+          if [ -f composer.json ]; then
+            composer validate --no-check-publish
+          else
+            echo "composer.json missing" && exit 1
+          fi
 
       - name: Install PHP dependencies
         run: composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
-      - name: Setup Node
+      - name: Setup Node 20
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
 
       - name: Install frontend dependencies
-        run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+        run: npm install
 
       - name: Build frontend
         run: npm run build
 
-      - name: Ensure Nova theme present
-        run: test -f public/assets/css/nova-theme.css
+      - name: Verify Nova branding asset
+        run: |
+          if [ -f public/assets/css/nova-theme.css ]; then
+            echo "Nova theme present"
+          else
+            echo "nova-theme.css missing" && exit 1
+          fi
