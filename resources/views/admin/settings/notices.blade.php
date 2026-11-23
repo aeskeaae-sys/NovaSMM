@@ -3,7 +3,7 @@
 @section('content')
   <div class="card custom-card nova-admin-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">{{ __t('Thông báo') }} | {{ __t('Trang tạo đơn hàng') }}</div>
+      <div class="card-title">{{ __t('ประกาศ') }} | {{ __t('หน้าสร้างคำสั่งซื้อ') }}</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'page_new_order']) }}" method="POST">
@@ -12,14 +12,14 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $page_new_order ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">{{ __t('Thông báo') }} | Nổi ở trang chủ</div>
+      <div class="card-title">{{ __t('ประกาศ') }} | แสดงบนหน้าแรก</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'modal_dashboard']) }}" method="POST">
@@ -28,14 +28,14 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $modal_dashboard ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">{{ __t('Thông báo') }} | Trang nạp tiền</div>
+      <div class="card-title">{{ __t('ประกาศ') }} | หน้าฝากเงิน</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'page_deposit']) }}" method="POST">
@@ -44,14 +44,14 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $page_deposit ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">{{ __t('Thông báo') }} | Trang nạp tiền qua crypto</div>
+      <div class="card-title">{{ __t('ประกาศ') }} | หน้าฝากเงินผ่าน crypto</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'page_deposit_crypto']) }}" method="POST">
@@ -60,14 +60,14 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $page_deposit_crypto ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">{{ __t('Thông báo') }} | Trang nạp tiền qua thẻ cào</div>
+      <div class="card-title">{{ __t('ประกาศ') }} | หน้าฝากเงินผ่านบัตรเติมเงิน</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'page_deposit_card']) }}" method="POST">
@@ -76,14 +76,14 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $page_deposit_card ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">{{ __t('Thông báo') }} | Trang Chương Trình Liên Kết</div>
+      <div class="card-title">{{ __t('ประกาศ') }} | หน้าโปรแกรม Affiliate</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'page_affiliate']) }}" method="POST">
@@ -92,14 +92,14 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $page_affiliate ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">{{ __t('Thông báo') }} | Điều Khoản Sử Dụng</div>
+      <div class="card-title">{{ __t('ประกาศ') }} | ข้อกำหนดการใช้งาน</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'page_privacy_policy']) }}" method="POST">
@@ -108,14 +108,14 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $page_privacy_policy ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Thông tin liên hệ</div>
+      <div class="card-title">ข้อมูลติดต่อ</div>
     </div>
     <div class="card-body">
       <form action="{{ route('admin.settings.notices.update', ['type' => 'page_supports']) }}" method="POST">
@@ -124,7 +124,7 @@
           <textarea class="form-control" id="content" name="content" rows="5">{{ $page_supports ?? '' }}</textarea>
         </div>
         <div class="mb-3 text-center">
-          <button class="btn btn-primary" type="submit">Cập Nhật</button>
+          <button class="btn btn-primary" type="submit">อัปเดต</button>
         </div>
       </form>
     </div>

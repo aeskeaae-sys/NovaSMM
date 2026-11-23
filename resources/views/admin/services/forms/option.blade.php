@@ -1,17 +1,17 @@
 <div class="card-body">
   <div class="mode__option mb-3">
-    <label for="api_provider_id" class="form-label">Chọn API có sẵn</label>
+    <label for="api_provider_id" class="form-label">เลือก API ที่มีอยู่</label>
     <select name="api_provider_id" id="api_provider_id" class="form-control">
-      <option value="">- Chọn -</option>
+      <option value="">- เลือก -</option>
       @if (in_array(domain(), ['localhost']))
       @endif
     </select>
   </div>
   <div class="mode__option mb-3">
-    <label for="api_service_id" class="form-label">Nhập ID máy chủ</label>
+    <label for="api_service_id" class="form-label">ป้อน ID เซิร์ฟเวอร์</label>
     <input type="text" class="form-control" name="api_service_id" id="api_service_id" required>
   </div>
-  <label for="service_type" class="form-label">Loại dịch vụ</label>
+  <label for="service_type" class="form-label">ประเภทบริการ</label>
   <select name="service_type" id="service_type" class="form-control">
     <option value="default">Default</option>
     <option value="custom_comments">Custom comments</option>

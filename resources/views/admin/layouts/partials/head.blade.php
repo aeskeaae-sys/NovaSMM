@@ -46,13 +46,13 @@
   <!-- NovaSMM Premium Theme -->
   <link rel="stylesheet" href="/assets/css/nova-theme.css">
   <script>
-    document.documentElement.setAttribute('data-theme-mode', 'dark');
-    document.documentElement.setAttribute('data-header-styles', 'dark');
-    document.documentElement.setAttribute('data-menu-styles', 'dark');
+    document.documentElement.setAttribute('data-theme-mode', 'light');
+    document.documentElement.setAttribute('data-header-styles', 'light');
+    document.documentElement.setAttribute('data-menu-styles', 'light');
     try {
-      localStorage.setItem('ynexHeader', 'dark');
-      localStorage.setItem('ynexMenu', 'dark');
-      localStorage.setItem('ynexdarktheme', 'true');
+      localStorage.setItem('ynexHeader', 'light');
+      localStorage.setItem('ynexMenu', 'light');
+      localStorage.setItem('ynexdarktheme', 'false');
     } catch(e) {}
   </script>
 

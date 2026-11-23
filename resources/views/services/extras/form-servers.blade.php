@@ -3,7 +3,7 @@
 @endif
 
 <div class="gap-3" style="margin-left: 5px">
-  <label for="server_id">{{ __t('Chọn máy chủ') }}</label>
+  <label for="server_id">{{ __t('เลือกเซิร์ฟเวอร์') }}</label>
   @foreach ($servers as $server)
     @php
       $disabled = false;
@@ -19,18 +19,18 @@
       <label class="form-check-label" for="dsv{{ $server['id'] }}" style="font-weight: bold">
         <span class="text-primary fw-bold">{{ __t('MC') }} {{ $server['id'] }}</span>
         - <span class="fw-bold">{{ __t($server['name']) }}</span>
-        - <span class="text-danger fw-bold me-1">{{ $server['price'] }}đ</span>
+        - <span class="text-danger fw-bold me-1">{{ $server['price'] }}₫</span>
         @if ($server['status'])
-          <span class="text-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Hoạt động"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="text-success" data-bs-toggle="tooltip" data-bs-placement="top" title="ใช้งาน"><i class="fa-solid fa-circle-check"></i></span>
         @else
-          <span class="badge badge-xl bg-danger">{{ __t('Bảo Trì') }}</span>
+          <span class="badge badge-xl bg-danger">{{ __t('กำลังบำรุงรักษา') }}</span>
         @endif
       </label>
     </div>
   @endforeach
   @if (count($servers) === 0)
     <div class="alert alert-primary text-center" role="alert" data-key="c-no-server">
-      {{ __t('Không có máy chủ nào hoạt động!') }}
+      {{ __t('ไม่มีเซิร์ฟเวอร์ที่ใช้งานอยู่!') }}
     </div>
   @endif
 </div>
@@ -53,7 +53,7 @@
         return Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Không tìm thấy máy chủ này!',
+          text: 'ไม่พบเซิร์ฟเวอร์นี้!',
         })
       }
 
@@ -61,7 +61,7 @@
 
       if (server.info) {
         $('.server_note').html(
-          `<label class="form-label">Thông tin : </label>
+          `<label class="form-label">ข้อมูล : </label>
               <div class="alert text-white" role="alert" style="background-color: #864AF9">${server.info}</div>`
         )
       } else {
@@ -206,20 +206,20 @@
       e.preventDefault()
 
       const confirm = await Swal.fire({
-        title: 'Bạn chắc chứ?',
-        text: 'Bạn đã kiểm tra kỹ thông tin chưa?',
+        title: 'คุณแน่ใจหรือไม่?',
+        text: 'คุณได้ตรวจสอบข้อมูลเรียบร้อยแล้วหรือไม่?',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Đồng ý',
-        cancelButtonText: 'Hủy',
+        confirmButtonText: 'ตกลง',
+        cancelButtonText: 'ยกเลิก',
       })
 
       if (confirm.isConfirmed === false) return
 
       Swal.fire({
         icon: 'warning',
-        title: 'Đang xử lý...',
-        html: 'Vui lòng không tắt trang này để tránh mất tiền!',
+        title: 'กำลังดำเนินการ...',
+        html: 'กรุณาอย่าปิดหน้านี้เพื่อไม่ให้สูญเสียเงิน!',
         allowOutsideClick: false,
         allowEscapeKey: false,
         didOpen: () => {
@@ -239,7 +239,7 @@
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Vui lòng nhập ID hoặc Link để tiếp tục!',
+          text: 'กรุณาป้อน ID หรือลิงก์เพื่อดำเนินการต่อ!',
         })
         return
       }
@@ -247,7 +247,7 @@
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Không tìm thấy máy chủ này!',
+          text: 'ไม่พบเซิร์ฟเวอร์นี้!',
         })
         return
       }
@@ -255,7 +255,7 @@
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Số lượng mua phải lớn hơn 0!',
+          text: 'จำนวนที่ซื้อต้องมากกว่า 0!',
         })
         return
       }
@@ -267,16 +267,16 @@
           data: result
         } = await axios.post(API_ORDERS, payload)
 
-        // Xem đơn hàng, mua tiếp
+        // ดูคำสั่ง, ซื้อต่อ
         const {
           isConfirmed
         } = await Swal.fire({
-          title: 'Thành công!',
+          title: 'สำเร็จ!',
           text: result.message,
           icon: 'success',
           showCancelButton: true,
-          confirmButtonText: 'Xem đơn hàng',
-          cancelButtonText: 'Mua tiếp',
+          confirmButtonText: 'ดูคำสั่ง',
+          cancelButtonText: 'ซื้อต่อ',
         })
 
         if (isConfirmed) {
@@ -290,10 +290,10 @@
           return Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Bạn cần đăng nhập để mua dịch vụ!',
+            text: 'คุณต้องเข้าสู่ระบบเพื่อซื้อบริการ!',
             showCancelButton: true,
-            confirmButtonText: 'Đăng nhập',
-            cancelButtonText: 'Hủy',
+            confirmButtonText: 'เข้าสู่ระบบ',
+            cancelButtonText: 'ยกเลิก',
           }).then((result) => {
             if (result.isConfirmed) {
               window.location.href = '/login'

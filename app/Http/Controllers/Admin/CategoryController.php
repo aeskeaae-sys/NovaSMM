@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
     return view('admin.category.index', [
       'platforms'  => $platforms,
-      'pageTitle'  => 'Danh sách danh mục',
+      'pageTitle'  => __t('Danh sách danh mục'),
       'categories' => $categories,
     ]);
   }

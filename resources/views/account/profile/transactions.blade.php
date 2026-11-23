@@ -79,7 +79,7 @@
               json.data = json.data.data
               return JSON.stringify(json) // return JSON string
             } else {
-              Swal.fire('Thất bại', json.message, 'error')
+              Swal.fire('ล้มเหลว', json.message, 'error')
 
               return JSON.stringify({
                 recordsTotal: 0,

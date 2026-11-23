@@ -7,7 +7,7 @@
 
   <div class="card custom-card nova-admin-card">
     <div class="card-body">
-      <div class="alert alert-danger">Chức năng này chỉ có chức năng tự động quy đổi và hiển thị</div>
+      <div class="alert alert-danger">ฟังก์ชันนี้รองรับเฉพาะการแปลงอัตโนมัติและการแสดงผล</div>
       <div class="table-responsive theme-scrollbar">
         <table class="display table table-bordered table-stripped text-nowrap datatable" id="basic-1">
           <thead>
@@ -53,7 +53,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Thêm thông tin mới</h5>
+          <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูลใหม่</h5>
           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -107,7 +107,7 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label class="form-label" for="currency_decimal">{{ __('Số thập phân của tiền tệ') }}</label>
+                  <label class="form-label" for="currency_decimal">{{ __('จำนวนทศนิยมของสกุลเงิน') }}</label>
                   <select name="currency_decimal" id="currency_decimal" class="form-control square">
                     <option value="0" @if (isset($config['currency_decimal']) ? $config['currency_decimal'] === '0' : false) selected @endif> 0</option>
                     <option value="1" @if (isset($config['currency_decimal']) ? $config['currency_decimal'] === '1' : false) selected @endif> 0.0</option>
@@ -127,7 +127,7 @@
             </div>
 
             <div class="mb-3">
-              <button class="btn btn-primary w-100" type="submit">Thêm mới</button>
+              <button class="btn btn-primary w-100" type="submit">เพิ่มใหม่</button>
             </div>
           </form>
         </div>
@@ -140,7 +140,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin #{{ $value->id }}</h5>
+            <h5 class="modal-title" id="exampleModalLabel">อัปเดตข้อมูล #{{ $value->id }}</h5>
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -194,7 +194,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="form-label" for="currency_decimal">{{ __('Số thập phân của tiền tệ') }}</label>
+                    <label class="form-label" for="currency_decimal">{{ __('จำนวนทศนิยมของสกุลเงิน') }}</label>
                     <select name="currency_decimal" id="currency_decimal" class="form-control square">
                       <option value="0" @if ($value->currency_decimal == '0') selected @endif> 0</option>
                       <option value="1" @if ($value->currency_decimal == '1') selected @endif> 0.0</option>
@@ -214,7 +214,7 @@
               </div>
 
               <div class="mb-3">
-                <button class="btn btn-primary w-100" type="submit">Thêm mới</button>
+                <button class="btn btn-primary w-100" type="submit">เพิ่มใหม่</button>
               </div>
             </form>
           </div>

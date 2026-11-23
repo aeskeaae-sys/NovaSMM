@@ -13,7 +13,7 @@ class CurrencyController extends Controller
     $config = Helper::getConfig('currency_settings');
 
     return view('admin.settings.currency', [
-      'pageTitle' => 'Currency Settings',
+      'pageTitle' => __t('Currency Settings'),
     ], compact('config'));
   }
 

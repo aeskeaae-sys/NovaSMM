@@ -1,7 +1,7 @@
 <!-- Developer: quocbaodev | fb.com/baoint | quocbao@cmsnt.co -->
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="dark" data-header-styles="dark" data-menu-styles="dark" data-toggled="close">
+<html lang="th" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
 
 @include('admin.layouts.partials.head')
 

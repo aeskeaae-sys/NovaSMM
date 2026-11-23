@@ -5,15 +5,15 @@
 @endsection
 @section('content')
   <div class="mb-3 text-end">
-    <button data-bs-toggle="modal" data-bs-target="#modal-create" class="btn btn-outline-primary me-2"><i class="fas fa-plus"></i> {{ __t('Thêm mới') }}</button>
-    <a href="{{ route('admin.providers.import-services') }}" class="btn btn-outline-primary me-2"><i class="fas fa-list"></i> {{ __t('Nhập dịch vụ') }}</a>
-    <button class="btn btn-danger-gradient action-ids" onclick="deleteOrder()"><i class="fas fa-trash me-2"></i> {{ __t('Xoá') }}</button>
-    <button class="btn btn-primary-gradient action-ids" onclick="changeCategory()"><i class="fas fa-edit me-2"></i> {{ __t('Đổi chuyên mục') }}</button>
+    <button data-bs-toggle="modal" data-bs-target="#modal-create" class="btn btn-outline-primary me-2"><i class="fas fa-plus"></i> {{ __t('เพิ่มใหม่') }}</button>
+    <a href="{{ route('admin.providers.import-services') }}" class="btn btn-outline-primary me-2"><i class="fas fa-list"></i> {{ __t('นำเข้าบริการ') }}</a>
+    <button class="btn btn-danger-gradient action-ids" onclick="deleteOrder()"><i class="fas fa-trash me-2"></i> {{ __t('ลบ') }}</button>
+    <button class="btn btn-primary-gradient action-ids" onclick="changeCategory()"><i class="fas fa-edit me-2"></i> {{ __t('เปลี่ยนหมวดหมู่') }}</button>
   </div>
 
   <div class="card custom-card nova-admin-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Danh sách dịch vụ</div>
+      <div class="card-title">รายการบริการ</div>
     </div>
     <div class="card-body">
       <div class="text-center mb-3">
@@ -21,9 +21,9 @@
 
           <div class="col-md-4">
             <div class="mb-3">
-              <label for="category_id" class="form-label">Chuyên mục : </label>
+              <label for="category_id" class="form-label">หมวดหมู่ : </label>
               <select name="category_id" id="category_id" class="form-select js-category">
-                <option value="">Tất cả</option>
+                <option value="">ทั้งหมด</option>
                 @foreach ($categories as $service)
                   <option value="{{ $service->id }}">ID {{ $service->id }} - {{ $service->name }}</option>
                 @endforeach
@@ -35,7 +35,7 @@
             <div class="mb-3">
               <label for="provider_id" class="form-label">API Provider : </label>
               <select name="provider_id" id="provider_id" class="form-select js-provider">
-                <option value="">Tất cả</option>
+                <option value="">ทั้งหมด</option>
                 @foreach ($providers as $provider)
                   <option value="{{ $provider->id }}">ID {{ $provider->id }} - {{ $provider->name }}</option>
                 @endforeach
@@ -116,22 +116,22 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Thêm thông tin mới</h5>
+          <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูลใหม่</h5>
           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="{{ route('admin.services.store') }}" method="POST" class="default-form" data-reload="1" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-              <label for="name" class="form-label">Tên dịch vụ</label>
+              <label for="name" class="form-label">ชื่อบริการ</label>
               <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}" required>
             </div>
             <div class="mb-3">
-              <label for="image" class="form-label">Hình ảnh</label>
+              <label for="image" class="form-label">ภาพ</label>
               <input class="form-control" type="file" accept="image/*" id="image" name="image" value="{{ old('image') }}">
             </div>
             <div class="mb-3">
-              <label for="category" class="form-label">Chuyên mục</label>
+              <label for="category" class="form-label">หมวดหมู่</label>
               <select name="category_id" id="category_id" class="form-control jsmodal-category_id">
                 @foreach ($categories as $category)
                   <option value="{{ $category->id }}" @if (old('category_id') == $category->id) selected @endif>ID {{ $category->id }} : {{ $category->name }}</option>
@@ -139,7 +139,7 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="mode" class="form-label">Chế độ</label>
+              <label for="mode" class="form-label">โหมด</label>
               <select name="mode" id="mode" class="form-control">
                 <option value="api">API</option>
                 <option value="manual" selected>Manaul</option>
@@ -149,31 +149,31 @@
             <div class="mb-3 card bg-secondary mode_form"></div>
             <div class="mb-3 row">
               <div class="col-md-4">
-                <label for="min_buy" class="form-label">Mua ít nhất</label>
+                <label for="min_buy" class="form-label">ซื้อขั้นต่ำ</label>
                 <input type="number" class="form-control" name="min_buy" id="min_buy" value="{{ old('min_buy') }}" required>
               </div>
               <div class="col-md-4">
-                <label for="max_buy" class="form-label">Mua tối đa</label>
+                <label for="max_buy" class="form-label">ซื้อสูงสุด</label>
                 <input type="number" class="form-control" name="max_buy" id="max_buy" value="{{ old('max_buy') }}" required>
               </div>
               <div class="col-md-4">
-                <label for="price" class="form-label">Tỷ lệ trên 1000</label>
+                <label for="price" class="form-label">อัตราต่อ 1,000</label>
                 <input type="text" class="form-control" name="price" id="price" value="{{ old('price', 0) }}" required>
               </div>
             </div>
             <div class="mb-3">
-              <label for="status" class="form-label">Trạng thái</label>
+              <label for="status" class="form-label">สถานะ</label>
               <select class="form-control" id="status" name="status">
-                <option value="1" @if (old('status') == 1) selected @endif>Hoạt động</option>
-                <option value="0" @if (old('status') == 0) selected @endif>Không hoạt động</option>
+                <option value="1" @if (old('status') == 1) selected @endif>ใช้งาน</option>
+                <option value="0" @if (old('status') == 0) selected @endif>ไม่ใช้งาน</option>
               </select>
             </div>
             <div class="mb-3">
-              <label for="descr" class="form-label">Ghi chú</label>
+              <label for="descr" class="form-label">หมายเหตุ</label>
               <textarea name="descr" id="descr" class="form-control" rows="5">{{ old('descr') }}</textarea>
             </div>
             <div class="mb-3">
-              <button class="btn btn-primary w-100" type="submit">Thêm mới</button>
+              <button class="btn btn-primary w-100" type="submit">เพิ่มใหม่</button>
             </div>
           </form>
         </div>
@@ -230,13 +230,13 @@
 
     $(document).ready(function() {
       $(".js-category").select2({
-        placeholder: "{{ __t('Tìm kiếm chuyên mục') }}",
+        placeholder: "{{ __t('ค้นหาหมวดหมู่') }}",
         allowClear: true,
         dir: "ltr",
         selectionCssClass: 'select2-selection--single',
       });
       $(".js-provider").select2({
-        placeholder: "{{ __t('Tìm kiếm nhà cung cấp') }}",
+        placeholder: "{{ __t('ค้นหาผู้ให้บริการ') }}",
         allowClear: true,
         dir: "ltr",
         selectionCssClass: 'select2-selection--single',
@@ -244,7 +244,7 @@
 
       $('#modal-create').on('shown.bs.modal', function() {
         $(this).find('.jsmodal-category_id').select2({
-          placeholder: "Tìm kiếm tài khoản",
+          placeholder: "ค้นหาบัญชี",
           allowClear: true,
           dir: 'ltr',
           dropdownParent: $('#modal-create')
@@ -264,7 +264,7 @@
       }).then((response) => {
         Swal.fire({
           icon: 'success',
-          title: 'Thành công',
+          title: 'สำเร็จ',
           text: response.data.message
         })
       }).catch((error) => {
@@ -278,14 +278,14 @@
 
     const deleteRow = async (id) => {
       const confirmDelete = await Swal.fire({
-        title: '{{ __t('Bạn chắc chứ?') }}',
-        text: "{{ __t('Bạn sẽ không thể khôi phục lại dữ liệu này!') }}",
+        title: '{{ __t('คุณแน่ใจหรือไม่?') }}',
+        text: "{{ __t('คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!') }}",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: '{{ __t('Xóa') }}',
-        cancelButtonText: '{{ __t('Hủy') }}'
+        confirmButtonText: '{{ __t('ลบ') }}',
+        cancelButtonText: '{{ __t('ยกเลิก') }}'
       });
 
       if (!confirmDelete.isConfirmed) return;
@@ -299,11 +299,11 @@
           id
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
 
@@ -311,19 +311,19 @@
       let ids = getIds()
 
       if (ids.length === 0) {
-        Swal.fire('Thất bại', '{{ __t('Vui lòng chọn ít nhất 1 dòng để xóa') }}', 'error')
+        Swal.fire('ล้มเหลว', '{{ __t('กรุณาเลือกอย่างน้อย 1 แถวเพื่อลบ') }}', 'error')
         return
       }
 
       const confirm = await Swal.fire({
-        title: '{{ __t('Bạn chắc chứ?') }}',
-        text: "{{ __t('Bạn sẽ không thể khôi phục lại dữ liệu này!') }}",
+        title: '{{ __t('คุณแน่ใจหรือไม่?') }}',
+        text: "{{ __t('คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!') }}",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: '{{ __t('Xóa') }}',
-        cancelButtonText: '{{ __t('Hủy') }}'
+        confirmButtonText: '{{ __t('ลบ') }}',
+        cancelButtonText: '{{ __t('ยกเลิก') }}'
       })
 
       if (!confirm.isConfirmed)
@@ -338,11 +338,11 @@
           ids
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
 
@@ -350,7 +350,7 @@
       let ids = getIds()
 
       if (ids.length === 0) {
-        Swal.fire('Thất bại', '{{ __t('Vui lòng chọn ít nhất 1 dòng để thay đổi') }}', 'error')
+        Swal.fire('ล้มเหลว', '{{ __t('กรุณาเลือกอย่างน้อย 1 แถวเพื่อเปลี่ยน') }}', 'error')
         return
       }
 
@@ -361,20 +361,20 @@
 
       const category_id = await Swal.fire({
         icon: 'question',
-        title: '{{ __t('Chọn chuyên mục mới') }}',
+        title: '{{ __t('เลือกหมวดหมู่ใหม่') }}',
         input: 'select',
         inputOptions: categoryOptions,
-        inputPlaceholder: '{{ __t('Chọn chuyên mục') }}',
+        inputPlaceholder: '{{ __t('เลือกหมวดหมู่') }}',
         showCancelButton: true,
         inputValidator: (value) => {
           if (!value) {
-            return '{{ __t('Vui lòng chọn chuyên mục') }}'
+            return '{{ __t('กรุณาเลือกหมวดหมู่') }}'
           }
         }
       })
 
       if (!category_id.value) {
-        Swal.fire('Thất bại', '{{ __t('Vui lòng nhập ID chuyên mục mới') }}', 'error')
+        Swal.fire('ล้มเหลว', '{{ __t('กรุณาป้อน ID หมวดหมู่ใหม่') }}', 'error')
         return
       }
 
@@ -388,11 +388,11 @@
           category_id: category_id.value
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
 
@@ -408,7 +408,7 @@
       });
 
       function confirmPost() {
-        return confirm('Bạn có chắc chắn muốn xóa thông tin này không?');
+        return confirm('คุณแน่ใจหรือต้องการลบข้อมูลนี้?');
       }
 
       const updateMode = () => {
@@ -470,7 +470,7 @@
               json.data = json.data.data
               return JSON.stringify(json) // return JSON string
             } else {
-              Swal.fire('Thất bại', json.message, 'error')
+              Swal.fire('ล้มเหลว', json.message, 'error')
 
               return JSON.stringify({
                 recordsTotal: 0,

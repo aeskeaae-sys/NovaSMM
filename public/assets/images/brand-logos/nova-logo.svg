@@ -2,13 +2,13 @@
   <!-- Icon: Stylized N with Crown -->
   <defs>
     <linearGradient id="novaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8B5CF6"/>
-      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="50%" stop-color="#2563EB"/>
       <stop offset="100%" stop-color="#2563EB"/>
     </linearGradient>
     <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#A78BFA"/>
-      <stop offset="100%" stop-color="#22D3EE"/>
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
     </linearGradient>
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -22,9 +22,9 @@
   <!-- Crown -->
   <g filter="url(#glow)">
     <path d="M22 8 L28 18 L34 10 L40 18 L46 8 L46 20 L22 20 Z" fill="url(#crownGrad)"/>
-    <circle cx="22" cy="7" r="2.5" fill="#22D3EE"/>
-    <circle cx="34" cy="5" r="2.5" fill="#A78BFA"/>
-    <circle cx="46" cy="7" r="2.5" fill="#22D3EE"/>
+    <circle cx="22" cy="7" r="2.5" fill="#0EA5E9"/>
+    <circle cx="34" cy="5" r="2.5" fill="#2563EB"/>
+    <circle cx="46" cy="7" r="2.5" fill="#0EA5E9"/>
   </g>
   
   <!-- Stylized N -->

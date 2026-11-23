@@ -15,7 +15,7 @@ class CurrencyController extends Controller
     $records = CurrencyList::all();
 
     return view('admin.currency.index', compact('records'), [
-      'pageTitle' => 'Quản lý tiền tệ',
+      'pageTitle' => __t('Quản lý tiền tệ'),
     ]);
   }
 

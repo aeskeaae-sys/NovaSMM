@@ -4,10 +4,10 @@
 @endphp
 
 <style>
-  html:not([data-theme-mode="dark"]) {
+  html[data-theme-mode="light"] {
     .slide__category {
       padding: 10px 20px;
-      background-color: #F1F1F1;
+      background-color: #eaf2fb;
       border-radius: 0 10px 10px 0;
     }
   }
@@ -22,7 +22,7 @@
       <!-- Full Logo -->
       <div class="desktop-logo desktop-dark d-flex flex-column" style="line-height:1.1">
         <span class="fw-bold nova-text-gradient" style="font-size:1.35rem;letter-spacing:-0.02em">NovaSMM</span>
-        <span style="font-size:0.65rem;color:#94A3B8;font-weight:500">Social Media Growth</span>
+        <span style="font-size:0.65rem;color:#64748b;font-weight:500">เติบโตบนโซเชียลมีเดีย</span>
       </div>
       <!-- Fallback images for theme system -->
       <img src="{{ setting('logo_dark', '/assets/images/brand-logos/nova-logo.svg') }}" alt="NovaSMM" class="desktop-logo d-none" width="180">

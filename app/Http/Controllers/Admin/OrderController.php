@@ -18,7 +18,7 @@ class OrderController extends Controller
     $services = Service::where('status', true)->get();
 
     return view('admin.orders.index', [
-      'pageTitle' => 'Orders Manager',
+      'pageTitle' => __t('Orders Manager'),
     ], compact('services'));
 
   }

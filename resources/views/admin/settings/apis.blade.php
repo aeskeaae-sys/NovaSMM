@@ -12,11 +12,11 @@
             @csrf
             <div class="mb-3 row">
               <div class="col-md-4">
-                <label for="account_number" class="form-label">Số Tài Khoản</label>
+                <label for="account_number" class="form-label">หมายเลขบัญชี</label>
                 <input type="text" class="form-control" id="account_number" name="account_number" value="{{ $web2m_vietcombank['account_number'] ?? '' }}">
               </div>
               <div class="col-md-4">
-                <label for="account_password" class="form-label">Mật khẩu Bank</label>
+                <label for="account_password" class="form-label">รหัสผ่านธนาคาร</label>
                 <input type="password" class="form-control" id="account_password" name="account_password" value="{{ $web2m_vietcombank['account_password'] ?? '' }}">
               </div>
               <div class="col-md-4">
@@ -29,7 +29,7 @@
               <input type="text" class="form-control" id="link_cron" name="link_cron" value="{{ route('cron.deposit.check', ['key' => prj_key(), 'type' => 'vietcombank']) }}" readonly>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -45,11 +45,11 @@
             @csrf
             <div class="mb-3 row">
               <div class="col-md-4">
-                <label for="account_number" class="form-label">Số Tài Khoản</label>
+                <label for="account_number" class="form-label">หมายเลขบัญชี</label>
                 <input type="text" class="form-control" id="account_number" name="account_number" value="{{ $web2m_tpbank['account_number'] ?? '' }}">
               </div>
               <div class="col-md-4">
-                <label for="account_password" class="form-label">Mật khẩu Bank</label>
+                <label for="account_password" class="form-label">รหัสผ่านธนาคาร</label>
                 <input type="password" class="form-control" id="account_password" name="account_password" value="{{ $web2m_tpbank['account_password'] ?? '' }}">
               </div>
               <div class="col-md-4">
@@ -62,7 +62,7 @@
               <input type="text" class="form-control" id="link_cron" name="link_cron" value="{{ route('cron.deposit.check', ['key' => prj_key(), 'type' => 'tpbank']) }}" readonly>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -78,11 +78,11 @@
             @csrf
             <div class="mb-3 row">
               <div class="col-md-4">
-                <label for="account_number" class="form-label">Số Tài Khoản</label>
+                <label for="account_number" class="form-label">หมายเลขบัญชี</label>
                 <input type="text" class="form-control" id="account_number" name="account_number" value="{{ $web2m_acb['account_number'] ?? '' }}">
               </div>
               <div class="col-md-4">
-                <label for="account_password" class="form-label">Mật khẩu Bank</label>
+                <label for="account_password" class="form-label">รหัสผ่านธนาคาร</label>
                 <input type="password" class="form-control" id="account_password" name="account_password" value="{{ $web2m_acb['account_password'] ?? '' }}">
               </div>
               <div class="col-md-4">
@@ -95,7 +95,7 @@
               <input type="text" class="form-control" id="link_cron" name="link_cron" value="{{ route('cron.deposit.check', ['key' => prj_key(), 'type' => 'acb']) }}" readonly>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -111,11 +111,11 @@
             @csrf
             <div class="mb-3 row">
               <div class="col-md-4">
-                <label for="account_number" class="form-label">Số Tài Khoản</label>
+                <label for="account_number" class="form-label">หมายเลขบัญชี</label>
                 <input type="text" class="form-control" id="account_number" name="account_number" value="{{ $web2m_mbbank['account_number'] ?? '' }}">
               </div>
               <div class="col-md-4">
-                <label for="account_password" class="form-label">Mật khẩu Bank</label>
+                <label for="account_password" class="form-label">รหัสผ่านธนาคาร</label>
                 <input type="password" class="form-control" id="account_password" name="account_password" value="{{ $web2m_mbbank['account_password'] ?? '' }}">
               </div>
               <div class="col-md-4">
@@ -128,7 +128,7 @@
               <input type="text" class="form-control" id="link_cron" name="link_cron" value="{{ route('cron.deposit.check', ['key' => prj_key(), 'type' => 'mbbank']) }}" readonly>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -145,11 +145,11 @@
             @csrf
             <div class="mb-3 row">
               <div class="col-md-4">
-                <label for="account_number" class="form-label">Số Tài Khoản</label>
+                <label for="account_number" class="form-label">หมายเลขบัญชี</label>
                 <input type="text" class="form-control" id="account_number" name="account_number" value="{{ $web2m_bidv['account_number'] ?? '' }}">
               </div>
               <div class="col-md-4">
-                <label for="account_password" class="form-label">Mật khẩu Bank</label>
+                <label for="account_password" class="form-label">รหัสผ่านธนาคาร</label>
                 <input type="password" class="form-control" id="account_password" name="account_password" value="{{ $web2m_bidv['account_password'] ?? '' }}">
               </div>
               <div class="col-md-4">
@@ -162,7 +162,7 @@
               <input type="text" class="form-control" id="link_cron" name="link_cron" value="{{ route('cron.deposit.check', ['key' => prj_key(), 'type' => 'bidv']) }}" readonly>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -186,7 +186,7 @@
               <input type="text" class="form-control" id="link_cron" name="link_cron" value="{{ route('cron.deposit.check', ['key' => prj_key(), 'type' => 'momo']) }}" readonly>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -201,20 +201,20 @@
           <form action="{{ route('admin.settings.apis.update', ['type' => 'perfect_money']) }}" method="POST" class="axios-form">
             @csrf
             <div class="mb-3">
-              <label for="account_id" class="form-label">Mã tài khoản</label>
+              <label for="account_id" class="form-label">รหัสบัญชี</label>
               <input type="text" class="form-control" id="account_id" name="account_id" value="{{ $perfect_money['account_id'] ?? '' }}">
-              <small>Vào đây để lấy mật mã tài khoản và đơn vị tiền tệ: <a href="https://perfectmoney.com/profile.html" target="_blank">https://perfectmoney.com/profile.html</a></small>
+              <small>คลิกที่นี่เพื่อรับรหัสบัญชีและสกุลเงิน: <a href="https://perfectmoney.com/profile.html" target="_blank">https://perfectmoney.com/profile.html</a></small>
             </div>
             <div class="mb-3">
-              <label for="passphrase" class="form-label">Mật khẩu Thay thế (Alternate Passphrase)</label>
+              <label for="passphrase" class="form-label">รหัสผ่านสำรอง (Alternate Passphrase)</label>
               <input type="text" class="form-control" id="passphrase" name="passphrase" value="{{ $perfect_money['passphrase'] ?? '' }}">
             </div>
             <div class="mb-3">
-              <label for="exchange" class="form-label">Tỷ giá quy đổi 1$</label>
+              <label for="exchange" class="form-label">อัตราแลกเปลี่ยน 1$</label>
               <input type="text" class="form-control" id="exchange" name="exchange" value="{{ $perfect_money['exchange'] ?? 24000 }}">
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-success-gradient" type="submit">Cập Nhật</button>
+              <button class="btn btn-success-gradient" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -244,7 +244,7 @@
               <input type="hidden" id="token" value="{{ auth()->user()->access_token }}" />
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-success-gradient" type="submit">Cập Nhật</button>
+              <button class="btn btn-success-gradient" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -273,7 +273,7 @@
               </div>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -294,19 +294,19 @@
                 <input type="text" class="form-control" id="bot_token" name="bot_token" value="{{ $telegram['bot_token'] ?? '' }}">
               </div>
               <div class="col-md-4">
-                <label for="chat_id" class="form-label">ChatID Nhận</label>
+                <label for="chat_id" class="form-label">ChatID ที่รับ</label>
                 <input type="text" class="form-control" id="chat_id" name="chat_id" value="{{ $telegram['chat_id'] ?? '' }}">
               </div>
               <div class="col-md-4">
-                <label for="status" class="form-label">Trạng thái</label>
+                <label for="status" class="form-label">สถานะ</label>
                 <select class="form-select" id="status" name="status">
-                  <option value="1" {{ ($telegram['status'] ?? 0) == 1 ? 'selected' : '' }}>Bật</option>
-                  <option value="0" {{ ($telegram['status'] ?? 0) == 0 ? 'selected' : '' }}>Tắt</option>
+                  <option value="1" {{ ($telegram['status'] ?? 0) == 1 ? 'selected' : '' }}>เปิด</option>
+                  <option value="0" {{ ($telegram['status'] ?? 0) == 0 ? 'selected' : '' }}>ปิด</option>
                 </select>
               </div>
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -338,7 +338,7 @@
               </div>
               <div class="col-md-6">
                 <label for="password" class="form-label">SMTP Password</label>
-                <input type="password" class="form-control" id="pass" name="pass" value="{{ $smtp_server['pass'] ?? '' }}" placeholder="abcxty abcxty abcxty abcxty hoặc abcxtyabcxtyabcxtyabcxty">
+                <input type="password" class="form-control" id="pass" name="pass" value="{{ $smtp_server['pass'] ?? '' }}" placeholder="abcxty abcxty abcxty abcxty หรือ abcxtyabcxtyabcxtyabcxty">
               </div>
             </div>
             <div class="mb-3">
@@ -346,7 +346,7 @@
               <input type="text" class="form-control" id="name" name="name" value="{{ $smtp_server['name'] ?? '' }}" placeholder="SMMPanel Provider">
             </div>
             <div class="mb-3 text-end">
-              <button class="btn btn-primary" type="submit">Cập Nhật</button>
+              <button class="btn btn-primary" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -378,19 +378,19 @@
             </div>
             <div class="mb-3 row">
               <div class="col-md-3">
-                <label for="fees_viettel" class="form-label">Phí Thẻ Viettel</label>
+                <label for="fees_viettel" class="form-label">ค่าธรรมเนียมบัตร Viettel</label>
                 <input type="text" class="form-control" id="fees_viettel" name="fees[VIETTEL]" value="{{ $charging_card['fees']['VIETTEL'] ?? 20 }}" placeholder="30">
               </div>
               <div class="col-md-3">
-                <label for="fees_vinaphone" class="form-label">Phí Thẻ Vinaphone</label>
+                <label for="fees_vinaphone" class="form-label">ค่าธรรมเนียมบัตร Vinaphone</label>
                 <input type="text" class="form-control" id="fees_vinaphone" name="fees[VINAPHONE]" value="{{ $charging_card['fees']['VINAPHONE'] ?? 20 }}" placeholder="30">
               </div>
               <div class="col-md-3">
-                <label for="fees_mobifone" class="form-label">Phí Thẻ Mobifone</label>
+                <label for="fees_mobifone" class="form-label">ค่าธรรมเนียมบัตร Mobifone</label>
                 <input type="text" class="form-control" id="fees_mobifone" name="fees[MOBIFONE]" value="{{ $charging_card['fees']['MOBIFONE'] ?? 20 }}" placeholder="30">
               </div>
               <div class="col-md-3">
-                <label for="fees_zing" class="form-label">Phí Thẻ Zing</label>
+                <label for="fees_zing" class="form-label">ค่าธรรมเนียมบัตร Zing</label>
                 <input type="text" class="form-control" id="fees_zing" name="fees[ZING]" value="{{ $charging_card['fees']['ZING'] ?? 20 }}" placeholder="30">
               </div>
             </div>
@@ -403,10 +403,10 @@
               <input type="text" class="form-control" id="link_cron" name="link_cron" value="{{ route('cron.deposit.check', ['key' => prj_key(), 'type' => 'card']) }}" readonly>
             </div>
             <div class="mb-3">
-              <small>* Chọn 1 trong 2 loại link trên - không được dùng 1 lần 2 link</small>
+              <small>* เลือก 1 ใน 2 ลิงก์ด้านบน - ห้ามใช้ทั้ง 2 ลิงก์พร้อมกัน</small>
             </div>
             <div class="mb-3 text-end">
-              <button class="mt-2 btn btn-primary" type="submit">Cập nhật ngay</button>
+              <button class="mt-2 btn btn-primary" type="submit">อัปเดตเลย</button>
             </div>
           </form>
         </div>

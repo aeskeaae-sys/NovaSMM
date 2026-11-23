@@ -3,7 +3,7 @@
 @section('content')
   <div class="card custom-card nova-admin-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Danh Sách Ngôn Ngữ</div>
+      <div class="card-title">รายการภาษา</div>
     </div>
     <div class="card-body">
       <div class="table-responsive theme-scrollbar">
@@ -34,15 +34,15 @@
                   <img src="{{ $item->flag }}" width="30" alt="">
                 </td>
                 <td>{{ $item->name }}</td>
-                <td>{{ setting('primary_lang', 'vn') === $item->code ? 'Có' : 'Không' }}</td>
-                <td>{{ $item->status === true ? 'Đang hiện' : 'Đang ẩn' }}</td>
+                <td>{{ setting('primary_lang', 'vn') === $item->code ? 'ใช่' : 'ไม่' }}</td>
+                <td>{{ $item->status === true ? 'แสดงอยู่' : 'ซ่อนอยู่' }}</td>
                 <td>{{ $item->created_at }}</td>
               </tr>
               <div class="modal fade" id="modal-edit-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin #{{ $item->id }}</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">อัปเดตข้อมูล #{{ $item->id }}</h5>
                       <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -50,35 +50,35 @@
                         @csrf
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <div class="mb-3">
-                          <label for="flag" class="form-label">Ảnh / Icon</label>
+                          <label for="flag" class="form-label">รูปภาพ / ไอคอน</label>
                           <input class="form-control" type="file" id="flag" name="flag">
-                          <small>Hệ thống sẽ tự động cập nhật ảnh tương ứng nếu bạn không chọn</small>
+                          <small>ระบบจะอัปเดตรูปภาพที่เกี่ยวข้องโดยอัตโนมัติหากคุณไม่ได้เลือก</small>
                         </div>
                         <div class="mb-3">
-                          <label for="code" class="form-label">Mã Quốc Gia</label>
+                          <label for="code" class="form-label">รหัสประเทศ</label>
                           <input class="form-control" type="text" id="code" name="code" value="{{ $item->code }}" required>
                         </div>
                         <div class="mb-3">
-                          <label for="name" class="form-label">Tên Ngôn Ngữ</label>
+                          <label for="name" class="form-label">ชื่อภาษา</label>
                           <input class="form-control" type="text" id="name" name="name"value="{{ $item->name }}">
-                          <small>Nếu không nhập hệ thống sẽ tự động lấy tên theo mã quốc gia</small>
+                          <small>หากไม่กรอก ระบบจะใช้ชื่อตามรหัสประเทศโดยอัตโนมัติ</small>
                         </div>
                         <div class="mb-3">
-                          <label for="default" class="form-label">Mặc Định</label>
+                          <label for="default" class="form-label">ค่าเริ่มต้น</label>
                           <select class="form-control" id="default" name="default">
-                            <option value="1" @if ($item->default === true) selected @endif>Có</option>
-                            <option value="0" @if ($item->default === false) selected @endif>Không</option>
+                            <option value="1" @if ($item->default === true) selected @endif>ใช่</option>
+                            <option value="0" @if ($item->default === false) selected @endif>ไม่</option>
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="status" class="form-label">Trạng thái</label>
+                          <label for="status" class="form-label">สถานะ</label>
                           <select class="form-control" id="status" name="status">
-                            <option value="1" @if ($item->status === true) selected @endif>Hoạt động</option>
-                            <option value="0" @if ($item->status === false) selected @endif>Không hoạt động</option>
+                            <option value="1" @if ($item->status === true) selected @endif>ใช้งาน</option>
+                            <option value="0" @if ($item->status === false) selected @endif>ไม่ใช้งาน</option>
                           </select>
                         </div>
                         <div class="mb-3">
-                          <button class="btn btn-primary w-100" type="submit">Cập nhật</button>
+                          <button class="btn btn-primary w-100" type="submit">อัปเดต</button>
                         </div>
                       </form>
                     </div>
@@ -91,7 +91,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">Thêm ngôn ngữ mới</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">เพิ่มภาษาใหม่</button>
     </div>
   </div>
 
@@ -146,14 +146,14 @@
   <script>
     const deleteRow = async (id) => {
       const confirmDelete = await Swal.fire({
-        title: 'Bạn có chắc chắn muốn xóa?',
-        text: "Bạn sẽ không thể khôi phục lại dữ liệu này!",
+        title: 'คุณแน่ใจหรือต้องการลบ?',
+        text: "คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Xóa',
-        cancelButtonText: 'Hủy'
+        confirmButtonText: 'ลบ',
+        cancelButtonText: 'ยกเลิก'
       });
 
       if (!confirmDelete.isConfirmed) return;
@@ -167,11 +167,11 @@
           id
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
   </script>

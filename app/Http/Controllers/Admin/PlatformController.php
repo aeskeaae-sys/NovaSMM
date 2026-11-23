@@ -17,7 +17,7 @@ class PlatformController extends Controller
 
     return view('admin.platforms.index', [
       'categories' => $platforms,
-      'pageTitle'  => 'Danh sách nền tảng',
+      'pageTitle'  => __t('Danh sách nền tảng'),
     ]);
   }
 

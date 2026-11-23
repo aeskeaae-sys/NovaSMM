@@ -386,11 +386,11 @@ onMounted(() => {
   border-radius: 16px;
 }
 .price_box--bg {
-  background: linear-gradient(145deg, rgba(139, 92, 246, 0.15) 0%, rgba(37, 99, 235, 0.1) 100%);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: linear-gradient(145deg, rgba(14, 165, 233, 0.12) 0%, rgba(37, 99, 235, 0.08) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.28);
   padding: 1.25rem 1rem;
   border-radius: 16px;
-  box-shadow: 0 0 24px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.12);
 }
 .price-label {
   font-size: 0.8rem;
@@ -404,7 +404,7 @@ onMounted(() => {
   display: inline-block;
   padding: 0.15rem 0.75rem;
   border-radius: 8px;
-  background: linear-gradient(135deg, #8B5CF6, #2563EB);
+  background: linear-gradient(135deg, #0EA5E9, #2563EB);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -415,23 +415,23 @@ onMounted(() => {
 .nova-service-descr {
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.25);
-  color: #F8FAFC;
+  color: #1E3A5F;
   padding: 0.85rem 1rem;
   border-radius: 12px;
   font-size: 0.9rem;
   line-height: 1.5;
 }
 .nova-pay-btn {
-  background: linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%) !important;
+  background: linear-gradient(135deg, #0EA5E9 0%, #2563EB 100%) !important;
   border: none !important;
   font-weight: 700 !important;
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.22);
   transition: all 0.25s ease;
 }
 .nova-pay-btn:hover {
   filter: brightness(1.1);
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(139, 92, 246, 0.55);
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.28);
 }
 </style>

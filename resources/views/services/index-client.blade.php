@@ -14,13 +14,13 @@
       justify-content: center;
     }
     .nova-balance-card {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(37, 99, 235, 0.2) 60%, rgba(8, 11, 24, 0.9) 100%);
-      border: 1px solid rgba(139, 92, 246, 0.3);
+      background: linear-gradient(135deg, #E0F2FE, #EFF6FF);
+      border: 1px solid rgba(37,99,235,0.20);
       border-radius: 16px;
       overflow: hidden;
     }
     .nova-balance-header {
-      background: linear-gradient(to right, rgba(67, 97, 238, 0.4), rgba(22, 15, 107, 0.5));
+      background: linear-gradient(135deg, #E0F2FE, #EFF6FF);
       padding: 1.25rem 1.25rem 1.5rem;
     }
     .nova-mini-stat {
@@ -31,8 +31,8 @@
       transition: all 0.2s ease;
     }
     .nova-mini-stat:hover {
-      background: rgba(139, 92, 246, 0.1);
-      border-color: rgba(139, 92, 246, 0.25);
+      background: rgba(37,99,235,0.10);
+      border-color: rgba(37,99,235,0.15);
     }
     .nova-order-card {
       background: rgba(255, 255, 255, 0.04);
@@ -47,7 +47,7 @@
     }
     .nova-order-card .card-title {
       font-weight: 700;
-      background: linear-gradient(90deg, #F8FAFC, #A78BFA);
+      background: linear-gradient(90deg, #1E3A5F, #2563EB);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
@@ -60,7 +60,7 @@
   @endphp
 
   @if(Helper::getNotice('page_new_order'))
-  <div class="alert mb-3" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#E2E8F0;border-radius:12px">
+  <div class="alert mb-3" style="background:rgba(37,99,235,0.10);border:1px solid rgba(37,99,235,0.20);color:#1E3A5F;border-radius:12px">
     {!! Helper::getNotice('page_new_order') !!}
   </div>
   @endif
@@ -71,10 +71,10 @@
       <div class="card nova-order-card custom-card">
         <div class="card-header d-flex align-items-center justify-content-between">
           <h3 class="card-title d-flex align-items-center gap-2">
-            <i class="fe fe-shopping-cart" style="color:#A78BFA"></i>
+            <i class="fe fe-shopping-cart" style="color:#0EA5E9"></i>
             {{ __t('Tạo đơn hàng') }}
           </h3>
-          <span class="badge" style="background:rgba(34,211,238,0.15);color:#22D3EE;border:1px solid rgba(34,211,238,0.3)">
+          <span class="badge" style="background:rgba(14,165,233,0.12);color:#0EA5E9;border:1px solid rgba(14,165,233,0.30)">
             NovaSMM
           </span>
         </div>
@@ -94,7 +94,7 @@
               {{ auth()->user()->username ?? 'Guest' }}
             </div>
             <a href="{{ route('account.deposits.transfer') }}" class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle p-0"
-               style="height: 2.25rem; width: 2.25rem; background:rgba(139,92,246,0.4);border:1px solid rgba(139,92,246,0.5);color:#fff">
+               style="height: 2.25rem; width: 2.25rem; background:rgba(37,99,235,0.8);border:1px solid rgba(37,99,235,1);color:#fff">
               <i class="fe fe-plus"></i>
             </a>
           </div>
@@ -110,7 +110,7 @@
                 {{ __t('Tổng nạp') }}
                 <i class="fe fe-trending-up text-success"></i>
               </span>
-              <div class="fw-semibold mt-1" style="color:#F8FAFC">{{ formatCurrency(auth()->user()->total_deposit ?? 0) }}</div>
+              <div class="fw-semibold mt-1" style="color:#1E3A5F">{{ formatCurrency(auth()->user()->total_deposit ?? 0) }}</div>
             </div>
           </div>
           <div class="col-6">
@@ -119,7 +119,7 @@
                 {{ __t('Tổng tiêu') }}
                 <i class="fe fe-trending-down text-danger"></i>
               </span>
-              <div class="fw-semibold mt-1" style="color:#F8FAFC">{{ formatCurrency((auth()->user()->total_deposit ?? 0) - (auth()->user()->balance ?? 0)) }}</div>
+              <div class="fw-semibold mt-1" style="color:#1E3A5F">{{ formatCurrency((auth()->user()->total_deposit ?? 0) - (auth()->user()->balance ?? 0)) }}</div>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@
           <div class="card mb-2" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px">
             <div class="card-body py-3">
               <div class="text-muted small mb-2" style="color:#64748B !important">{{ $post->created_at }}</div>
-              <div class="card-content" style="color:#E2E8F0;font-size:0.9rem">
+              <div class="card-content" style="color:#1E3A5F;font-size:0.9rem">
                 {!! $post->content !!}
               </div>
             </div>

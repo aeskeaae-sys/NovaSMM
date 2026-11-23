@@ -11,7 +11,7 @@
         <div class="horizontal-logo">
           <a href="{{ route('home') }}" class="header-logo d-flex align-items-center gap-2">
             <img src="/assets/images/brand-logos/nova-icon.svg" alt="NovaSMM" class="toggle-logo toggle-dark" width="32" height="32" style="min-width:32px">
-            <span class="desktop-logo desktop-dark fw-bold d-none d-lg-inline" style="font-size:1.15rem;background:linear-gradient(135deg,#8B5CF6,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent">NovaSMM</span>
+            <span class="desktop-logo desktop-dark fw-bold d-none d-lg-inline" style="font-size:1.15rem;background:linear-gradient(135deg,#2563EB,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent">NovaSMM</span>
             <img src="{{ setting('logo_dark', '/assets/images/brand-logos/nova-logo.svg') }}" alt="NovaSMM" class="desktop-logo d-none" width="160">
             <img src="{{ setting('favicon', '/assets/images/brand-logos/nova-icon.svg') }}" alt="NovaSMM" class="toggle-logo d-none" width="32">
           </a>
@@ -151,7 +151,7 @@
         </a>
         <div class="main-header-dropdown dropdown-menu dropdown-menu-end nova-notif-dropdown" data-popper-placement="none" style="min-width:320px;max-width:360px">
           <div class="p-3 border-bottom border-white-10 d-flex align-items-center justify-content-between">
-            <p class="mb-0 fs-16 fw-semibold" style="color:#F8FAFC">{{ __t('Thông báo') }}</p>
+            <p class="mb-0 fs-16 fw-semibold" style="color:#1E3A5F">{{ __t('Thông báo') }}</p>
             <button type="button" class="btn btn-sm btn-link p-0 text-muted nova-mark-all-read d-none" id="nova-mark-all-read">{{ __t('Đánh dấu đã đọc') }}</button>
           </div>
           <ul class="list-unstyled mb-0 nova-notif-list" id="header-notification-scroll" style="max-height:320px;overflow-y:auto">
@@ -159,10 +159,10 @@
           </ul>
           <div class="p-4 nova-notif-empty" id="nova-notif-empty">
             <div class="text-center">
-              <span class="avatar avatar-xl avatar-rounded" style="background:rgba(139,92,246,0.15)">
-                <i class="ri-notification-off-line fs-2" style="color:#A78BFA"></i>
+              <span class="avatar avatar-xl avatar-rounded" style="background:rgba(37,99,235,0.10)">
+                <i class="ri-notification-off-line fs-2" style="color:#0EA5E9"></i>
               </span>
-              <h6 class="fw-semibold mt-3 mb-1" style="color:#F8FAFC">{{ __t('Không có thông báo mới') }}</h6>
+              <h6 class="fw-semibold mt-3 mb-1" style="color:#1E3A5F">{{ __t('Không có thông báo mới') }}</h6>
               <p class="text-muted mb-0 small" style="color:#64748B !important">{{ __t('Khi có cập nhật đơn hàng hoặc hệ thống, bạn sẽ thấy tại đây.') }}</p>
             </div>
           </div>

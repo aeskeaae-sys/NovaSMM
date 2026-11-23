@@ -38,10 +38,10 @@
       <div>
         <div class="d-flex align-items-center gap-2 mb-2">
           <img src="/assets/images/brand-logos/nova-icon.svg" alt="NovaSMM" width="36" height="36">
-          <span class="badge" style="background:rgba(139,92,246,0.2);color:#A78BFA;border:1px solid rgba(139,92,246,0.3)">NovaSMM</span>
+          <span class="badge" style="background:rgba(37,99,235,0.10);color:#0EA5E9;border:1px solid rgba(37,99,235,0.20)">NovaSMM</span>
         </div>
         <h2 class="banner-title mb-1">{{ __t('ยินดีต้อนรับสู่') }} NovaSMM</h2>
-        <p class="banner-subtitle mb-0">{{ __t('บริการครบ จบในที่เดียว เร็ว ปลอดภัย มั่นใจได้') }} <strong style="color:#22D3EE">100%</strong></p>
+        <p class="banner-subtitle mb-0">{{ __t('บริการครบ จบในที่เดียว เร็ว ปลอดภัย มั่นใจได้') }} <strong style="color:#0EA5E9">100%</strong></p>
       </div>
       <div class="d-none d-md-flex gap-2">
         <a href="{{ route('home') }}" class="btn btn-primary btn-nova">
@@ -111,7 +111,7 @@
             </div>
             <span class="stat-change up">99.8% Uptime</span>
           </div>
-          <div class="stat-icon" style="background:rgba(34,211,238,0.15);color:#22D3EE">
+          <div class="stat-icon" style="background:rgba(14,165,233,0.12);color:#0EA5E9">
             <i class="fe fe-activity"></i>
           </div>
         </div>
@@ -263,7 +263,7 @@
       dataLabels: {
         enabled: false
       },
-      colors: ["#6259ca", "#fb6b25", "#f5b849"],
+      colors: ["#2563EB", "#fb6b25", "#f5b849"],
       stroke: {
         show: true,
         width: 2,
@@ -385,7 +385,7 @@
         }
       },
 
-      colors: ["rgba(98, 89, 202, 1)", "rgba(249, 148, 51, 1)", 'rgba(119, 119, 142, 0.05)'],
+      colors: ["rgba(37,99,235,1)", "rgba(249, 148, 51, 1)", 'rgba(119, 119, 142, 0.05)'],
     };
     document.querySelector("#totaltransactions").innerHTML = ""
     var chart2 = new ApexCharts(document.querySelector("#totaltransactions"), options);
@@ -393,7 +393,7 @@
 
     function totaltransactions() {
       chart2.updateOptions({
-        colors: ["rgba(" + myVarVal + ", 1)", '#23b7e5'],
+        colors: ["rgba(" + myVarVal + ", 1)", '#0EA5E9'],
       })
     }
   </script>

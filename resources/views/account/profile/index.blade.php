@@ -4,26 +4,26 @@
 @section('content')
   <style>
     .nova-profile-stat {
-      background: linear-gradient(145deg, rgba(139,92,246,0.12), rgba(37,99,235,0.08));
-      border: 1px solid rgba(139,92,246,0.2);
+      background: linear-gradient(145deg, rgba(37,99,235,0.10), rgba(37,99,235,0.08));
+      border: 1px solid rgba(37,99,235,0.10);
       border-radius: 14px;
       transition: all 0.25s ease;
     }
     .nova-profile-stat:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px rgba(139,92,246,0.25);
-      border-color: rgba(139,92,246,0.4);
+      box-shadow: 0 0 20px rgba(37,99,235,0.15);
+      border-color: rgba(37,99,235,0.30);
     }
     .nova-profile-stat .card-body { padding: 1.25rem; }
     .nova-profile-stat h2 {
-      background: linear-gradient(135deg, #F8FAFC, #A78BFA);
+      background: linear-gradient(135deg, #1E3A5F, #2563EB);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
       font-size: 1.4rem;
     }
     .nova-profile-stat p { color: #94A3B8 !important; font-size: 0.85rem; }
-    .nova-profile-stat i { color: #A78BFA !important; }
+    .nova-profile-stat i { color: #0EA5E9 !important; }
   </style>
   <div class="row g-3">
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
@@ -257,7 +257,7 @@
               json.data = json.data.data
               return JSON.stringify(json) // return JSON string
             } else {
-              Swal.fire('Thất bại', json.message, 'error')
+              Swal.fire('ล้มเหลว', json.message, 'error')
 
               return JSON.stringify({
                 recordsTotal: 0,

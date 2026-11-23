@@ -3,7 +3,7 @@
 @section('content')
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Quản lý địa chỉ liên kết</div>
+      <div class="card-title">จัดการลิงก์</div>
     </div>
     <div class="card-body">
       <div class="table-responsive theme-scrollbar">
@@ -11,12 +11,12 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Thao tác</th>
-              <th>Ảnh / Icon</th>
-              <th>Tên</th>
-              <th>Loại</th>
-              <th>Liên Kết</th>
-              <th>Ngày tạo</th>
+              <th>ดำเนินการ</th>
+              <th>รูปภาพ / ไอคอน</th>
+              <th>ชื่อ</th>
+              <th>ประเภท</th>
+              <th>ลิงก์</th>
+              <th>วันที่สร้าง</th>
             </tr>
           </thead>
           <tbody>
@@ -31,7 +31,7 @@
                   <img src="{{ $item->image }}" width="30" alt="">
                 </td>
                 <td>{{ $item->name }}</td>
-                <td>{{ $item->target === '_blank' ? 'Mở Tab Mới' : 'Không Mở Tab' }}</td>
+                <td>{{ $item->target === '_blank' ? 'เปิดแท็บใหม่' : 'ไม่เปิดแท็บใหม่' }}</td>
                 <td>{{ $item->link }}</td>
                 <td>{{ $item->created_at }}</td>
               </tr>
@@ -39,7 +39,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin #{{ $item->id }}</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">อัปเดตข้อมูล #{{ $item->id }}</h5>
                       <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -47,11 +47,11 @@
                         @csrf
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <div class="mb-3">
-                          <label for="image" class="form-label">Ảnh / Icon</label>
+                          <label for="image" class="form-label">รูปภาพ / ไอคอน</label>
                           <input class="form-control" type="file" id="image" name="image">
                         </div>
                         <div class="mb-3">
-                          <label for="name" class="form-label">Tên</label>
+                          <label for="name" class="form-label">ชื่อ</label>
                           <input class="form-control" type="text" id="name" name="name" value="{{ $item->name }}" required>
                         </div>
                         <div class="mb-3">
@@ -59,14 +59,14 @@
                           <input class="form-control" type="url" id="link" name="link" value="{{ $item->link }}" required>
                         </div>
                         <div class="mb-3">
-                          <label for="target" class="form-label">Loại</label>
+                          <label for="target" class="form-label">ประเภท</label>
                           <select class="form-control" id="target" name="target">
-                            <option value="_blank" @if ($item->target === '_blank') selected @endif>Mở Tab Mới</option>
-                            <option value="_self" @if ($item->target === '_self') selected @endif>Không Mở Tab</option>
+                            <option value="_blank" @if ($item->target === '_blank') selected @endif>เปิดแท็บใหม่</option>
+                            <option value="_self" @if ($item->target === '_self') selected @endif>ไม่เปิดแท็บใหม่</option>
                           </select>
                         </div>
                         <div class="mb-3">
-                          <button class="btn btn-primary w-100" type="submit">Cập nhật</button>
+                          <button class="btn btn-primary w-100" type="submit">อัปเดต</button>
                         </div>
                       </form>
                     </div>
@@ -79,7 +79,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">Thêm tài khoản mới</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">เพิ่มบัญชีใหม่</button>
     </div>
   </div>
 
@@ -87,18 +87,18 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Thêm thông tin mới</h5>
+          <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูลใหม่</h5>
           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="{{ route('admin.links.store') }}" method="POST" enctype="multipart/form-data" class="default-form">
             @csrf
             <div class="mb-3">
-              <label for="image" class="form-label">Ảnh / Icon</label>
+              <label for="image" class="form-label">รูปภาพ / ไอคอน</label>
               <input class="form-control" type="file" id="image" name="image" required>
             </div>
             <div class="mb-3">
-              <label for="name" class="form-label">Tên</label>
+              <label for="name" class="form-label">ชื่อ</label>
               <input class="form-control" type="text" id="name" name="name" required>
             </div>
             <div class="mb-3">
@@ -106,14 +106,14 @@
               <input class="form-control" type="url" id="link" name="link" required>
             </div>
             <div class="mb-3">
-              <label for="target" class="form-label">Loại</label>
+              <label for="target" class="form-label">ประเภท</label>
               <select class="form-control" id="target" name="target">
-                <option value="_blank">Mở Tab Mới</option>
-                <option value="_self">Không Mở Tab</option>
+                <option value="_blank">เปิดแท็บใหม่</option>
+                <option value="_self">ไม่เปิดแท็บใหม่</option>
               </select>
             </div>
             <div class="mb-3">
-              <button class="btn btn-primary w-100" type="submit">Thêm mới</button>
+              <button class="btn btn-primary w-100" type="submit">เพิ่มใหม่</button>
             </div>
           </form>
         </div>
@@ -125,14 +125,14 @@
   <script>
     const deleteRow = async (id) => {
       const confirmDelete = await Swal.fire({
-        title: 'Bạn có chắc chắn muốn xóa?',
-        text: "Bạn sẽ không thể khôi phục lại dữ liệu này!",
+        title: 'คุณแน่ใจหรือต้องการลบ?',
+        text: "คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Xóa',
-        cancelButtonText: 'Hủy'
+        confirmButtonText: 'ลบ',
+        cancelButtonText: 'ยกเลิก'
       });
 
       if (!confirmDelete.isConfirmed) return;
@@ -146,11 +146,11 @@
           id
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
   </script>

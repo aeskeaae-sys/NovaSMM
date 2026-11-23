@@ -4,7 +4,7 @@
 @section('content')
   <div class="card custom-card nova-admin-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Quản lý hoá đơn</div>
+      <div class="card-title">จัดการใบแจ้งหนี้</div>
     </div>
     <div class="card-body">
       <div class="table-responsive theme-scrollbar">
@@ -12,16 +12,16 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Thao tác</th>
-              <th>Mã hoá đơn</th>
-              <th>Số tiền</th>
-              <th>Loại tiền tệ</th>
-              <th>Loại giao dịch</th>
-              <th>Khách hàng</th>
-              <th>Trạng thái</th>
-              <th>Còn lại</th>
-              <th>Ghi chú</th>
-              <th>Ngày tạo</th>
+              <th>ดำเนินการ</th>
+              <th>รหัสใบแจ้งหนี้</th>
+              <th>จำนวนเงิน</th>
+              <th>ประเภทสกุลเงิน</th>
+              <th>ประเภทธุรกรรม</th>
+              <th>ลูกค้า</th>
+              <th>สถานะ</th>
+              <th>คงเหลือ</th>
+              <th>หมายเหตุ</th>
+              <th>วันที่สร้าง</th>
             </tr>
           </thead>
           <tbody>
@@ -61,15 +61,15 @@
 
   <script>
     const setStatus = async (id, type) => {
-      let simpleText = type === 'paid' ? 'đã thanh toán' : 'đã hủy'
+      let simpleText = type === 'paid' ? 'ชำระเงินแล้ว' : 'ยกเลิกแล้ว'
 
       const confirm = await Swal.fire({
-        title: 'Bạn có chắc chắn?',
-        text: `Chuyển trạng thái hoá đơn này sang ${simpleText}?`,
+        title: 'คุณแน่ใจหรือไม่?',
+        text: `เปลี่ยนสถานะใบแจ้งหนี้นี้เป็น ${simpleText}?`,
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Đồng ý',
-        cancelButtonText: 'Hủy',
+        confirmButtonText: 'ตกลง',
+        cancelButtonText: 'ยกเลิก',
       })
 
       if (confirm.isConfirmed !== true)
@@ -83,12 +83,12 @@
           type
         })
 
-        Swal.fire("Thành công!", result.message, "success").then(() => {
+        Swal.fire("สำเร็จ!", result.message, "success").then(() => {
           window.location.reload()
         })
 
       } catch (error) {
-        Swal.fire("Thất bại", $catchMessage(error), "error")
+        Swal.fire("ล้มเหลว", $catchMessage(error), "error")
       }
 
     }

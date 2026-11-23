@@ -18,32 +18,32 @@
     .nova-orders-card .card-title {
       font-weight: 700;
       margin: 0;
-      background: linear-gradient(90deg, #F8FAFC, #A78BFA);
+      background: linear-gradient(90deg, #1E3A5F, #2563EB);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     /* Select2 dark */
     .select2-container--default .select2-selection--single {
-      background: rgba(16,21,42,0.8) !important;
+      background: rgba(255,255,255,0.9) !important;
       border: 1px solid rgba(255,255,255,0.1) !important;
       border-radius: 10px !important;
       height: 42px !important;
-      color: #F8FAFC !important;
+      color: #1E3A5F !important;
     }
     .select2-container--default .select2-selection--single .select2-selection__rendered {
-      color: #F8FAFC !important;
+      color: #1E3A5F !important;
       line-height: 42px !important;
     }
     .select2-dropdown {
-      background: #10152A !important;
-      border: 1px solid rgba(139,92,246,0.3) !important;
-      color: #F8FAFC !important;
+      background: #FFFFFF !important;
+      border: 1px solid rgba(37,99,235,0.20) !important;
+      color: #1E3A5F !important;
     }
     .select2-results__option--highlighted {
-      background: rgba(139,92,246,0.3) !important;
+      background: rgba(37,99,235,0.20) !important;
     }
     #datatable-custom1 thead th {
-      background: rgba(139,92,246,0.1) !important;
+      background: rgba(37,99,235,0.10) !important;
       color: #94A3B8 !important;
       font-size: 0.75rem !important;
       text-transform: uppercase;
@@ -55,7 +55,7 @@
       vertical-align: middle;
     }
     #datatable-custom1 tbody tr:hover {
-      background: rgba(139,92,246,0.06) !important;
+      background: rgba(37,99,235,0.06) !important;
     }
   </style>
 @endsection
@@ -63,7 +63,7 @@
   <div class="card custom-card nova-orders-card">
     <div class="card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
       <h3 class="card-title d-flex align-items-center gap-2">
-        <i class="fe fe-list" style="color:#A78BFA"></i>
+        <i class="fe fe-list" style="color:#0EA5E9"></i>
         {{ __t('Quản lý đơn hàng') }}
       </h3>
       <a href="{{ route('home') }}" class="btn btn-primary btn-sm btn-nova">
@@ -249,7 +249,7 @@
               json.data = json.data.data
               return JSON.stringify(json) // return JSON string
             } else {
-              Swal.fire('Thất bại', json.message, 'error')
+              Swal.fire('ล้มเหลว', json.message, 'error')
 
               return JSON.stringify({
                 recordsTotal: 0,

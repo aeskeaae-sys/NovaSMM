@@ -12,7 +12,7 @@ class ArticleController extends Controller
     $articles = Post::where('status', TRUE)->orderBy('id', 'desc')->paginate(12);
 
     return view('article.index', [
-      'pageTitle' => 'Tin Tức Mới',
+      'pageTitle' => __t('Tin Tức Mới'),
     ], compact('articles'));
   }
 

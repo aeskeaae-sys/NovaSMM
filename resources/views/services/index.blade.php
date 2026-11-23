@@ -5,25 +5,25 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
   <style>
     #form-buy label { font-weight: 600; color: #94A3B8; }
-    #form-buy .server__name:hover { color: #A78BFA; transform: scale(1.03); }
+    #form-buy .server__name:hover { color: #0EA5E9; transform: scale(1.03); }
     #form-buy .panel-descr, .nova-service-descr {
       background: rgba(245, 158, 11, 0.1);
       border: 1px solid rgba(245, 158, 11, 0.3);
-      color: #F8FAFC;
+      color: #1E3A5F;
       padding: 12px 14px;
       border-radius: 12px;
     }
     .price_box { border-radius: 16px; }
     .price_box--bg, .price_box {
-      background: linear-gradient(145deg, rgba(139,92,246,0.15), rgba(37,99,235,0.1));
-      border: 1px solid rgba(139,92,246,0.3);
+      background: linear-gradient(145deg, rgba(37,99,235,0.10), rgba(37,99,235,0.1));
+      border: 1px solid rgba(37,99,235,0.20);
       padding: 1.1rem;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(139,92,246,0.12);
+      box-shadow: 0 0 20px rgba(37,99,235,0.10);
       text-align: center;
     }
     .price_box .total_price, #form-buy .total_price {
-      background: linear-gradient(135deg, #8B5CF6, #2563EB);
+      background: linear-gradient(135deg, #2563EB, #2563EB);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -45,42 +45,42 @@
     }
     .nova-order-card .card-title {
       font-weight: 700;
-      background: linear-gradient(90deg, #F8FAFC, #A78BFA);
+      background: linear-gradient(90deg, #1E3A5F, #2563EB);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
     }
     .select2-container--default .select2-selection--single {
-      background: rgba(16,21,42,0.8) !important;
+      background: rgba(255,255,255,0.9) !important;
       border: 1px solid rgba(255,255,255,0.1) !important;
       border-radius: 10px !important;
       height: 42px !important;
-      color: #F8FAFC !important;
+      color: #1E3A5F !important;
     }
     .select2-container--default .select2-selection--single .select2-selection__rendered {
-      color: #F8FAFC !important; line-height: 42px !important;
+      color: #1E3A5F !important; line-height: 42px !important;
     }
     .select2-dropdown {
-      background: #10152A !important;
-      border: 1px solid rgba(139,92,246,0.3) !important;
-      color: #F8FAFC !important;
+      background: #FFFFFF !important;
+      border: 1px solid rgba(37,99,235,0.20) !important;
+      color: #1E3A5F !important;
     }
-    .select2-results__option--highlighted { background: rgba(139,92,246,0.3) !important; }
+    .select2-results__option--highlighted { background: rgba(37,99,235,0.20) !important; }
   </style>
 @endsection
 @section('content')
   @php
     $userDiscount = Helper::getDiscountByRank(auth()->user()->rank ?? 'bronze');
   @endphp
-  <div class="alert mb-3" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#E2E8F0;border-radius:12px">
+  <div class="alert mb-3" style="background:rgba(37,99,235,0.10);border:1px solid rgba(37,99,235,0.20);color:#1E3A5F;border-radius:12px">
     {!! Helper::getNotice('page_new_order') !!}
   </div>
   <div class="row">
     <div class="col-12 col-lg-8 col-md-8 col-sm-12">
       <div class="card custom-card nova-order-card">
         <div class="card-header d-flex align-items-center justify-content-between">
-          <h3 class="card-title d-flex align-items-center gap-2"><i class="fe fe-shopping-cart" style="color:#A78BFA"></i> {{ __t('Tạo đơn hàng') }}</h3>
-          <span class="badge" style="background:rgba(34,211,238,0.15);color:#22D3EE;border:1px solid rgba(34,211,238,0.3)">NovaSMM</span>
+          <h3 class="card-title d-flex align-items-center gap-2"><i class="fe fe-shopping-cart" style="color:#0EA5E9"></i> {{ __t('สร้างคำสั่ง') }}</h3>
+          <span class="badge" style="background:rgba(14,165,233,0.12);color:#0EA5E9;border:1px solid rgba(14,165,233,0.30)">NovaSMM</span>
         </div>
         <div class="card-body">
           <div class="new__order--form">
@@ -89,21 +89,21 @@
                 <select class="js-example-placeholder-single form-control" id="search" type="search"></select>
               </div>
               <div class="mb-3">
-                <label for="category_id" class="form-label">{{ __t('Chuyên mục') }}</label>
+                <label for="category_id" class="form-label">{{ __t('หมวดหมู่') }}</label>
                 <select class="form-select" id="category_id" name="category_id" type="search"></select>
               </div>
               <div class="mb-3">
-                <label for="service_id" class="form-label">{{ __t('Dịch vụ') }}</label>
+                <label for="service_id" class="form-label">{{ __t('บริการ') }}</label>
                 <select class="form-select" id="service_id" name="service_id" type="search"></select>
               </div>
               <div id="descr" class="mb-3" style="display: none"></div>
               <div class="mb-3">
-                <label for="object_id" class="form-label">{{ __t('Link') }}</label>
-                <input type="text" class="form-control" id="object_id" name="object_id" placeholder="{{ __t('Nhập link') }}">
+                <label for="object_id" class="form-label">{{ __t('ลิงก์') }}</label>
+                <input type="text" class="form-control" id="object_id" name="object_id" placeholder="{{ __t('ป้อนลิงก์') }}">
               </div>
               <div class="mb-3 group_quantity">
-                <label for="quantity" class="form-label">{{ __t('Số lượng') }}</label>
-                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="{{ __t('Nhập số lượng') }}">
+                <label for="quantity" class="form-label">{{ __t('จำนวน') }}</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="{{ __t('ป้อนจำนวน') }}">
                 <small class="fw-bold mt-2">Min: <span class="text-danger" id="min_buy">0</span> - Max: <span class="text-primary" id="max_buy">0</span></small>
               </div>
               <div class="mb-3 group_reaction" style="display: none"></div>
@@ -112,7 +112,7 @@
               <div class="mb-3 group_fb_eyeslive" style="display: none"></div>
               <div class="mb-3">
                 <label for="average_time" class="form-label">{{ __t('Average time') }} <a href="javascript:void(0)" data-bs-toggle="tooltip"
-                    data-bs-title="{{ __t('Thời gian trung bình dựa trên 10 đơn hàng hoàn thành với số lượng lớn hơn 1000.') }}"><i class="fe fe-help-circle"></i></a></label>
+                    data-bs-title="{{ __t('เวลาเฉลี่ยจาก 10 คำสั่งที่เสร็จสมบูรณ์ซึ่งมีจำนวนมากกว่า 1000.') }}"><i class="fe fe-help-circle"></i></a></label>
                 <input type="text" class="form-control" id="average_time" name="average_time" disabled>
               </div>
               <div class="mb-3">
@@ -121,13 +121,13 @@
                     <span class="total_price">0</span>
                   </div>
                   @if ($userDiscount > 0)
-                    <div>{!! __t('Bạn được giảm :number%', ['number' => '<span class="text-danger">' . $userDiscount . '</span>']) !!}</div>
+                    <div>{!! __t('คุณได้รับส่วนลด :number%', ['number' => '<span class="text-danger">' . $userDiscount . '</span>']) !!}</div>
                   @endif
-                  <div class="text-danger fw-bold mt-1">{{ __t('Tổng tiền thanh toán') }}</div>
+                  <div class="text-danger fw-bold mt-1">{{ __t('ยอดชำระรวม') }}</div>
                 </div>
               </div>
               <div class="mb-3">
-                <button class="btn btn-primary w-100">{{ __t('Tạo đơn hàng') }}</button>
+                <button class="btn btn-primary w-100">{{ __t('สร้างคำสั่ง') }}</button>
               </div>
             </form>
           </div>
@@ -136,11 +136,11 @@
     </div>
     <div class="col-12 col-lg-4 col-md-4 col-sm-12">
       <div class="card overflow-hidden border-0 p-0 text-nowrap">
-        <div class="min-vh-25 p-4" style="background: linear-gradient(to right, #4361ee, #160f6b);">
+        <div class="min-vh-25 p-4" style="background: linear-gradient(135deg, #E0F2FE, #EFF6FF);">
           <div class="mb-4 d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center rounded-pill bg-opacity-50 bg-dark p-1 text-white fw-semibold pe-3">
               <img class="rounded-circle border-white me-2" src="{{ setting('avatar_user', '/assets/images/faces/9.jpg') }}" alt="image" style="height: 2rem; width: 2rem; object-cover;">
-              {{ auth()->user()->username ?? 'Chưa đăng nhập' }}
+              {{ auth()->user()->username ?? 'ยังไม่ได้เข้าสู่ระบบ' }}
             </div>
             <a href="{{ route('account.deposits.transfer') }}" class="btn btn-dark d-flex align-items-center justify-content-center rounded-circle p-0" style="height: 2.25rem; width: 2.25rem;">
               <svg class="m-auto" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="height: 1.5rem; width: 1.5rem;">
@@ -150,7 +150,7 @@
             </a>
           </div>
           <div class="d-flex align-items-center justify-content-between ">
-            <p class="h5 mb-0 text-white">{{ __t('Số dư') }}</p>
+            <p class="h5 mb-0 text-white">{{ __t('ยอดคงเหลือ') }}</p>
             <h5 class="h4 mb-0 ms-auto text-white"><span><span class="user-balance">{{ formatCurrency(auth()->user()->balance ?? 0) }}</span></span></h5>
           </div>
         </div>
@@ -158,7 +158,7 @@
           <div class="col-6">
             <div class="rounded bg-white p-3 shadow-sm dark-bg">
               <span class="d-flex align-items-center justify-content-between text-dark">
-                {{ __t('Tổng nạp') }}
+                {{ __t('ยอดเติมเงินรวม') }}
                 <svg class="text-success" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 1rem; width: 1rem;">
                   <path d="M19 15L12 9L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
@@ -169,7 +169,7 @@
           <div class="col-6">
             <div class="rounded bg-white p-3 shadow-sm dark-bg">
               <span class="d-flex align-items-center justify-content-between text-dark">
-                {{ __t('Tổng tiêu') }}
+                {{ __t('ยอดใช้จ่ายรวม') }}
                 <svg class="text-danger" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 1rem; width: 1rem;">
                   <path d="M19 9L12 15L5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
@@ -180,7 +180,7 @@
         </div>
       </div>
       <div class="text-center">
-        <h3>{{ __t('Thông báo mới') }}</h3>
+        <h3>{{ __t('ประกาศใหม่') }}</h3>
       </div>
       <div class="new-feeds">
         @foreach ($posts as $post)
@@ -204,14 +204,14 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __t('Thông báo mới') }}</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __t('ประกาศใหม่') }}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             {!! $msgModal !!}
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __t('Đóng') }}</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __t('ปิด') }}</button>
           </div>
         </div>
       </div>
@@ -221,16 +221,16 @@
 @section('scripts')
   <script>
     $(document).ready(function() {
-      // Kiểm tra nếu đã hiển thị modal trong vòng 30 phút trước đó
+      // ตรวจสอบว่ามีการแสดงโมดอลภายใน 30 นาทีที่แล้วหรือไม่
       var lastShownTime = localStorage.getItem('lastShownTime');
       var currentTime = new Date().getTime();
       var timeDiff = currentTime - lastShownTime;
 
       if (lastShownTime === null || timeDiff > 30 * 60 * 1000) {
-        // Nếu chưa hiển thị trong vòng 30 phút, hiển thị modal
+        // หากยังไม่แสดงภายใน 30 นาที ให้แสดงโมดอล
         $('#exampleModal').modal('show');
 
-        // Lưu thời điểm hiển thị modal
+        // บันทึกเวลาที่แสดงโมดอล
         localStorage.setItem('lastShownTime', currentTime);
       }
     });
@@ -254,7 +254,7 @@
 
     $(document).ready(function() {
       $(".js-example-placeholder-single").select2({
-        placeholder: "{{ __t('Tìm kiếm dịch vụ') }}",
+        placeholder: "{{ __t('ค้นหาบริการ') }}",
         allowClear: true,
         dir: "ltr",
         data: [{
@@ -270,14 +270,14 @@
       });
 
       $("#category_id").select2({
-        placeholder: "{{ __t('Chọn chuyên mục') }}",
+        placeholder: "{{ __t('เลือกหมวดหมู่') }}",
         allowClear: true,
         dir: "ltr",
         data: window._categories.map((category) => {
           return {
             id: category.id,
             text: `ID ${category.id} - ${category.name}`,
-            imgSrc: category.image // Giả sử bạn có đường dẫn ảnh trong thuộc tính `image` của đối tượng `category`
+            imgSrc: category.image // สมมติว่าคุณมีเส้นทางรูปภาพในคุณสมบัติ `image` ของวัตถุ `category`
           }
         }),
         templateResult: formatCategoryOption,
@@ -317,7 +317,7 @@
       }
 
       $("#service_id").select2({
-        placeholder: "{{ __t('Chọn dịch vụ') }}",
+        placeholder: "{{ __t('เลือกบริการ') }}",
         allowClear: true,
         dir: "ltr",
       });
@@ -369,7 +369,7 @@
 
         $("#descr").html('').hide();
         if (service.descr) {
-          $("#descr").html(`<label for="descr" class="form-label">{{ __t('Mô tả dịch vụ') }}</label><div class="panel-descr p-2" style="border-radius: 8px">${service.descr}</div>`).show();
+          $("#descr").html(`<label for="descr" class="form-label">{{ __t('คำอธิบายบริการ') }}</label><div class="panel-descr p-2" style="border-radius: 8px">${service.descr}</div>`).show();
         }
         $("#min_buy").text(formatNumber(service.min_buy));
         $("#max_buy").text(formatNumber(service.max_buy));
@@ -455,12 +455,12 @@
         e.preventDefault()
 
         const confirm = await Swal.fire({
-          title: '{{ __t('Bạn chắc chứ?') }}',
-          text: '{{ __t('Bạn đã kiểm tra kỹ thông tin chưa?') }}',
+          title: '{{ __t('คุณแน่ใจหรือไม่?') }}',
+          text: '{{ __t('คุณได้ตรวจสอบข้อมูลเรียบร้อยแล้วหรือไม่?') }}',
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonText: '{{ __t('Đồng ý') }}',
-          cancelButtonText: '{{ __t('Hủy') }}',
+          confirmButtonText: '{{ __t('ตกลง') }}',
+          cancelButtonText: '{{ __t('ยกเลิก') }}',
         })
 
         if (confirm.isConfirmed === false) return
@@ -473,7 +473,7 @@
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: '{{ __t('Trường Link không được để trống!') }}',
+            text: '{{ __t('ช่องลิงก์ต้องไม่เว้นว่าง!') }}',
           })
           return
         }
@@ -481,7 +481,7 @@
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: '{{ __t('Dịch vụ không tồn tại!') }}',
+            text: '{{ __t('ไม่พบบริการนี้!') }}',
           })
           return
         }
@@ -489,7 +489,7 @@
         //   Swal.fire({
         //     icon: 'error',
         //     title: 'Oops...',
-        //     text: '{{ __t('Số lượng mua phải từ ') }} ' + service.min_buy + ' {{ __t(' đến ') }}' + service.max_buy,
+        //     text: '{{ __t('จำนวนที่ซื้อต้องอยู่ระหว่าง ') }} ' + service.min_buy + ' {{ __t(' ถึง ') }}' + service.max_buy,
         //   })
         //   return
         // }
@@ -498,7 +498,7 @@
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: '{{ __t('Số lượng mua phải từ phải nhỏ hơn ') }}' + service.min_buy,
+            text: '{{ __t('จำนวนที่ซื้อต้องน้อยกว่า ') }}' + service.min_buy,
           })
           return
         }
@@ -507,7 +507,7 @@
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: '{{ __t('Số lượng mua phải từ phải nhỏ hơn ') }}' + service.max_buy,
+            text: '{{ __t('จำนวนที่ซื้อต้องน้อยกว่า ') }}' + service.max_buy,
           })
           return
         }
@@ -519,8 +519,8 @@
       const handleSubmit = async (payload, button) => {
         Swal.fire({
           icon: 'warning',
-          title: '{{ __t('Đang xử lý...') }}',
-          html: '{{ __t('Vui lòng không tắt trang này để tránh mất tiền!') }}',
+          title: '{{ __t('กำลังดำเนินการ...') }}',
+          html: '{{ __t('กรุณาอย่าปิดหน้านี้เพื่อไม่ให้สูญเสียเงิน!') }}',
           allowOutsideClick: false,
           allowEscapeKey: false,
           didOpen: () => {
@@ -535,16 +535,16 @@
             data: result
           } = await axios.post(_api_orders_store, payload)
 
-          // Xem đơn hàng, mua tiếp
+          // ดูคำสั่ง, ซื้อต่อ
           const {
             isConfirmed
           } = await Swal.fire({
-            title: 'Thành công!',
+            title: 'สำเร็จ!',
             text: result.message,
             icon: 'success',
             showCancelButton: true,
-            confirmButtonText: 'Xem đơn hàng',
-            cancelButtonText: 'Mua tiếp',
+            confirmButtonText: 'ดูคำสั่ง',
+            cancelButtonText: 'ซื้อต่อ',
           })
 
           if (isConfirmed) {
@@ -560,10 +560,10 @@
             return Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'Bạn cần đăng nhập để mua dịch vụ!',
+              text: 'คุณต้องเข้าสู่ระบบเพื่อซื้อบริการ!',
               showCancelButton: true,
-              confirmButtonText: 'Đăng nhập',
-              cancelButtonText: 'Hủy',
+              confirmButtonText: 'เข้าสู่ระบบ',
+              cancelButtonText: 'ยกเลิก',
             }).then((result) => {
               if (result.isConfirmed) {
                 window.location.href = '/login'

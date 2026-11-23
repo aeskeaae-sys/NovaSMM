@@ -1,7 +1,7 @@
 <!-- Project Version: {{ appVersion() }} -->
 <!-- Developer By CMSNT.CO | FB.COM/CMSNT.CO | ZALO.ME/0947838128 | MMO Solution -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<html lang="th" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
 
 @include('layouts.partials.head-css')
 
@@ -10,27 +10,25 @@
   <!-- Start Switcher -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header border-bottom">
-      <h5 class="offcanvas-title text-default" id="offcanvasRightLabel">Switcher</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <h5 class="offcanvas-title text-default" id="offcanvasRightLabel">ปรับแต่งธีม</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="ปิด"></button>
     </div>
     <div class="offcanvas-body">
       <nav class="border-bottom border-block-end-dashed">
         <div class="nav nav-tabs nav-justified" id="switcher-main-tab" role="tablist">
-          <button class="nav-link active" id="switcher-home-tab" data-bs-toggle="tab" data-bs-target="#switcher-home" type="button" role="tab" aria-controls="switcher-home" aria-selected="true">Theme
-            Styles</button>
-          <button class="nav-link" id="switcher-profile-tab" data-bs-toggle="tab" data-bs-target="#switcher-profile" type="button" role="tab" aria-controls="switcher-profile" aria-selected="false">Theme
-            Colors</button>
+          <button class="nav-link active" id="switcher-home-tab" data-bs-toggle="tab" data-bs-target="#switcher-home" type="button" role="tab" aria-controls="switcher-home" aria-selected="true">รูปแบบธีม</button>
+          <button class="nav-link" id="switcher-profile-tab" data-bs-toggle="tab" data-bs-target="#switcher-profile" type="button" role="tab" aria-controls="switcher-profile" aria-selected="false">สีของธีม</button>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active border-0" id="switcher-home" role="tabpanel" aria-labelledby="switcher-home-tab" tabindex="0">
           <div class="">
-            <p class="switcher-style-head">Theme Color Mode:</p>
+            <p class="switcher-style-head">โหมดสี:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-light-theme">
-                    Light
+                    สว่าง
                   </label>
                   <input class="form-check-input" type="radio" name="theme-style" id="switcher-light-theme" checked>
                 </div>
@@ -38,7 +36,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-dark-theme">
-                    Dark
+                    มืด
                   </label>
                   <input class="form-check-input" type="radio" name="theme-style" id="switcher-dark-theme">
                 </div>
@@ -46,7 +44,7 @@
             </div>
           </div>
           <div class="">
-            <p class="switcher-style-head">Directions:</p>
+            <p class="switcher-style-head">ทิศทาง:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
@@ -67,12 +65,12 @@
             </div>
           </div>
           <div class="">
-            <p class="switcher-style-head">Navigation Styles:</p>
+            <p class="switcher-style-head">รูปแบบการนำทาง:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-vertical">
-                    Vertical
+                    แนวตั้ง
                   </label>
                   <input class="form-check-input" type="radio" name="navigation-style" id="switcher-vertical" checked>
                 </div>
@@ -80,7 +78,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-horizontal">
-                    Horizontal
+                    แนวนอน
                   </label>
                   <input class="form-check-input" type="radio" name="navigation-style" id="switcher-horizontal">
                 </div>
@@ -88,12 +86,12 @@
             </div>
           </div>
           <div class="navigation-menu-styles">
-            <p class="switcher-style-head">Vertical & Horizontal Menu Styles:</p>
+            <p class="switcher-style-head">รูปแบบเมนูแนวตั้งและแนวนอน:</p>
             <div class="row switcher-style gx-0 pb-2 gy-2">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-menu-click">
-                    Menu Click
+                    คลิกเมนู
                   </label>
                   <input class="form-check-input" type="radio" name="navigation-menu-styles" id="switcher-menu-click">
                 </div>
@@ -101,7 +99,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-menu-hover">
-                    Menu Hover
+                    ชี้เมนู
                   </label>
                   <input class="form-check-input" type="radio" name="navigation-menu-styles" id="switcher-menu-hover">
                 </div>
@@ -109,7 +107,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-icon-click">
-                    Icon Click
+                    คลิกไอคอน
                   </label>
                   <input class="form-check-input" type="radio" name="navigation-menu-styles" id="switcher-icon-click">
                 </div>
@@ -117,7 +115,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-icon-hover">
-                    Icon Hover
+                    ชี้ไอคอน
                   </label>
                   <input class="form-check-input" type="radio" name="navigation-menu-styles" id="switcher-icon-hover">
                 </div>
@@ -125,12 +123,12 @@
             </div>
           </div>
           <div class="sidemenu-layout-styles">
-            <p class="switcher-style-head">Sidemenu Layout Styles:</p>
+            <p class="switcher-style-head">รูปแบบเมนูด้านข้าง:</p>
             <div class="row switcher-style gx-0 pb-2 gy-2">
               <div class="col-sm-6">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-default-menu">
-                    Default Menu
+                    เมนูเริ่มต้น
                   </label>
                   <input class="form-check-input" type="radio" name="sidemenu-layout-styles" id="switcher-default-menu" checked>
                 </div>
@@ -138,7 +136,7 @@
               <div class="col-sm-6">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-closed-menu">
-                    Closed Menu
+                    เมนูปิด
                   </label>
                   <input class="form-check-input" type="radio" name="sidemenu-layout-styles" id="switcher-closed-menu">
                 </div>
@@ -146,7 +144,7 @@
               <div class="col-sm-6">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-icontext-menu">
-                    Icon Text
+                    ไอคอนและข้อความ
                   </label>
                   <input class="form-check-input" type="radio" name="sidemenu-layout-styles" id="switcher-icontext-menu">
                 </div>
@@ -154,7 +152,7 @@
               <div class="col-sm-6">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-icon-overlay">
-                    Icon Overlay
+                    ไอคอนแบบทับ
                   </label>
                   <input class="form-check-input" type="radio" name="sidemenu-layout-styles" id="switcher-icon-overlay">
                 </div>
@@ -162,7 +160,7 @@
               <div class="col-sm-6">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-detached">
-                    Detached
+                    แยกออก
                   </label>
                   <input class="form-check-input" type="radio" name="sidemenu-layout-styles" id="switcher-detached">
                 </div>
@@ -170,7 +168,7 @@
               <div class="col-sm-6">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-double-menu">
-                    Double Menu
+                    เมนูคู่
                   </label>
                   <input class="form-check-input" type="radio" name="sidemenu-layout-styles" id="switcher-double-menu">
                 </div>
@@ -178,12 +176,12 @@
             </div>
           </div>
           <div class="">
-            <p class="switcher-style-head">Page Styles:</p>
+            <p class="switcher-style-head">รูปแบบหน้า:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-regular">
-                    Regular
+                    ปกติ
                   </label>
                   <input class="form-check-input" type="radio" name="page-styles" id="switcher-regular" checked>
                 </div>
@@ -191,7 +189,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-classic">
-                    Classic
+                    คลาสสิก
                   </label>
                   <input class="form-check-input" type="radio" name="page-styles" id="switcher-classic">
                 </div>
@@ -199,7 +197,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-modern">
-                    Modern
+                    โมเดิร์น
                   </label>
                   <input class="form-check-input" type="radio" name="page-styles" id="switcher-modern">
                 </div>
@@ -207,12 +205,12 @@
             </div>
           </div>
           <div class="">
-            <p class="switcher-style-head">Layout Width Styles:</p>
+            <p class="switcher-style-head">ความกว้างของเลย์เอาต์:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-full-width">
-                    Full Width
+                    เต็มความกว้าง
                   </label>
                   <input class="form-check-input" type="radio" name="layout-width" id="switcher-full-width" checked>
                 </div>
@@ -220,7 +218,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-boxed">
-                    Boxed
+                    แบบกรอบ
                   </label>
                   <input class="form-check-input" type="radio" name="layout-width" id="switcher-boxed">
                 </div>
@@ -228,12 +226,12 @@
             </div>
           </div>
           <div class="">
-            <p class="switcher-style-head">Menu Positions:</p>
+            <p class="switcher-style-head">ตำแหน่งเมนู:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-menu-fixed">
-                    Fixed
+                    คงที่
                   </label>
                   <input class="form-check-input" type="radio" name="menu-positions" id="switcher-menu-fixed" checked>
                 </div>
@@ -241,7 +239,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-menu-scroll">
-                    Scrollable
+                    เลื่อนได้
                   </label>
                   <input class="form-check-input" type="radio" name="menu-positions" id="switcher-menu-scroll">
                 </div>
@@ -249,12 +247,12 @@
             </div>
           </div>
           <div class="">
-            <p class="switcher-style-head">Header Positions:</p>
+            <p class="switcher-style-head">ตำแหน่งส่วนหัว:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-header-fixed">
-                    Fixed
+                    คงที่
                   </label>
                   <input class="form-check-input" type="radio" name="header-positions" id="switcher-header-fixed" checked>
                 </div>
@@ -262,7 +260,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-header-scroll">
-                    Scrollable
+                    เลื่อนได้
                   </label>
                   <input class="form-check-input" type="radio" name="header-positions" id="switcher-header-scroll">
                 </div>
@@ -270,12 +268,12 @@
             </div>
           </div>
           <div class="">
-            <p class="switcher-style-head">Loader:</p>
+            <p class="switcher-style-head">หน้าโหลด:</p>
             <div class="row switcher-style gx-0">
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-loader-enable">
-                    Enable
+                    เปิดใช้งาน
                   </label>
                   <input class="form-check-input" type="radio" name="page-loader" id="switcher-loader-enable" checked>
                 </div>
@@ -283,7 +281,7 @@
               <div class="col-4">
                 <div class="form-check switch-select">
                   <label class="form-check-label" for="switcher-loader-disable">
-                    Disable
+                    ปิดใช้งาน
                   </label>
                   <input class="form-check-input" type="radio" name="page-loader" id="switcher-loader-disable" checked>
                 </div>
@@ -294,53 +292,53 @@
         <div class="tab-pane fade border-0" id="switcher-profile" role="tabpanel" aria-labelledby="switcher-profile-tab" tabindex="0">
           <div>
             <div class="theme-colors">
-              <p class="switcher-style-head">Menu Colors:</p>
+              <p class="switcher-style-head">สีเมนู:</p>
               <div class="d-flex switcher-style pb-2">
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-white" data-bs-toggle="tooltip" data-bs-placement="top" title="Light Menu" type="radio" name="menu-colors" id="switcher-menu-light" checked>
+                  <input class="form-check-input color-input color-white" data-bs-toggle="tooltip" data-bs-placement="top" title="เมนูสว่าง" type="radio" name="menu-colors" id="switcher-menu-light" checked>
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Dark Menu" type="radio" name="menu-colors" id="switcher-menu-dark">
+                  <input class="form-check-input color-input color-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="เมนูมืด" type="radio" name="menu-colors" id="switcher-menu-dark">
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Color Menu" type="radio" name="menu-colors" id="switcher-menu-primary">
+                  <input class="form-check-input color-input color-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="เมนูสีหลัก" type="radio" name="menu-colors" id="switcher-menu-primary">
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-gradient" data-bs-toggle="tooltip" data-bs-placement="top" title="Gradient Menu" type="radio" name="menu-colors" id="switcher-menu-gradient">
+                  <input class="form-check-input color-input color-gradient" data-bs-toggle="tooltip" data-bs-placement="top" title="เมนูแบบไล่สี" type="radio" name="menu-colors" id="switcher-menu-gradient">
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="Transparent Menu" type="radio" name="menu-colors"
+                  <input class="form-check-input color-input color-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="เมนูโปร่งใส" type="radio" name="menu-colors"
                     id="switcher-menu-transparent">
                 </div>
               </div>
-              <div class="px-4 pb-3 text-muted fs-11">Note:If you want to change color Menu dynamically change from below Theme Primary color picker</div>
+              <div class="px-4 pb-3 text-muted fs-11">หมายเหตุ: หากต้องการเปลี่ยนสีเมนูแบบไดนามิก ให้ใช้ตัวเลือกสีหลักด้านล่าง</div>
             </div>
             <div class="theme-colors">
-              <p class="switcher-style-head">Header Colors:</p>
+              <p class="switcher-style-head">สีส่วนหัว:</p>
               <div class="d-flex switcher-style pb-2">
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-white" data-bs-toggle="tooltip" data-bs-placement="top" title="Light Header" type="radio" name="header-colors" id="switcher-header-light"
+                  <input class="form-check-input color-input color-white" data-bs-toggle="tooltip" data-bs-placement="top" title="ส่วนหัวสว่าง" type="radio" name="header-colors" id="switcher-header-light"
                     checked>
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Dark Header" type="radio" name="header-colors" id="switcher-header-dark">
+                  <input class="form-check-input color-input color-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="ส่วนหัวมืด" type="radio" name="header-colors" id="switcher-header-dark">
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Color Header" type="radio" name="header-colors" id="switcher-header-primary">
+                  <input class="form-check-input color-input color-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="ส่วนหัวสีหลัก" type="radio" name="header-colors" id="switcher-header-primary">
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-gradient" data-bs-toggle="tooltip" data-bs-placement="top" title="Gradient Header" type="radio" name="header-colors"
+                  <input class="form-check-input color-input color-gradient" data-bs-toggle="tooltip" data-bs-placement="top" title="ส่วนหัวแบบไล่สี" type="radio" name="header-colors"
                     id="switcher-header-gradient">
                 </div>
                 <div class="form-check switch-select me-3">
-                  <input class="form-check-input color-input color-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="Transparent Header" type="radio" name="header-colors"
+                  <input class="form-check-input color-input color-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="ส่วนหัวโปร่งใส" type="radio" name="header-colors"
                     id="switcher-header-transparent">
                 </div>
               </div>
-              <div class="px-4 pb-3 text-muted fs-11">Note:If you want to change color Header dynamically change from below Theme Primary color picker</div>
+              <div class="px-4 pb-3 text-muted fs-11">หมายเหตุ: หากต้องการเปลี่ยนสีส่วนหัวแบบไดนามิก ให้ใช้ตัวเลือกสีหลักด้านล่าง</div>
             </div>
             <div class="theme-colors">
-              <p class="switcher-style-head">Theme Primary:</p>
+              <p class="switcher-style-head">สีหลักของธีม:</p>
               <div class="d-flex flex-wrap align-items-center switcher-style">
                 <div class="form-check switch-select me-3">
                   <input class="form-check-input color-input color-primary-1" type="radio" name="theme-primary" id="switcher-primary">
@@ -364,7 +362,7 @@
               </div>
             </div>
             <div class="theme-colors">
-              <p class="switcher-style-head">Theme Background:</p>
+              <p class="switcher-style-head">พื้นหลังของธีม:</p>
               <div class="d-flex flex-wrap align-items-center switcher-style">
                 <div class="form-check switch-select me-3">
                   <input class="form-check-input color-input color-bg-1" type="radio" name="theme-background" id="switcher-background">
@@ -388,7 +386,7 @@
               </div>
             </div>
             <div class="menu-image mb-3">
-              <p class="switcher-style-head">Menu With Background Image:</p>
+              <p class="switcher-style-head">เมนูพร้อมภาพพื้นหลัง:</p>
               <div class="d-flex flex-wrap align-items-center switcher-style">
                 <div class="form-check switch-select m-2">
                   <input class="form-check-input bgimage-input bg-img1" type="radio" name="theme-background" id="switcher-bg-img">
@@ -410,7 +408,7 @@
           </div>
         </div>
         <div class="d-grid canvas-footer">
-          <a href="javascript:void(0);" id="reset-all" class="btn btn-danger btn-block m-1">Reset</a>
+          <a href="javascript:void(0);" id="reset-all" class="btn btn-danger btn-block m-1">รีเซ็ต</a>
         </div>
       </div>
     </div>

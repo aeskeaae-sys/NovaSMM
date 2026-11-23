@@ -32,7 +32,7 @@
         <table class="table">
           <tbody>
             <tr>
-              <td class="width-40">HTTP Method</td>
+              <td class="width-40">วิธีการ HTTP</td>
               <td>POST</td>
             </tr>
             <tr>
@@ -40,13 +40,13 @@
               <td>https://{{ domain() }}/api/v2</td>
             </tr>
             <tr>
-              <td>API Key</td>
+              <td>คีย์ API</td>
               <td>
-                Lấy key tại trang <a href="{{ route('account.profile.index') }}">{{ __t('tài khoản') }}</a>
+                รับคีย์ได้ที่หน้า <a href="{{ route('account.profile.index') }}">{{ __t('tài khoản') }}</a>
               </td>
             </tr>
             <tr>
-              <td>Response format</td>
+              <td>รูปแบบการตอบกลับ</td>
               <td>JSON</td>
             </tr>
           </tbody>
@@ -58,14 +58,14 @@
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -77,7 +77,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 [
@@ -109,12 +109,12 @@
       <form class="">
         <div class="form-group">
           <select class="form-control input-sm" id="service_type">
-            <option value="0">Default</option>
+            <option value="0">ปกติ</option>
             {{-- <option value="10">Package</option> --}}
-            <option value="2">Custom Comments</option>
+            <option value="2">คอมเมนต์กำหนดเอง</option>
             {{-- <option value="4">Mentions Custom List</option> --}}
             {{-- <option value="7">Mentions User Followers</option> --}}
-            {{-- <option value="14">Custom Comments Package</option> --}}
+            {{-- <option value="14">แพ็กเกจคอมเมนต์กำหนดเอง</option> --}}
             {{-- <option value="15">Comment Likes</option> --}}
             {{-- <option value="17">Poll</option> --}}
             {{-- <option value="100">Subscriptions</option> --}}
@@ -127,14 +127,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -142,23 +142,23 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
                 <tr>
                   <td>quantity</td>
-                  <td>Needed quantity</td>
+                  <td>จำนวนที่ต้องการ</td>
                 </tr>
                 <tr>
                   <td>runs (optional)</td>
-                  <td>Runs to deliver</td>
+                  <td>จำนวนรอบที่ต้องส่งมอบ</td>
                 </tr>
                 <tr>
-                  <td>interval (optional)</td>
-                  <td>Interval in minutes</td>
+                  <td>ช่วงเวลา (ไม่บังคับ)</td>
+                  <td>ช่วงเวลาเป็นนาที</td>
                 </tr>
               </tbody>
             </table>
@@ -171,14 +171,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -186,11 +186,11 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
               </tbody>
             </table>
@@ -203,14 +203,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -218,15 +218,15 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
                 <tr>
                   <td>comments</td>
-                  <td>Comments list separated by \r\n or \n</td>
+                  <td>รายการคอมเมนต์ คั่นด้วย \r\n หรือ \n</td>
                 </tr>
               </tbody>
             </table>
@@ -239,14 +239,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -254,15 +254,15 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
                 <tr>
                   <td>usernames</td>
-                  <td>Usernames list separated by \r\n or \n</td>
+                  <td>รายการชื่อผู้ใช้ คั่นด้วย \r\n หรือ \n</td>
                 </tr>
               </tbody>
             </table>
@@ -275,14 +275,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -290,19 +290,19 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
                 <tr>
                   <td>quantity</td>
-                  <td>Needed quantity</td>
+                  <td>จำนวนที่ต้องการ</td>
                 </tr>
                 <tr>
                   <td>username</td>
-                  <td>URL to scrape followers from</td>
+                  <td>URL ที่ใช้ดึงข้อมูลผู้ติดตาม</td>
                 </tr>
               </tbody>
             </table>
@@ -315,14 +315,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -330,19 +330,19 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>username</td>
-                  <td>Username</td>
+                  <td>ชื่อผู้ใช้</td>
                 </tr>
                 <tr>
                   <td>min</td>
-                  <td>Quantity min</td>
+                  <td>จำนวนขั้นต่ำ</td>
                 </tr>
                 <tr>
                   <td>max</td>
-                  <td>Quantity max</td>
+                  <td>จำนวนสูงสุด</td>
                 </tr>
                 <tr>
                   <td>posts (optional)</td>
@@ -351,15 +351,15 @@
                 </tr>
                 <tr>
                   <td>old_posts (optional)</td>
-                  <td>Number of existing posts that will be parsed and for which orders will be created, can be used if this option is available for the service.</td>
+                  <td>จำนวนโพสต์ที่มีอยู่ซึ่งจะถูกวิเคราะห์และสร้างคำสั่งซื้อให้ ใช้ได้เฉพาะบริการที่รองรับตัวเลือกนี้</td>
                 </tr>
                 <tr>
                   <td>delay</td>
-                  <td>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 360, 420, 480, 540, 600</td>
+                  <td>หน่วงเวลาเป็นนาที ค่าที่เป็นไปได้: 0, 5, 10, 15, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 360, 420, 480, 540, 600</td>
                 </tr>
                 <tr>
                   <td>expiry (optional)</td>
-                  <td>Expiry date. Format d/m/Y</td>
+                  <td>วันหมดอายุ รูปแบบ ว/ด/ป</td>
                 </tr>
               </tbody>
             </table>
@@ -372,14 +372,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -387,15 +387,15 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
                 <tr>
                   <td>comments</td>
-                  <td>Comments list separated by \r\n or \n</td>
+                  <td>รายการคอมเมนต์ คั่นด้วย \r\n หรือ \n</td>
                 </tr>
               </tbody>
             </table>
@@ -408,14 +408,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -423,19 +423,19 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
                 <tr>
                   <td>quantity</td>
-                  <td>Needed quantity</td>
+                  <td>จำนวนที่ต้องการ</td>
                 </tr>
                 <tr>
                   <td>username</td>
-                  <td>Username of the comment owner</td>
+                  <td>ชื่อผู้ใช้ของเจ้าของคอมเมนต์</td>
                 </tr>
               </tbody>
             </table>
@@ -448,14 +448,14 @@
             <table class="table mb-3">
               <thead>
                 <tr>
-                  <th class="width-40">Parameters</th>
-                  <th>Description</th>
+                  <th class="width-40">พารามิเตอร์</th>
+                  <th>คำอธิบาย</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>key</td>
-                  <td>Your API key</td>
+                  <td>คีย์ API ของคุณ</td>
                 </tr>
                 <tr>
                   <td>action</td>
@@ -463,19 +463,19 @@
                 </tr>
                 <tr>
                   <td>service</td>
-                  <td>Service ID</td>
+                  <td>รหัสบริการ</td>
                 </tr>
                 <tr>
                   <td>link</td>
-                  <td>Link to page</td>
+                  <td>ลิงก์ไปยังหน้า</td>
                 </tr>
                 <tr>
                   <td>quantity</td>
-                  <td>Needed quantity</td>
+                  <td>จำนวนที่ต้องการ</td>
                 </tr>
                 <tr>
                   <td>answer_number</td>
-                  <td>Answer number of the poll</td>
+                  <td>หมายเลขคำตอบของโพลล์</td>
                 </tr>
               </tbody>
             </table>
@@ -484,7 +484,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 {
@@ -497,14 +497,14 @@
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -512,7 +512,7 @@
               </tr>
               <tr>
                 <td>order</td>
-                <td>Order ID</td>
+                <td>รหัสคำสั่งซื้อ</td>
               </tr>
             </tbody>
           </table>
@@ -520,7 +520,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 {
@@ -537,14 +537,14 @@
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -552,7 +552,7 @@
               </tr>
               <tr>
                 <td>orders</td>
-                <td>Order IDs (separated by a comma, up to 100 IDs)</td>
+                <td>รหัสคำสั่งซื้อ (คั่นด้วยเครื่องหมายจุลภาค สูงสุด 100 รหัส)</td>
               </tr>
             </tbody>
           </table>
@@ -560,7 +560,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 {
@@ -583,20 +583,20 @@
   }
 }
 </pre>
-      <h4 class="mb-3">Create refill</h4>
+      <h4 class="mb-3">สร้างการเติมซ้ำ</h4>
       <div class="table-bg">
         <div class="table-wr ">
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -604,7 +604,7 @@
               </tr>
               <tr>
                 <td>order</td>
-                <td>Order ID</td>
+                <td>รหัสคำสั่งซื้อ</td>
               </tr>
             </tbody>
           </table>
@@ -612,27 +612,27 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 {
   "refill": "1"
 }
 </pre>
-      <h4 class="mb-3">Create multiple refill</h4>
+      <h4 class="mb-3">สร้างการเติมซ้ำหลายรายการ</h4>
       <div class="table-bg">
         <div class="table-wr ">
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -640,7 +640,7 @@
               </tr>
               <tr>
                 <td>orders</td>
-                <td>Order IDs (separated by a comma, up to 100 IDs)</td>
+                <td>รหัสคำสั่งซื้อ (คั่นด้วยเครื่องหมายจุลภาค สูงสุด 100 รหัส)</td>
               </tr>
             </tbody>
           </table>
@@ -648,7 +648,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 [
@@ -668,20 +668,20 @@
   }
 ]
 </pre>
-      <h4 class="mb-3">Get refill status</h4>
+      <h4 class="mb-3">ดูสถานะการเติมซ้ำ</h4>
       <div class="table-bg">
         <div class="table-wr ">
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -689,7 +689,7 @@
               </tr>
               <tr>
                 <td>refill</td>
-                <td>Refill ID</td>
+                <td>รหัสการเติมซ้ำ</td>
               </tr>
             </tbody>
           </table>
@@ -697,27 +697,27 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 {
   "status": "Completed"
 }
 </pre>
-      <h4 class="mb-3">Get multiple refill status</h4>
+      <h4 class="mb-3">ดูสถานะการเติมซ้ำหลายรายการ</h4>
       <div class="table-bg">
         <div class="table-wr ">
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -725,7 +725,7 @@
               </tr>
               <tr>
                 <td>refills</td>
-                <td>Refill IDs (separated by a comma, up to 100 IDs)</td>
+                <td>รหัสการเติมซ้ำ (คั่นด้วยเครื่องหมายจุลภาค สูงสุด 100 รหัส)</td>
               </tr>
             </tbody>
           </table>
@@ -733,7 +733,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 [
@@ -753,20 +753,20 @@
   }
 ]
 </pre>
-      <h4 class="mb-3">Create cancel</h4>
+      <h4 class="mb-3">สร้างการยกเลิก</h4>
       <div class="table-bg">
         <div class="table-wr ">
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -774,7 +774,7 @@
               </tr>
               <tr>
                 <td>orders</td>
-                <td>Order IDs (separated by a comma, up to 100 IDs)</td>
+                <td>รหัสคำสั่งซื้อ (คั่นด้วยเครื่องหมายจุลภาค สูงสุด 100 รหัส)</td>
               </tr>
             </tbody>
           </table>
@@ -782,7 +782,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 [
@@ -798,20 +798,20 @@
   }
 ]
 </pre>
-      <h4 class="mb-3">User balance</h4>
+      <h4 class="mb-3">ยอดคงเหลือของผู้ใช้</h4>
       <div class="table-bg">
         <div class="table-wr ">
           <table class="table mb-3">
             <thead>
               <tr>
-                <th class="width-40">Parameters</th>
-                <th>Description</th>
+                <th class="width-40">พารามิเตอร์</th>
+                <th>คำอธิบาย</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>key</td>
-                <td>Your API key</td>
+                <td>คีย์ API ของคุณ</td>
               </tr>
               <tr>
                 <td>action</td>
@@ -823,7 +823,7 @@
       </div>
 
       <div>
-        <h6>Example response</h6>
+        <h6>ตัวอย่างการตอบกลับ</h6>
       </div>
       <pre>
 {
@@ -831,7 +831,7 @@
   "currency": "USD"
 }
 </pre>
-      <a href="/example.txt" class="btn btn-big-secondary" target="_blank">Example of PHP code</a>
+      <a href="/example.txt" class="btn btn-big-secondary" target="_blank">ตัวอย่างโค้ด PHP</a>
     </div>
   </div>
 @endsection

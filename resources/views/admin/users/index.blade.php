@@ -4,8 +4,8 @@
   <div class="card custom-card">
     <div class="card-header justify-content-between">
       <div class="card-title d-flex align-items-center gap-2">
-        <i class="bx bx-user" style="color:#A78BFA"></i> Quản Lý Thành Viên
-        <span class="badge ms-2" style="background:rgba(139,92,246,0.2);color:#A78BFA">NovaSMM</span>
+        <i class="bx bx-user" style="color:#0EA5E9"></i> จัดการสมาชิก
+        <span class="badge ms-2" style="background:rgba(37,99,235,0.10);color:#0EA5E9">NovaSMM</span>
       </div>
       <a href="javascript:void(0);" data-bs-toggle="card-fullscreen">
         <i class="ri-fullscreen-line"></i>
@@ -17,16 +17,16 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Thao tác</th>
-              <th>Tài khoản</th>
+              <th>ดำเนินการ</th>
+              <th>บัญชี</th>
               <th>Email</th>
-              <th>Số dư</th>
-              <th>Tổng nạp</th>
-              <th>Cấp độ</th>
-              <th>Trạng thái</th>
-              <th>Địa chỉ IP</th>
-              <th>Đăng ký bằng</th>
-              <th>Ngày đăng ký</th>
+              <th>ยอดคงเหลือ</th>
+              <th>ยอดฝากรวม</th>
+              <th>ระดับ</th>
+              <th>สถานะ</th>
+              <th>ที่อยู่ IP</th>
+              <th>ลงทะเบียนด้วย</th>
+              <th>วันที่ลงทะเบียน</th>
             </tr>
           </thead>
         </table>
@@ -46,7 +46,7 @@
           [10, 50, 100, 200, 500, 1000, 2000, 10000, "All"]
         ],
         language: {
-          searchPlaceholder: 'Tìm kiếm...',
+          searchPlaceholder: 'ค้นหา...',
           sSearch: '',
           lengthMenu: '_MENU_',
         },
@@ -75,7 +75,7 @@
             return payload;
           },
           error: function(xhr) {
-            Swal.fire('Thất bại', $catchMessage(xhr), 'error')
+            Swal.fire('ล้มเหลว', $catchMessage(xhr), 'error')
           },
           dataFilter: function(data) {
             let json = JSON.parse(data);
@@ -85,7 +85,7 @@
               json.data = json.data.data
               return JSON.stringify(json); // return JSON string
             } else {
-              Swal.fire('Thất bại', json.message, 'error')
+              Swal.fire('ล้มเหลว', json.message, 'error')
               return JSON.stringify({
                 recordsTotal: 0,
                 recordsFiltered: 0,

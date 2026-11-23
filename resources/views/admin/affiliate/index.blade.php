@@ -7,7 +7,7 @@
       <div class="card custom-card border-top-card border-top-primary rounded-0">
         <div class="card-body">
           <div class="text-center">
-            <p class="fs-14 fw-semibold mb-2">Tổng Tiền Giao Dịch</p>
+            <p class="fs-14 fw-semibold mb-2">ยอดเงินธุรกรรมรวม</p>
             <div class="d-flex align-items-center justify-content-center flex-wrap">
               <h4 class="mb-0 fw-semibold">{{ formatCurrency($totalAmount) }}</h4>
             </div>
@@ -19,7 +19,7 @@
       <div class="card custom-card border-top-card border-top-success rounded-0">
         <div class="card-body">
           <div class="text-center">
-            <p class="fs-14 fw-semibold mb-2">Giao Dịch Thành Công</p>
+            <p class="fs-14 fw-semibold mb-2">ธุรกรรมที่สำเร็จ</p>
             <div class="d-flex align-items-center justify-content-center flex-wrap">
               <h4 class="mb-0 fw-semibold">{{ formatCurrency($totalAmountCompleted) }}</h4>
             </div>
@@ -31,7 +31,7 @@
       <div class="card custom-card border-top-card border-top-warning rounded-0">
         <div class="card-body">
           <div class="text-center">
-            <p class="fs-14 fw-semibold mb-2">Giao Dịch Đang Chờ</p>
+            <p class="fs-14 fw-semibold mb-2">ธุรกรรมที่รอดำเนินการ</p>
             <div class="d-flex align-items-center justify-content-center flex-wrap">
               <h4 class="mb-0 fw-semibold">{{ formatCurrency($totalAmountPending) }}</h4>
             </div>
@@ -43,7 +43,7 @@
       <div class="card custom-card border-top-card border-top-danger rounded-0">
         <div class="card-body">
           <div class="text-center">
-            <p class="fs-14 fw-semibold mb-2">Giao Dịch Thất Bại</p>
+            <p class="fs-14 fw-semibold mb-2">ธุรกรรมที่ล้มเหลว</p>
             <div class="d-flex align-items-center justify-content-center flex-wrap">
               <h4 class="mb-0 fw-semibold">{{ formatCurrency($totalAmountCancelled) }}</h4>
             </div>
@@ -54,7 +54,7 @@
   </div>
   <div class="card custom-card nova-admin-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Lịch Sử Rút Tiền</div>
+      <div class="card-title">ประวัติการถอนเงิน</div>
     </div>
     <div class="card-body">
       <div class="table-responsive theme-scrollbar">
@@ -62,17 +62,17 @@
           <thead>
             <tr>
               <th>#</th>
-              <th class="text-center">Thao Tác</th>
-              <th>Mã Giao Dịch</th>
-              <th>Số Tiền</th>
-              <th>Số Dư Trước</th>
-              <th>Số Dư Sau</th>
-              <th>Giao Dịch</th>
-              <th>Trạng Thái</th>
-              <th>Tài Khoản</th>
-              <th>Ghi Chú</th>
-              <th>Hệ Thống</th>
-              <th>Thời Gian</th>
+              <th class="text-center">ดำเนินการ</th>
+              <th>รหัสธุรกรรม</th>
+              <th>จำนวนเงิน</th>
+              <th>ยอดคงเหลือก่อน</th>
+              <th>ยอดคงเหลือหลัง</th>
+              <th>ธุรกรรม</th>
+              <th>สถานะ</th>
+              <th>บัญชี</th>
+              <th>หมายเหตุ</th>
+              <th>ระบบ</th>
+              <th>เวลา</th>
             </tr>
           </thead>
           <tbody>
@@ -80,13 +80,13 @@
               <tr>
                 <td>{{ $value->id }}</td>
                 <td class="text-center">
-                  <a href="javscript:void(0)" class="text-danger" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $value->id }}">Chi Tiết</a>
+                  <a href="javscript:void(0)" class="text-danger" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $value->id }}">รายละเอียด</a>
                 </td>
                 <td>{{ $value->order_id }}</td>
                 <td>{{ formatCurrency($value->amount) }}</td>
                 <td>{{ formatCurrency($value->balance_before) }}</td>
                 <td>{{ formatCurrency($value->balance_after) }}</td>
-                <td>{{ $value->prefix === '+' ? 'Cộng Tiền' : 'Trừ Tiền' }}</td>
+                <td>{{ $value->prefix === '+' ? 'เพิ่มเงิน' : 'หักเงิน' }}</td>
                 <td>{!! $value->status_html !!}</td>
                 <td>{{ $value->username }}</td>
                 <td>{{ $value->user_note }}</td>
@@ -100,7 +100,7 @@
                 <div class="modal-dialog modal-xl" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin #{{ $value->id }}</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">อัปเดตข้อมูล #{{ $value->id }}</h5>
                       <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -110,40 +110,40 @@
 
                         <div class="row mb-3">
                           <div class="col-md-6">
-                            <label for="bank_name" class="form-label">Ngân hàng</label>
+                            <label for="bank_name" class="form-label">ธนาคาร</label>
                             <input type="text" class="form-control" id="bank_name" name="bank_name" value="{{ $payment['bank_name'] ?? '-' }}" disabled>
                           </div>
                           <div class="col-md-6">
-                            <label for="account_number" class="form-label">Số tài khoản</label>
+                            <label for="account_number" class="form-label">หมายเลขบัญชี</label>
                             <input type="text" class="form-control" id="account_number" name="account_number" value="{{ $payment['account_number'] ?? '-' }}" disabled>
                           </div>
                         </div>
                         <div class="row mb-3">
                           <div class="col-md-6">
-                            <label for="account_name" class="form-label">Chủ tài khoản</label>
+                            <label for="account_name" class="form-label">เจ้าของบัญชี</label>
                             <input type="text" class="form-control" id="account_name" name="account_name" value="{{ $payment['account_name'] ?? '-' }}" disabled>
                           </div>
                           <div class="col-md-6">
-                            <label for="amount" class="form-label">Số tiền cần rút</label>
+                            <label for="amount" class="form-label">จำนวนเงินที่ต้องถอน</label>
                             <input type="text" class="form-control" id="amount" name="amount" value="{{ formatCurrency($value->amount) }}" disabled>
                           </div>
                         </div>
                         <div class="row mb-3">
                           <div class="col-md-6">
-                            <label for="user_note" class="form-label">Ghi Chú</label>
+                            <label for="user_note" class="form-label">หมายเหตุ</label>
                             <textarea class="form-control" id="user_note" name="user_note" rows="3">{{ $value->user_note }}</textarea>
                           </div>
                           <div class="col-md-6">
-                            <label for="sys_note" class="form-label">Ghi Chú Hệ Thống</label>
+                            <label for="sys_note" class="form-label">หมายเหตุจากระบบ</label>
                             <textarea class="form-control" id="sys_note" name="sys_note" rows="3" disabled>{{ $value->sys_note }}</textarea>
                           </div>
                         </div>
                         <div class="mb-3">
-                          <label for="status" class="form-label">Trạng Thái</label>
+                          <label for="status" class="form-label">สถานะ</label>
                           <select class="form-control" id="status" name="status">
-                            <option value="Pending" @if ($value->status === 'Pending') selected @endif>Đang Chờ</option>
-                            <option value="Completed" @if ($value->status === 'Completed') selected @endif>Hoàn Thành</option>
-                            <option value="Cancelled" @if ($value->status === 'Cancelled') selected @endif>Hủy Bỏ</option>
+                            <option value="Pending" @if ($value->status === 'Pending') selected @endif>รอดำเนินการ</option>
+                            <option value="Completed" @if ($value->status === 'Completed') selected @endif>เสร็จสมบูรณ์</option>
+                            <option value="Cancelled" @if ($value->status === 'Cancelled') selected @endif>ยกเลิก</option>
                           </select>
                         </div>
                         <div class="text-center mb-3">
@@ -154,7 +154,7 @@
                           @endif
                         </div>
                         <div class="mb-3">
-                          <button class="btn btn-primary w-100" type="submit">Cập nhật</button>
+                          <button class="btn btn-primary w-100" type="submit">อัปเดต</button>
                         </div>
                       </form>
 
@@ -170,7 +170,7 @@
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Lịch Sử Nhận Tiền</div>
+      <div class="card-title">ประวัติการรับเงิน</div>
     </div>
     <div class="card-body">
       <div class="table-responsive theme-scrollbar">
@@ -178,15 +178,15 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Số Tiền</th>
-              <th>Số Dư Trước</th>
-              <th>Số Dư Sau</th>
-              <th>Giao Dịch</th>
-              <th>Trạng Thái</th>
-              <th>Tài Khoản</th>
-              <th>Ghi Chú</th>
-              <th>Hệ Thống</th>
-              <th>Thời Gian</th>
+              <th>จำนวนเงิน</th>
+              <th>ยอดคงเหลือก่อน</th>
+              <th>ยอดคงเหลือหลัง</th>
+              <th>ธุรกรรม</th>
+              <th>สถานะ</th>
+              <th>บัญชี</th>
+              <th>หมายเหตุ</th>
+              <th>ระบบ</th>
+              <th>เวลา</th>
             </tr>
           </thead>
           <tbody>
@@ -196,7 +196,7 @@
                 <td>{{ formatCurrency($value->amount) }}</td>
                 <td>{{ formatCurrency($value->balance_before) }}</td>
                 <td>{{ formatCurrency($value->balance_after) }}</td>
-                <td>{{ $value->prefix === '+' ? 'Cộng Tiền' : 'Trừ Tiền' }}</td>
+                <td>{{ $value->prefix === '+' ? 'เพิ่มเงิน' : 'หักเงิน' }}</td>
                 <td>{!! $value->status_html !!}</td>
                 <td>{{ $value->username }}</td>
                 <td>{{ $value->user_note }}</td>
@@ -214,7 +214,7 @@
     <div class="col-md-6">
       <div class="card custom-card">
         <div class="card-header justify-content-between">
-          <div class="card-title">Danh Sách Người Được Giới Thiệu - Hiện có <span class="text-danger">{{ $referrals->count() }}</span> Người</div>
+          <div class="card-title">รายชื่อผู้ที่ถูกแนะนำ - ขณะนี้มี <span class="text-danger">{{ $referrals->count() }}</span> คน</div>
         </div>
         <div class="card-body">
           <div class="table-responsive theme-scrollbar">
@@ -222,12 +222,12 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Tài Khoản</th>
-                  <th>Giới Thiệu</th>
-                  <th>Tổng Tiền Nạp</th>
-                  <th>Tổng Hoa Hồng Nhận</th>
-                  <th>Ngày Giới Thiệu</th>
-                  <th>Ngày Cập Nhật</th>
+                  <th>บัญชี</th>
+                  <th>แนะนำ</th>
+                  <th>ยอดฝากรวม</th>
+                  <th>ค่าคอมมิชชันที่ได้รับรวม</th>
+                  <th>วันที่แนะนำ</th>
+                  <th>วันที่อัปเดต</th>
                 </tr>
               </thead>
               <tbody>
@@ -236,7 +236,7 @@
                     <td>{{ $referral['id'] }}</td>
                     <td>{{ $referral['username'] }}</td>
                     <td>{{ $referral->to_username }}</td>
-                    <td>{{ formatCurrency($referral['total_deposit']) }} đ</td>
+                    <td>{{ formatCurrency($referral['total_deposit']) }} ₫</td>
                     <td>{{ formatCurrency($referral->total_commission) }}</td>
                     <td>{{ $referral['created_at'] }}</td>
                     <td>{{ $referral['updated_at'] }}</td>
@@ -251,7 +251,7 @@
     <div class="col-md-6">
       <div class="card custom-card">
         <div class="card-header justify-content-between">
-          <div class="card-title">Danh sách người dùng đã tham gia chương trình - Hiện có <span class="text-danger">{{ $affiliates->count() }}</span> Người</div>
+          <div class="card-title">รายชื่อผู้ใช้ที่เข้าร่วมโปรแกรม - ขณะนี้มี <span class="text-danger">{{ $affiliates->count() }}</span> คน</div>
         </div>
         <div class="card-body">
           <div class="table-responsive theme-scrollbar">
@@ -259,10 +259,10 @@
               <thead>
                 <tr>
                   <th>UID</th>
-                  <th>Tài Khoản</th>
-                  <th>Lượt clicks</th>
-                  <th>Lượt đăng ký</th>
-                  <th>Ngày tham gia</th>
+                  <th>บัญชี</th>
+                  <th>จำนวนคลิก</th>
+                  <th>จำนวนการลงทะเบียน</th>
+                  <th>วันที่เข้าร่วม</th>
                 </tr>
               </thead>
               <tbody>

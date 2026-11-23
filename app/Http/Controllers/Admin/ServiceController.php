@@ -22,7 +22,7 @@ class ServiceController extends Controller
 
     return view("admin.services.index", [
       "services"   => $services,
-      "pageTitle"  => "Danh sách dịch vụ",
+      "pageTitle"  => __t("Danh sách dịch vụ"),
       'providers'  => $providers,
       "categories" => $categories,
     ]);
@@ -95,7 +95,7 @@ class ServiceController extends Controller
     $categories = Category::where('status', true)->get();
 
     return view('admin.services.show', [
-      'pageTitle' => 'Chi tiết dịch vụ #' . $service->id,
+      'pageTitle' => __t('Chi tiết dịch vụ') . ' #' . $service->id,
     ], compact('service', 'services', 'categories'));
   }
 

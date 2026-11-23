@@ -36,13 +36,13 @@ class DepositController extends Controller
     $config = Helper::getApiConfig('paypal');
 
     if (!isset($config['client_id'])) {
-      return redirect()->back()->with('error', 'Chưa cấu hình ví tiền điện tử.');
+      return redirect()->back()->with('error', __t('Chưa cấu hình ví tiền điện tử.'));
     }
 
     $invoices = Invoice::where('user_id', auth()->id())->where('type', 'paypal')->simplePaginate(10);
 
     return view('account.deposits.paypal', [
-      'pageTitle' => 'Nạp Tiền Tài Khoản Bằng Paypal',
+      'pageTitle' => __t('Nạp Tiền Tài Khoản Bằng Paypal'),
     ], compact('config', 'invoices'));
   }
 
@@ -78,7 +78,7 @@ class DepositController extends Controller
     $config = Helper::getApiConfig('perfect_money');
 
     if (!isset($config['account_id'])) {
-      return redirect()->back()->with('error', 'Chưa cấu hình tài khoản Perfect Money.');
+      return redirect()->back()->with('error', __t('Chưa cấu hình tài khoản Perfect Money.'));
     }
 
     $user      = $request->user();
@@ -121,7 +121,7 @@ class DepositController extends Controller
     $invoices = Invoice::where('user_id', $request->user()->id)->where('type', 'perfect_money')->get();
 
     return view('account.deposits.perfect_money', [
-      'pageTitle' => 'Nạp Tiền Tài Khoản Bằng Perfect Money',
+      'pageTitle' => __t('Nạp Tiền Tài Khoản Bằng Perfect Money'),
     ], compact('config', 'invoices', 'invoice', 'params'));
   }
 

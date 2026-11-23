@@ -1,37 +1,37 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Admin: Quản lý đơn hàng')
+@section('title', 'Admin: จัดการคำสั่ง')
 
 @section('content')
   <div class="mb-3 text-end">
-    <button class="btn btn-danger-gradient action-ids" onclick="deleteList()"><i class="fas fa-trash me-2"></i> {{ __t('Xoá') }}</button>
+    <button class="btn btn-danger-gradient action-ids" onclick="deleteList()"><i class="fas fa-trash me-2"></i> {{ __t('ลบ') }}</button>
   </div>
   <div class="card custom-card">
     <div class="card-header justify-content-between">
-      <h4 class="card-title d-flex align-items-center gap-2 mb-0"><i class="bx bx-cart" style="color:#A78BFA"></i> Danh sách đơn hàng</h4>
+      <h4 class="card-title d-flex align-items-center gap-2 mb-0"><i class="bx bx-cart" style="color:#0EA5E9"></i> รายการคำสั่ง</h4>
     </div>
     <div class="card-body">
       <div class="text-center mb-3">
         <div class="row">
           <div class="col-md-2">
             <div class="mb-3">
-              <label for="select_status" class="form-label">Trạng thái : </label>
+              <label for="select_status" class="form-label">สถานะ : </label>
               <select name="status" id="select_status" class="form-select">
-                <option value="">Tất cả</option>
-                <option value="Error">Đơn lỗi</option>
-                <option value="Pending">Đang chờ</option>
-                <option value="Running">Đang chạy</option>
-                <option value="Processing">Đang tăng</option>
-                <option value="Refund">Hoàn tiền</option>
-                <option value="Completed">Hoàn thành</option>
+                <option value="">ทั้งหมด</option>
+                <option value="Error">คำสั่งผิดพลาด</option>
+                <option value="Pending">รอดำเนินการ</option>
+                <option value="Running">กำลังทำงาน</option>
+                <option value="Processing">กำลังเพิ่ม</option>
+                <option value="Refund">คืนเงิน</option>
+                <option value="Completed">เสร็จสมบูรณ์</option>
               </select>
             </div>
           </div>
           <div class="col-md-2">
             <div class="mb-3">
-              <label for="select_service" class="form-label">Dịch vụ : </label>
+              <label for="select_service" class="form-label">บริการ : </label>
               <select name="service_id" id="select_service" class="form-select">
-                <option value="">Tất cả</option>
+                <option value="">ทั้งหมด</option>
                 @foreach ($services as $service)
                   <option value="{{ $service->id }}">ID {{ $service->id }} - {{ $service->name }}</option>
                 @endforeach
@@ -40,16 +40,16 @@
           </div>
           <div class="col-md-2">
             <div class="mb-3">
-              <label for="input_username" class="form-label">Tài khoản : </label>
-              <input type="text" class="form-control" id="input_username" placeholder="Nhập tài khoản">
+              <label for="input_username" class="form-label">บัญชี : </label>
+              <input type="text" class="form-control" id="input_username" placeholder="ป้อนบัญชี">
             </div>
           </div>
           <div class="col-md-2">
-            <label for="start_date" class="form-label">Ngày bắt đầu</label>
+            <label for="start_date" class="form-label">วันที่เริ่มต้น</label>
             <input type="date" class="form-control" id="start_date" name="start_date">
           </div>
           <div class="col-md-2">
-            <label for="end_date" class="form-label">Ngày kết thúc</label>
+            <label for="end_date" class="form-label">วันที่สิ้นสุด</label>
             <input type="date" class="form-control" id="end_date" name="end_date">
           </div>
           <div class="col-md-2">
@@ -68,10 +68,10 @@
               <th data-sortable="false" width="10">
                 <input type="checkbox" name="checked_all">
               </th>
-              <th class="text-center">Thao tác</th>
+              <th class="text-center">ดำเนินการ</th>
               <th>Order ID</th>
-              <th>Thông tin</th>
-              <th>Trạng thái</th>
+              <th>ข้อมูล</th>
+              <th>สถานะ</th>
             </tr>
           </thead>
         </table>
@@ -83,7 +83,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Thêm thông tin mới</h5>
+          <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูลใหม่</h5>
           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -122,12 +122,12 @@
               <div class="col-md-6">
                 <label for="order_status" class="form-label">Order Status</label>
                 <select class="form-control" id="order_status" name="order_status">
-                  <option value="Error">Đơn lỗi</option>
-                  <option value="Pending">Đang chờ</option>
-                  <option value="Running">Đang chạy</option>
-                  <option value="Refund">Hoàn tiền</option>
-                  <option value="Processing">Đang xử lý</option>
-                  <option value="Completed">Hoàn thành</option>
+                  <option value="Error">คำสั่งผิดพลาด</option>
+                  <option value="Pending">รอดำเนินการ</option>
+                  <option value="Running">กำลังทำงาน</option>
+                  <option value="Refund">คืนเงิน</option>
+                  <option value="Processing">กำลังดำเนินการ</option>
+                  <option value="Completed">เสร็จสมบูรณ์</option>
                 </select>
               </div>
             </div>
@@ -157,14 +157,14 @@
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                   </select>
-                  <small>Nếu chọn <span class="text-danger">No</span> hệ thống sẽ gửi lại đơn cho Provider!</small>
+                  <small>หากเลือก <span class="text-danger">No</span> ระบบจะส่งคำสั่งกลับไปยัง Provider!</small>
                 </div>
                 <div class="col-md-6">
                   <label for="src_status" class="form-label">API Status</label>
                   <select id="src_status" class="form-control" disabled>
-                    <option value="Error">Lỗi</option>
-                    <option value="Pending">Chờ gửi</option>
-                    <option value="Success">Thành công</option>
+                    <option value="Error">ข้อผิดพลาด</option>
+                    <option value="Pending">รอส่ง</option>
+                    <option value="Success">สำเร็จ</option>
                   </select>
                 </div>
 
@@ -177,7 +177,7 @@
             </div>
 
             <div class="mb-3">
-              <button class="btn btn-primary w-100" type="submit">Cập nhật</button>
+              <button class="btn btn-primary w-100" type="submit">อัปเดต</button>
             </div>
           </form>
         </div>
@@ -195,19 +195,19 @@
       let ids = getIds()
 
       if (ids.length === 0) {
-        Swal.fire('Thất bại', '{{ __t('Vui lòng chọn ít nhất 1 dòng để xóa') }}', 'error')
+        Swal.fire('ล้มเหลว', '{{ __t('กรุณาเลือกอย่างน้อย 1 แถวเพื่อลบ') }}', 'error')
         return
       }
 
       const confirm = await Swal.fire({
-        title: '{{ __t('Bạn chắc chứ?') }}',
-        text: "{{ __t('Bạn sẽ không thể khôi phục lại dữ liệu này!') }}",
+        title: '{{ __t('คุณแน่ใจหรือไม่?') }}',
+        text: "{{ __t('คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!') }}",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: '{{ __t('Xóa') }}',
-        cancelButtonText: '{{ __t('Hủy') }}'
+        confirmButtonText: '{{ __t('ลบ') }}',
+        cancelButtonText: '{{ __t('ยกเลิก') }}'
       })
 
       if (!confirm.isConfirmed)
@@ -222,11 +222,11 @@
           ids
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
   </script>
@@ -296,7 +296,7 @@
 
         if (act?.can_update === true) {
           $actions.push({
-            text: 'Cập nhật đơn hàng',
+            text: 'อัปเดตคำสั่ง',
             icon: 'fas fa-sync',
             class: 'text-primary',
             action: 'update',
@@ -304,7 +304,7 @@
         }
         if (act?.can_refund === true) {
           $actions.push({
-            text: 'Yêu cầu huỷ đơn',
+            text: 'ขอยกเลิกคำสั่ง',
             icon: 'fas fa-trash',
             class: 'text-danger',
             action: 'refund',
@@ -312,7 +312,7 @@
         }
         if (act?.can_warranty === true) {
           $actions.push({
-            text: 'Yêu cầu bảo hành',
+            text: 'ขอรับประกัน',
             icon: 'fas fa-shield',
             class: 'text-success',
             action: 'warranty',
@@ -320,7 +320,7 @@
         }
         if (act?.can_resume === true) {
           $actions.push({
-            text: 'Chạy lại đơn',
+            text: 'รันคำสั่งใหม่',
             icon: 'fas fa-play',
             class: 'text-info',
             action: 'resume',
@@ -328,7 +328,7 @@
         }
 
         $actions.push({
-          text: 'Xem chi tiết',
+          text: 'ดูรายละเอียด',
           icon: 'fas fa-eye',
           class: 'text-danger',
           action: 'view',
@@ -386,7 +386,7 @@
               json.data = json.data.data
               return JSON.stringify(json) // return JSON string
             } else {
-              Swal.fire('Thất bại', json.message, 'error')
+              Swal.fire('ล้มเหลว', json.message, 'error')
 
               return JSON.stringify({
                 recordsTotal: 0,
@@ -437,7 +437,7 @@
             data: 'order_status_str',
             render: function(data, type, row) {
               return `<div><span>Status: </span>${row.order_status_str}</div>
-              <div><span>Dịch vụ: </span><span class="text-muted">${row.service_name}</span></div>
+              <div><span>บริการ: </span><span class="text-muted">${row.service_name}</span></div>
               <div><span>Provider: </span><span class="text-success">${row.provider_name} (ID: ${row.src_type})</span></div>
               <div><span>Order Note: </span><span class="text-primary">${row?.extra_note ?? '-'}</span></div>
               <div><span>API Response: </span><span class="text-danger">${row.src_resp?.error?row.src_resp.error:JSON.stringify(row.src_resp)}</span></div>`
@@ -472,23 +472,23 @@
       })
 
       const $sendAction = (action, id) => {
-        let simpleText = 'Bạn có chắc muốn thực hiện hành động này?'
+        let simpleText = 'คุณแน่ใจหรือต้องการดำเนินการนี้?'
         if (action === 'refund') {
-          simpleText = 'Đơn hàng sau khi huỷ sẽ được hoàn tiền sau 2-3 giờ!'
+          simpleText = 'คำสั่งที่ยกเลิกจะถูกคืนเงินภายใน 2-3 ชั่วโมง!'
         } else if (action === 'update') {
-          simpleText = 'Cập nhật trạng thái đơn hàng mới nhất ở hiện tại!'
+          simpleText = 'อัปเดตสถานะคำสั่งล่าสุดในขณะนี้!'
         } else if (action === 'warranty') {
-          simpleText = 'Yêu cầu bảo hành sẽ được xử lý trong vòng 24h!'
+          simpleText = 'คำขอรับประกันจะได้รับการจัดการภายใน 24 ชั่วโมง!'
         }
 
         if (!['view', 'history'].includes(action)) {
           Swal.fire({
-            title: 'Xác nhận',
+            title: 'ยืนยัน',
             text: simpleText,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Đồng ý',
-            cancelButtonText: 'Hủy',
+            confirmButtonText: 'ตกลง',
+            cancelButtonText: 'ยกเลิก',
             showLoaderOnConfirm: true,
             preConfirm: () => {
               return axios
@@ -497,14 +497,14 @@
                   data: res
                 }) => {
                   Swal.fire({
-                    title: 'Thành công',
+                    title: 'สำเร็จ',
                     text: res.message,
                     icon: 'success',
                   })
                   $tableInstance.draw()
                 })
                 .catch((err) => {
-                  Swal.fire('Thất bại', $catchMessage(err), 'error')
+                  Swal.fire('ล้มเหลว', $catchMessage(err), 'error')
                 })
             },
             allowOutsideClick: () => !Swal.isLoading(),
@@ -529,7 +529,7 @@
           }) => {
             const data = res.data
 
-            $modal.find('.modal-title').text(`Xem chi tiết đơn hàng #${res.data.id}`)
+            $modal.find('.modal-title').text(`ดูรายละเอียดคำสั่ง #${res.data.id}`)
             // fields
             $modal.find('#id').val(data.id)
             $modal.find('#pid').val(data.pid)
@@ -569,7 +569,7 @@
             $modal.modal('show')
           })
           .catch((err) => {
-            Swal.fire('Thất bại', $catchMessage(err), 'error')
+            Swal.fire('ล้มเหลว', $catchMessage(err), 'error')
           })
       }
       // action

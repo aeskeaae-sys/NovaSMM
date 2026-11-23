@@ -3,16 +3,16 @@
 @section('content')
   <div class="card custom-card nova-admin-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Danh sách giao dịch</div>
+      <div class="card-title">รายการธุรกรรม</div>
     </div>
     <div class="card-body">
       <div class="mb-2">
         <form id="filter" onsubmit="$('#basic-1').DataTable().ajax.reload(); return false;">
           <div class="mb-3 row">
             <div class="col-md-2">
-              <label for="type" class="form-label">Loại giao dịch</label>
+              <label for="type" class="form-label">ประเภทธุรกรรม</label>
               <select name="type" id="type" class="form-select">
-                <option value="">Tất cả</option>
+                <option value="">ทั้งหมด</option>
                 <option value="VIETTEL">VIETTEL</option>
                 <option value="VINAPHONE">VINAPHONE</option>
                 <option value="MOBIFONE">MOBIFONE</option>
@@ -20,25 +20,25 @@
               </select>
             </div>
             <div class="col-md-2">
-              <label for="order_id" class="form-label">Mã đơn hàng</label>
+              <label for="order_id" class="form-label">หมายเลขคำสั่งซื้อ</label>
               <input type="text" class="form-control" id="order_id" name="order_id">
             </div>
             <div class="col-md-2">
-              <label for="username" class="form-label">Tài khoản</label>
+              <label for="username" class="form-label">บัญชี</label>
               <input type="text" class="form-control" id="username" name="username">
             </div>
             <div class="col-md-2">
-              <label for="start_date" class="form-label">Ngày bắt đầu</label>
+              <label for="start_date" class="form-label">วันเริ่มต้น</label>
               <input type="date" class="form-control" id="start_date" name="start_date">
             </div>
             <div class="col-md-2">
-              <label for="end_date" class="form-label">Ngày kết thúc</label>
+              <label for="end_date" class="form-label">วันสิ้นสุด</label>
               <input type="date" class="form-control" id="end_date" name="end_date">
             </div>
             <div class="col-md-2">
               <label for="type" class="form-label">_</label>
               <div>
-                <button class="btn btn-primary">Lọc dữ liệu</button>
+                <button class="btn btn-primary">กรองข้อมูล</button>
               </div>
             </div>
           </div>
@@ -49,17 +49,17 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Tài khoản</th>
+              <th>บัญชี</th>
               <th>ID API</th>
-              <th>Mệnh giá</th>
-              <th>Thực nhận</th>
-              <th>Loại thẻ</th>
-              <th>Mã thẻ</th>
-              <th>Số serial</th>
-              <th>Trạng thái</th>
-              <th>Nội dung</th>
-              <th>Thời gian</th>
-              <th>Cập nhật</th>
+              <th>มูลค่าที่ตรา</th>
+              <th>ได้รับจริง</th>
+              <th>ประเภทบัตร</th>
+              <th>รหัสบัตร</th>
+              <th>หมายเลขซีเรียล</th>
+              <th>สถานะ</th>
+              <th>เนื้อหา</th>
+              <th>เวลา</th>
+              <th>อัปเดต</th>
             </tr>
           </thead>
         </table>
@@ -83,7 +83,7 @@
           [10, 50, 100, 200, 500, 1000, 2000, 10000, "All"]
         ],
         language: {
-          searchPlaceholder: 'Tìm kiếm...',
+          searchPlaceholder: 'ค้นหา...',
           sSearch: '',
           lengthMenu: '_MENU_',
         },
@@ -120,7 +120,7 @@
             return payload;
           },
           error: function(xhr) {
-            Swal.fire('Thất bại', $catchMessage(xhr), 'error')
+            Swal.fire('ล้มเหลว', $catchMessage(xhr), 'error')
           },
           dataFilter: function(data) {
             let json = JSON.parse(data);
@@ -130,7 +130,7 @@
               json.data = json.data.data
               return JSON.stringify(json); // return JSON string
             } else {
-              Swal.fire('Thất bại', json.message, 'error')
+              Swal.fire('ล้มเหลว', json.message, 'error')
               return JSON.stringify({
                 recordsTotal: 0,
                 recordsFiltered: 0,

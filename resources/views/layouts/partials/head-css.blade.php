@@ -88,17 +88,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@600;700;800&display=swap">
 
-  <!-- NovaSMM Premium Theme - Dark Glassmorphism -->
+  <!-- NovaSMM Premium Theme -->
   <link rel="stylesheet" href="/assets/css/nova-theme.css">
   <script>
-    // Force NovaSMM dark theme
-    document.documentElement.setAttribute('data-theme-mode', 'dark');
-    document.documentElement.setAttribute('data-header-styles', 'dark');
-    document.documentElement.setAttribute('data-menu-styles', 'dark');
+    document.documentElement.setAttribute('data-theme-mode', 'light');
+    document.documentElement.setAttribute('data-header-styles', 'light');
+    document.documentElement.setAttribute('data-menu-styles', 'light');
     try {
-      localStorage.setItem('ynexHeader', 'dark');
-      localStorage.setItem('ynexMenu', 'dark');
-      localStorage.setItem('ynexdarktheme', 'true');
+      localStorage.setItem('ynexHeader', 'light');
+      localStorage.setItem('ynexMenu', 'light');
+      localStorage.setItem('ynexdarktheme', 'false');
     } catch(e) {}
   </script>
 
@@ -123,9 +122,9 @@
 
   <style>
     :root {
-      --primary: {{ setting('color_primary', '#240750') }};
-      --primary-rgb: {{ hex2rgb(setting('color_primary', '#240750')) }};
-      --primary-hover: {{ setting('color_primary_hover', '#fff') }};
+      --primary: {{ setting('color_primary', '#2563eb') }};
+      --primary-rgb: {{ hex2rgb(setting('color_primary', '#2563eb')) }};
+      --primary-hover: {{ setting('color_primary_hover', '#ffffff') }};
     }
 
     body {
@@ -138,8 +137,8 @@
     }
 
     .table thead tr th {
-      background-color: var(--primary) !important;
-      color: var(--primary-hover);
+      background-color: #eaf2fb !important;
+      color: #0f172a;
     }
   </style>
 
@@ -196,7 +195,7 @@
       let prefix = '';
       let decimal = 2;
 
-      // Chuyển đổi number thành số nếu nó là chuỗi
+      // แปลง number เป็นตัวเลขหากเป็นสตริง
       number = typeof number === 'string' ? parseFloat(number) : number;
 
       if (isNaN(number)) {

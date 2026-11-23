@@ -3,7 +3,7 @@
 @section('content')
   <div class="card custom-card nova-admin-card">
     <div class="card-header justify-content-between">
-      <div class="card-title">Quản lý danh sách bài viết</div>
+      <div class="card-title">จัดการรายการบทความ</div>
     </div>
     <div class="card-body">
       <div class="table-responsive theme-scrollbar">
@@ -11,12 +11,12 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Thao tác</th>
-              <th>Ảnh bìa</th>
-              <th>Bài viết</th>
-              <th>Trạng thái</th>
-              <th>Người viết</th>
-              <th>Ngày viết</th>
+              <th>ดำเนินการ</th>
+              <th>ภาพปก</th>
+              <th>บทความ</th>
+              <th>สถานะ</th>
+              <th>ผู้เขียน</th>
+              <th>วันที่เขียน</th>
             </tr>
           </thead>
           <tbody>
@@ -24,8 +24,8 @@
               <tr>
                 <td>{{ $item->id }}</td>
                 <td>
-                  <a href="{{ route('admin.posts.show', ['id' => $item->id]) }}" class="shadow btn btn-primary btn-sm sharp me-1"><i class="fa fa-pencil"></i> sửa</a>
-                  <a href="javascript:deleteRow({{ $item->id }})" class="shadow btn btn-danger btn-sm sharp me-1"><i class="fa fa-trash"></i> xoá</a>
+                  <a href="{{ route('admin.posts.show', ['id' => $item->id]) }}" class="shadow btn btn-primary btn-sm sharp me-1"><i class="fa fa-pencil"></i> แก้ไข</a>
+                  <a href="javascript:deleteRow({{ $item->id }})" class="shadow btn btn-danger btn-sm sharp me-1"><i class="fa fa-trash"></i> ลบ</a>
                 </td>
                 <td>
                   <img src="{{ asset($item->thumbnail) }}" width="25">
@@ -33,9 +33,9 @@
                 <td>{{ $item->title }}</td>
                 <td>
                   @if ($item->status === true)
-                    <span class="text-success">Đang hiện</span>
+                    <span class="text-success">แสดงอยู่</span>
                   @else
-                    <span class="text-danger">Đang ẩn</span>
+                    <span class="text-danger">ซ่อนอยู่</span>
                   @endif
                 </td>
                 <td>{{ $item->author_name }}</td>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Tạo bài viết mới</a>
+      <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">สร้างบทความใหม่</a>
     </div>
   </div>
 @endsection
@@ -55,14 +55,14 @@
   <script>
     const deleteRow = async (id) => {
       const confirmDelete = await Swal.fire({
-        title: 'Bạn có chắc chắn muốn xóa?',
-        text: "Bạn sẽ không thể khôi phục lại dữ liệu này!",
+        title: 'คุณแน่ใจหรือต้องการลบ?',
+        text: "คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Xóa',
-        cancelButtonText: 'Hủy'
+        confirmButtonText: 'ลบ',
+        cancelButtonText: 'ยกเลิก'
       });
 
       if (!confirmDelete.isConfirmed) return;
@@ -76,11 +76,11 @@
           id
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
   </script>

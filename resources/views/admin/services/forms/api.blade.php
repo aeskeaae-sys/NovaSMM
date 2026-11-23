@@ -22,8 +22,8 @@
     <input type="text" class="form-control" name="original_rate" id="original_rate" readonly>
   </div>
   <div class="mb-3">
-    <label for="service_type" class="form-label">Loại dịch vụ</label>
-    <input type="text" class="form-control" name="service_type" id="service_type" placeholder="Có thể sửa cho phù hợp: default, custom_comments...">
+    <label for="service_type" class="form-label">ประเภทบริการ</label>
+    <input type="text" class="form-control" name="service_type" id="service_type" placeholder="สามารถแก้ไขให้เหมาะสมได้: default, custom_comments...">
   </div>
 </div>
 <script>

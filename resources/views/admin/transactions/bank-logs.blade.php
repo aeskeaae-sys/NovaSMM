@@ -7,7 +7,7 @@
   @foreach ($logs as $name => $data)
     <div class="card custom-card nova-admin-card">
       <div class="card-header justify-content-between">
-        <div class="card-title">Lịch sử nhận tiền qua <span class="text-danger">{{ $name }}</span></div>
+        <div class="card-title">ประวัติการรับเงินผ่าน <span class="text-danger">{{ $name }}</span></div>
       </div>
       <div class="card-body">
         <div class="table-responsive theme-scrollbar">
@@ -15,11 +15,11 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Thời gian</th>
-                <th>Ngân hàng</th>
-                <th>Số tiền nạp</th>
-                <th>Mã giao dịch</th>
-                <th>Nội dung</th>
+                <th>เวลา</th>
+                <th>ธนาคาร</th>
+                <th>จำนวนเงินฝาก</th>
+                <th>รหัสธุรกรรม</th>
+                <th>เนื้อหา</th>
               </tr>
             </thead>
             <tbody>

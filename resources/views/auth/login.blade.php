@@ -9,8 +9,8 @@
         <div class="text-center mb-2">
           <a href="{{ route('home') }}" class="d-inline-flex flex-column align-items-center text-decoration-none">
             <img src="/assets/images/brand-logos/nova-icon.svg" alt="NovaSMM" width="56" height="56" class="mb-2">
-            <span style="font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#8B5CF6,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.02em">NovaSMM</span>
-            <span style="font-size:0.75rem;color:#94A3B8;font-weight:500">Social Media Growth Platform</span>
+            <span style="font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#2563EB,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.02em">NovaSMM</span>
+            <span style="font-size:0.75rem;color:#94A3B8;font-weight:500">แพลตฟอร์มเติบโตบนโซเชียลมีเดีย</span>
           </a>
         </div>
       </div>

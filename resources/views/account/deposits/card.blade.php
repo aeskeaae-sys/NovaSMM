@@ -8,7 +8,7 @@
     <div class="col-md-6">
       <div class="card custom-card nova-order-card">
         <div class="card-header d-flex align-items-center gap-2">
-          <h3 class="card-title mb-0 d-flex align-items-center gap-2"><i class="fe fe-credit-card" style="color:#A78BFA"></i> {{ __t('Nạp thẻ cào') }}</h3>
+          <h3 class="card-title mb-0 d-flex align-items-center gap-2"><i class="fe fe-credit-card" style="color:#0EA5E9"></i> {{ __t('Nạp thẻ cào') }}</h3>
         </div>
         <div class="card-body">
           <form action="/api/users/send-card" method="POST" id="form-sendcard" class="tf-form">
@@ -44,7 +44,7 @@
               <input type="text" class="form-control" id="code" name="code" placeholder="{{ __t('Nhập mã thẻ') }}" required>
             </div>
             <div class="text-center mb-3">
-              <h3 class="real_amount text-danger">0 đ</h3>
+              <h3 class="real_amount text-danger">0 ₫</h3>
               <span class="">{{ __t('Nhận được') }}
             </div>
             <div class="mb-3">

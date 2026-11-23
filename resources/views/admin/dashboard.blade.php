@@ -10,7 +10,7 @@
 @section('content')
   <style>
     .card-stats h3 {
-      color: #A78BFA;
+      color: #0EA5E9;
       font-size: 36px;
     }
     .card-stats h6 {
@@ -27,44 +27,44 @@
       padding: 1.1rem;
     }
     .border-top-card h4 {
-      background: linear-gradient(135deg, #8B5CF6, #2563EB);
+      background: linear-gradient(135deg, #2563EB, #2563EB);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
     }
   </style>
   <section>
-    <div class="mb-3 p-3" style="background:linear-gradient(135deg,rgba(139,92,246,0.15),rgba(37,99,235,0.1));border:1px solid rgba(139,92,246,0.25);border-radius:14px">
+    <div class="mb-3 p-3" style="background:linear-gradient(135deg, #E0F2FE, #EFF6FF);border:1px solid rgba(37,99,235,0.15);border-radius:14px">
       <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
         <div>
-          <h5 class="mb-1" style="color:#F8FAFC">NovaSMM Admin <span class="badge" style="background:rgba(139,92,246,0.25);color:#A78BFA">v{{ appVersion() }}</span></h5>
-          <small style="color:#94A3B8">Premium Social Media Growth Platform</small>
+          <h5 class="mb-1" style="color:#1E3A5F">ผู้ดูแล NovaSMM <span class="badge" style="background:rgba(37,99,235,0.15);color:#0EA5E9">v{{ appVersion() }}</span></h5>
+          <small style="color:#94A3B8">แพลตฟอร์มโซเชียลมีเดียระดับพรีเมียม</small>
         </div>
       </div>
     </div>
     <div class="mb-3 alert alert-secondary alert-dismissible fade show custom-alert-icon shadow-sm d-none" role="alert">
       <h5>SMMPanel-V1 Version: <strong style="color:blue;">{{ appVersion() }}</strong></h5>
-      <small>Hệ thống sẽ tự động cập nhật phiên bản mới khi bạn truy cập trang này</small>
+      <small>ระบบจะอัปเดตเวอร์ชันใหม่โดยอัตโนมัติเมื่อคุณเข้าสู่หน้านี้</small>
       <br><br>
-      <h6>Giấy phép kích hoạt website của bạn là: <strong style="color:red;" id="copyKey">{{ env('PRJ_CLIENT_KEY') }}</strong>
+      <h6>รหัสเปิดใช้งานเว็บไซต์ของคุณคือ: <strong style="color:red;" id="copyKey">{{ env('PRJ_CLIENT_KEY') }}</strong>
         <button class="btn btn-info btn-sm shadow-sm btn-wave copy waves-effect waves-light" data-clipboard-target="#copyKey" onclick="copy()">Copy</button>
       </h6>
-      <small>Vui lòng bảo mật giấy phép của bạn, chỉ cung cấp cho <strong>CMSNT</strong> khi cần hỗ trợ.</small>
+      <small>กรุณารักษาความลับของใบอนุญาต และเปิดเผยเฉพาะกับ <strong>CMSNT</strong> เมื่อต้องการความช่วยเหลือ</small>
       <br>
       <hr>
-      <p>Cộng đồng Suppliers của chúng tôi:</p>
+      <p>ชุมชนผู้ให้บริการ (Suppliers) ของเรา:</p>
       <ul>
         @if (env('PRJ_DEMO_MODE', false) === true)
-          <li>Nhóm Zalo: <strong>chỉ áp dụng khi mua website chính hãng tại CMSNT</strong></li>
-          <li>Nhóm Zalo: <strong>chỉ áp dụng khi mua website chính hãng tại CMSNT</strong></li>
-          <li>Nhóm Telegram: <strong>chỉ áp dụng khi mua website chính hãng tại CMSNT</strong></li>
+          <li>กลุ่ม Zalo: <strong>ใช้ได้เฉพาะเมื่อซื้อเว็บไซต์ของแท้ที่ CMSNT</strong></li>
+          <li>กลุ่ม Zalo: <strong>ใช้ได้เฉพาะเมื่อซื้อเว็บไซต์ของแท้ที่ CMSNT</strong></li>
+          <li>กลุ่ม Telegram: <strong>ใช้ได้เฉพาะเมื่อซื้อเว็บไซต์ของแท้ที่ CMSNT</strong></li>
         @else
-          <li>Nhóm Zalo: <strong>chỉ áp dụng khi mua website chính hãng tại <a href="https://zalo.me/g/idapcx933" target="_blank">[CMSNT] Changelog - Notification</a></strong></li>
-          <li>Nhóm Zalo: <strong>chỉ áp dụng khi mua website chính hãng tại <a href="https://zalo.me/g/eululb377" target="_blank">[CMSNT] Trao đổi API - Suppliers</a></strong></li>
-          <li>Nhóm Telegram: <strong>chỉ áp dụng khi mua website chính hãng tại <a href="https://t.me/+LVON7y2BKWU3ZDY9" target="_blank">[CMSNT] Notification - API - Suppliers</a></strong></li>
+          <li>กลุ่ม Zalo: <strong>ใช้ได้เฉพาะเมื่อซื้อเว็บไซต์ของแท้ที่ <a href="https://zalo.me/g/idapcx933" target="_blank">[CMSNT] Changelog - Notification</a></strong></li>
+          <li>กลุ่ม Zalo: <strong>ใช้ได้เฉพาะเมื่อซื้อเว็บไซต์ของแท้ที่ <a href="https://zalo.me/g/eululb377" target="_blank">[CMSNT] แลกเปลี่ยน API - Suppliers</a></strong></li>
+          <li>กลุ่ม Telegram: <strong>ใช้ได้เฉพาะเมื่อซื้อเว็บไซต์ของแท้ที่ <a href="https://t.me/+LVON7y2BKWU3ZDY9" target="_blank">[CMSNT] Notification - API - Suppliers</a></strong></li>
         @endif
       </ul>
-      <p class="text-danger">Những thay đổi trong phiên bản này:</p>
+      <p class="text-danger">การเปลี่ยนแปลงในเวอร์ชันนี้:</p>
       <ul>
         @foreach (get_change_logs() as $changed)
           <li class="fw-bold text-blue">{{ $changed }}</li>
@@ -77,13 +77,13 @@
         <div class="text-center fw-bold fs-6 alert alert-danger">
           {{ __t('Hệ thống cron đang gặp lỗi hoặc bạn chưa cron; nếu chưa hãy cron 2 link sau:') }}
           <div class="text-center">
-            <div>{{ url('/schedule/orders/place-order') }} - 2 phút</div>
-            <div>{{ url('/schedule/orders/update-order') }} - 1 phút</div>
+            <div>{{ url('/schedule/orders/place-order') }} - 2 นาที</div>
+            <div>{{ url('/schedule/orders/update-order') }} - 1 นาที</div>
           </div>
         </div>
       @else
         <div class="alert alert-danger">
-          Cron đơn hàng gần nhất: {{ Helper::getTimeAgo(Helper::getConfig('time_cron_order')) }}
+          Cron คำสั่งซื้อล่าสุด: {{ Helper::getTimeAgo(Helper::getConfig('time_cron_order')) }}
         </div>
       @endif
 
@@ -243,7 +243,7 @@
         dataLabels: {
           enabled: false
         },
-        colors: ["#845adf", "#23b7e5"],
+        colors: ["#2563EB", "#0EA5E9"],
         stroke: {
           show: true,
           width: 2,
@@ -263,7 +263,7 @@
         },
         yaxis: {
           title: {
-            text: 'VNĐ',
+            text: 'VND',
             style: {
               color: "#8c9097",
             },
@@ -320,7 +320,7 @@
         dataLabels: {
           enabled: false
         },
-        colors: ["#845adf", "#23b7e5"],
+        colors: ["#2563EB", "#0EA5E9"],
         stroke: {
           show: true,
           width: 2,
@@ -340,7 +340,7 @@
         },
         yaxis: {
           title: {
-            text: '{{ currentLang() === 'vn' ? 'VNĐ' : '$ Dollar' }}',
+            text: '{{ currentLang() === 'vn' ? 'VND' : '$ Dollar' }}',
             style: {
               color: "#8c9097",
             },
@@ -483,7 +483,7 @@
         } catch (error) {
           Swal.fire({
             icon: 'error',
-            title: 'Lỗi!',
+            title: 'เกิดข้อผิดพลาด!',
             text: $catchMessage(error),
           })
         }
@@ -494,15 +494,15 @@
           const canUpdate = await callApi(0)
 
           if (canUpdate) {
-            $showLoading('Đang cập nhật, vui lòng đợi...')
+            $showLoading('กำลังอัปเดต กรุณารอ...')
 
             const result = await callApi(1)
 
             if (result.data?.version_code !== undefined) {
               return Swal.fire({
                 icon: 'success',
-                title: 'Đã cập nhật!',
-                text: result.message || 'Cập nhật thành công!'
+                title: 'อัปเดตแล้ว!',
+                text: result.message || 'อัปเดตสำเร็จ!'
               }).then(() => {
                 location.reload()
               })
@@ -511,11 +511,11 @@
 
           $hideLoading()
 
-          console.log('Bạn đang dùng phiên bản mới nhất rồi keke')
+          console.log('คุณกำลังใช้เวอร์ชันล่าสุดอยู่แล้ว keke')
         } catch (error) {
           Swal.fire({
             icon: 'error',
-            title: 'Cập nhật thất bại!',
+            title: 'อัปเดตล้มเหลว!',
             text: $catchMessage(error),
           })
         }
@@ -525,16 +525,16 @@
     })
 
     $(document).ready(function() {
-      // Kiểm tra nếu đã hiển thị modal trong vòng 30 phút trước đó
+      // ตรวจสอบว่ามีการแสดง modal ภายใน 30 นาทีที่ผ่านมาหรือไม่
       var lastShownTime = localStorage.getItem('lastShownTime1');
       var currentTime = new Date().getTime();
       var timeDiff = currentTime - lastShownTime;
 
       if (lastShownTime === null || timeDiff > 5 * 60 * 1000) {
-        // Nếu chưa hiển thị trong vòng 30 phút, hiển thị modal
+        // หากยังไม่ได้แสดงภายใน 30 นาที ให้แสดง modal
         $('#exampleModal').modal('show');
 
-        // Lưu thời điểm hiển thị modal
+        // บันทึกเวลาที่แสดง modal
         localStorage.setItem('lastShownTime1', currentTime);
       }
     })

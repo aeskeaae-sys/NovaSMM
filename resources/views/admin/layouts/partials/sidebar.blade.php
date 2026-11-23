@@ -5,7 +5,7 @@
     <a href="{{ route('admin.dashboard') }}" class="header-logo d-flex align-items-center gap-2">
       <img src="/assets/images/brand-logos/nova-icon.svg" alt="NovaSMM" class="toggle-logo toggle-dark" width="36" height="36" style="min-width:36px">
       <div class="desktop-logo desktop-dark d-flex flex-column" style="line-height:1.1">
-        <span class="fw-bold" style="font-size:1.25rem;background:linear-gradient(135deg,#8B5CF6,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent">NovaSMM</span>
+        <span class="fw-bold" style="font-size:1.25rem;background:linear-gradient(135deg,#2563EB,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent">NovaSMM</span>
         <span style="font-size:0.6rem;color:#94A3B8;font-weight:500">Admin Panel</span>
       </div>
       <img src="/assets/images/brand-logos/nova-icon.svg" alt="NovaSMM" class="toggle-logo d-none" width="36">

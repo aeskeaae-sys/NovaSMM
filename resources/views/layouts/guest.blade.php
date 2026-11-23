@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="dark" data-header-styles="dark" data-menu-styles="dark" data-toggled="close">
+<html lang="th" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
 
 <head>
 
@@ -26,43 +26,54 @@
   <link rel="stylesheet" href="/assets/css/nova-theme.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    document.documentElement.setAttribute('data-theme-mode', 'dark');
-    try { localStorage.setItem('ynexdarktheme', 'true'); } catch(e) {}
+    document.documentElement.setAttribute('data-theme-mode', 'light');
+    document.documentElement.setAttribute('data-header-styles', 'light');
+    document.documentElement.setAttribute('data-menu-styles', 'light');
+    try {
+      localStorage.setItem('ynexHeader', 'light');
+      localStorage.setItem('ynexMenu', 'light');
+      localStorage.setItem('ynexdarktheme', 'false');
+    } catch(e) {}
   </script>
   <style>
     body, .page.login-page {
-      background: #080B18 !important;
+      background: #f4f8fd !important;
       min-height: 100vh;
     }
     .container-login100 {
       background: transparent !important;
     }
     .wrap-login100, .card.wrap-login100 {
-      background: rgba(255,255,255,0.05) !important;
-      border: 1px solid rgba(139,92,246,0.25) !important;
+      background: #ffffff !important;
+      border: 1px solid #dbe7f3 !important;
       border-radius: 20px !important;
       backdrop-filter: blur(16px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(139,92,246,0.1);
+      box-shadow: 0 16px 48px rgba(37,99,235,0.10), 0 0 0 1px rgba(37,99,235,0.05);
     }
     .login100-form-title {
-      color: #F8FAFC !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
     }
     .input100, .form-control.input100 {
-      background: rgba(16,21,42,0.8) !important;
-      border: 1px solid rgba(255,255,255,0.1) !important;
-      color: #F8FAFC !important;
+      background: #ffffff !important;
+      border: 1px solid #dbe7f3 !important;
+      color: #0f172a !important;
       border-radius: 10px !important;
     }
+    .input100:focus, .form-control.input100:focus {
+      border-color: #2563eb !important;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.15) !important;
+      outline: none;
+    }
     .login100-form-btn, .btn-primary.login100-form-btn {
-      background: linear-gradient(135deg, #8B5CF6, #2563EB) !important;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
       border: none !important;
       border-radius: 10px !important;
       font-weight: 700 !important;
-      box-shadow: 0 4px 18px rgba(139,92,246,0.4);
+      box-shadow: 0 4px 18px rgba(37,99,235,0.25);
     }
-    .text-dark { color: #94A3B8 !important; }
-    .card-footer { background: transparent !important; border-color: rgba(255,255,255,0.08) !important; }
+    .text-dark { color: #64748b !important; }
+    .card-footer { background: transparent !important; border-color: #dbe7f3 !important; }
   </style>
 
   <!-- Icons Css -->
@@ -95,9 +106,9 @@
 
   <style>
     :root {
-      --primary: {{ setting('color_primary', '#240750') }};
-      --primary-rgb: {{ hex2rgb(setting('color_primary', '#240750')) }};
-      --primary-hover: {{ setting('color_primary_hover', '#240750') }};
+      --primary: {{ setting('color_primary', '#2563eb') }};
+      --primary-rgb: {{ hex2rgb(setting('color_primary', '#2563eb')) }};
+      --primary-hover: {{ setting('color_primary_hover', '#ffffff') }};
     }
 
     body {

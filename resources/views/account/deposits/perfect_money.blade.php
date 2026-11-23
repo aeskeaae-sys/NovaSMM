@@ -6,7 +6,7 @@
     <div class="col-12 col-sm-12 col-md-6 gap-3">
       <div class="card custom-card nova-order-card">
         <div class="card-header d-flex align-items-center gap-2">
-          <h3 class="card-title mb-0 d-flex align-items-center gap-2"><i class="fe fe-credit-card" style="color:#A78BFA"></i> {{ __t('Nạp Tiền Bằng Perfect Money') }}</h3>
+          <h3 class="card-title mb-0 d-flex align-items-center gap-2"><i class="fe fe-credit-card" style="color:#0EA5E9"></i> {{ __t('Nạp Tiền Bằng Perfect Money') }}</h3>
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-center mt-5 mb-3">

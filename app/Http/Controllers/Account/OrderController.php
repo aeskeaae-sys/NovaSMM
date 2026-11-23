@@ -23,7 +23,7 @@ class OrderController extends Controller
     ];
 
     return view('account.orders.index', [
-      'pageTitle' => 'Orders',
+      'pageTitle' => __t('Orders'),
     ], compact('services', 'orderStatus'));
   }
 }

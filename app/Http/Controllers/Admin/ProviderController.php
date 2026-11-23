@@ -22,7 +22,7 @@ class ProviderController extends Controller
     $records = ApiProvider::orderBy('id', 'desc')->paginate(10);
 
     return view('admin.providers.index', [
-      'pageTitle' => 'Provider: API Manager',
+      'pageTitle' => __t('Provider: API Manager'),
     ], compact('records'));
   }
 
@@ -287,7 +287,7 @@ class ProviderController extends Controller
 
 
     return view('admin.providers.import', [
-      'pageTitle' => 'Provider: Import Services',
+      'pageTitle' => __t('Provider: Import Services'),
     ], compact('provider', 'providers', 'platforms', 'categories', 'api_services'));
   }
 

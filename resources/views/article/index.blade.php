@@ -3,7 +3,7 @@
 @section('content')
   <section class="space-y-6">
     <div class="text-center">
-      <h1 class="fw-bold text-danger mb-3" style="font-size: 30px">Danh Sách Bài Viết Hướng Dẫn</h1>
+      <h1 class="fw-bold text-danger mb-3" style="font-size: 30px">รายการบทความแนะนำ</h1>
     </div>
 
     <div class="row">
@@ -19,8 +19,8 @@
               <a href="{{ route('articles.show', ['slug' => $post->slug]) }}" class="text-lg">{{ $post->title }}</a>
             </div>
             <div class="d-flex justify-content-between" style="padding: 10px">
-              <a href="#!" class="btn btn-sm btn-outline-primary">Ngày: {{ $post->created_at }}</a>
-              <a href="{{ route('articles.show', ['slug' => $post->slug]) }}" class="btn btn-sm btn-primary">Xem Thêm <i class="fas fa-arrow-right"></i></a>
+              <a href="#!" class="btn btn-sm btn-outline-primary">วันที่: {{ $post->created_at }}</a>
+              <a href="{{ route('articles.show', ['slug' => $post->slug]) }}" class="btn btn-sm btn-primary">ดูเพิ่มเติม <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>

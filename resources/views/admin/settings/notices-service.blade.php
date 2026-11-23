@@ -10,14 +10,14 @@
         <form action="{{ route('admin.settings.notices.update', ['type' => $service['category'] . '_' . $service['slug']]) }}" method="POST">
           @csrf
           <div class="mb-3">
-            <label for="youtube_id" class="form-label">Video Hướng Dẫn</label>
+            <label for="youtube_id" class="form-label">วิดีโอแนะนำ</label>
             <input type="text" class="form-control" id="youtube_id" name="youtube_id" value="{{ $notices['ytb_' . $service['category'] . '_' . $service['slug']] ?? '' }}">
           </div>
           <div class="mb-3">
             <textarea class="form-control ckeditor" id="content" name="content" rows="5">{{ $notices[$service['category'] . '_' . $service['slug']] ?? '' }}</textarea>
           </div>
           <div class="mb-3 text-center">
-            <button class="btn btn-primary" type="submit">Cập Nhật</button>
+            <button class="btn btn-primary" type="submit">อัปเดต</button>
           </div>
         </form>
       </div>

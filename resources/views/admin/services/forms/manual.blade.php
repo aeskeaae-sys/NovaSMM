@@ -1,6 +1,6 @@
 <div class="card-body">
   <div class="mode__manual">
-    <label for="service_type" class="form-label">Loại dịch vụ</label>
+    <label for="service_type" class="form-label">ประเภทบริการ</label>
     <select name="service_type" id="service_type" class="form-control">
       <option value="default">Default</option>
       <option value="custom_comments">Custom comments</option>

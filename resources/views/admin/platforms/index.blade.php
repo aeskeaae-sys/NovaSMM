@@ -2,8 +2,8 @@
 @section('title', $pageTitle)
 @section('content')
   <div class="mb-3 text-end">
-    <button data-bs-toggle="modal" data-bs-target="#modal-create" class="btn btn-outline-primary me-2"><i class="fas fa-plus me-2"></i> {{ __t('Thêm mới') }}</button>
-    <button class="btn btn-danger-gradient action-ids" onclick="deleteList()"><i class="fas fa-trash me-2"></i> {{ __t('Xoá') }}</button>
+    <button data-bs-toggle="modal" data-bs-target="#modal-create" class="btn btn-outline-primary me-2"><i class="fas fa-plus me-2"></i> {{ __t('เพิ่มใหม่') }}</button>
+    <button class="btn btn-danger-gradient action-ids" onclick="deleteList()"><i class="fas fa-trash me-2"></i> {{ __t('ลบ') }}</button>
   </div>
   <div class="card custom-card nova-admin-card">
     <div class="card-body">
@@ -15,11 +15,11 @@
               <th data-orderable="false" width="10">
                 <input type="checkbox" name="checked_all">
               </th>
-              <th>{{ __t('Ưu tiên') }}</th>
-              <th data-orderable="false" width="10">{{ __t('Thao tác') }}</th>
-              <th>{{ __t('Tên chuyên mục') }}</th>
-              <th>{{ __t('Trạng thái') }}</th>
-              <th>{{ __t('Thời gian thêm') }}</th>
+              <th>{{ __t('ลำดับความสำคัญ') }}</th>
+              <th data-orderable="false" width="10">{{ __t('ดำเนินการ') }}</th>
+              <th>{{ __t('ชื่อหมวดหมู่') }}</th>
+              <th>{{ __t('สถานะ') }}</th>
+              <th>{{ __t('เวลาที่เพิ่ม') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -37,9 +37,9 @@
                 <td>{{ $value->name }}</td>
                 <td>
                   @if ($value->status)
-                    <span class="badge bg-success">{{ __t('Hoạt động') }}</span>
+                    <span class="badge bg-success">{{ __t('ใช้งาน') }}</span>
                   @else
-                    <span class="badge bg-danger">{{ __t('Không hoạt động') }}</span>
+                    <span class="badge bg-danger">{{ __t('ไม่ใช้งาน') }}</span>
                   @endif
                 </td>
                 <td>{{ $value->created_at }}</td>
@@ -55,7 +55,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Thêm thông tin mới</h5>
+          <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูลใหม่</h5>
           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -66,22 +66,22 @@
               <input type="file" class="form-control" name="image" id="image" required>
             </div>
             <div class="mb-3">
-              <label for="name" class="form-label">Tên</label>
+              <label for="name" class="form-label">ชื่อ</label>
               <input class="form-control" type="text" id="name" name="name" required>
             </div>
             <div class="mb-3">
-              <label for="priority" class="form-label">Ưu tiên</label>
+              <label for="priority" class="form-label">ลำดับความสำคัญ</label>
               <input class="form-control" type="number" id="priority" name="priority" value="0" required>
             </div>
             <div class="mb-3">
-              <label for="status" class="form-label">Trạng thái</label>
+              <label for="status" class="form-label">สถานะ</label>
               <select class="form-control" id="status" name="status">
-                <option value="1">Hoạt động</option>
-                <option value="0">Không hoạt động</option>
+                <option value="1">ใช้งาน</option>
+                <option value="0">ไม่ใช้งาน</option>
               </select>
             </div>
             <div class="mb-3">
-              <button class="btn btn-primary w-100" type="submit">Thêm mới</button>
+              <button class="btn btn-primary w-100" type="submit">เพิ่มใหม่</button>
             </div>
           </form>
         </div>
@@ -94,7 +94,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin #{{ $value->id }}</h5>
+            <h5 class="modal-title" id="exampleModalLabel">อัปเดตข้อมูล #{{ $value->id }}</h5>
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -105,22 +105,22 @@
                 <input type="file" class="form-control" name="image" id="image">
               </div>
               <div class="mb-3">
-                <label for="name" class="form-label">Tên</label>
+                <label for="name" class="form-label">ชื่อ</label>
                 <input class="form-control" type="text" id="name" name="name" value="{{ $value->name }}" required>
               </div>
               <div class="mb-3">
-                <label for="priority" class="form-label">Ưu tiên</label>
+                <label for="priority" class="form-label">ลำดับความสำคัญ</label>
                 <input class="form-control" type="number" id="priority" name="priority" value="{{ $value->priority }}" required>
               </div>
               <div class="mb-3">
-                <label for="status" class="form-label">Trạng thái</label>
+                <label for="status" class="form-label">สถานะ</label>
                 <select class="form-control" id="status" name="status">
-                  <option value="1" @if ($value->status) selected @endif>Hoạt động</option>
-                  <option value="0" @if (!$value->status) selected @endif>Không hoạt động</option>
+                  <option value="1" @if ($value->status) selected @endif>ใช้งาน</option>
+                  <option value="0" @if (!$value->status) selected @endif>ไม่ใช้งาน</option>
                 </select>
               </div>
               <div class="mb-3">
-                <button class="btn btn-primary w-100" type="submit">Cập nhật</button>
+                <button class="btn btn-primary w-100" type="submit">อัปเดต</button>
               </div>
             </form>
           </div>
@@ -174,14 +174,14 @@
   <script>
     const deleteRow = (id) => {
       Swal.fire({
-        title: '{{ __t('Bạn chắc chứ?') }}',
-        text: "{{ __t('Bạn sẽ không thể khôi phục lại dữ liệu này!') }}",
+        title: '{{ __t('คุณแน่ใจหรือไม่?') }}',
+        text: "{{ __t('คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!') }}",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: '{{ __t('Xóa') }}',
-        cancelButtonText: '{{ __t('Hủy') }}'
+        confirmButtonText: '{{ __t('ลบ') }}',
+        cancelButtonText: '{{ __t('ยกเลิก') }}'
       }).then((result) => {
         if (result.isConfirmed) {
           $showLoading();
@@ -191,11 +191,11 @@
           }).then(({
             data: result
           }) => {
-            Swal.fire('Thành công', result.message, 'success').then(() => {
+            Swal.fire('สำเร็จ', result.message, 'success').then(() => {
               window.location.reload();
             })
           }).catch(error => {
-            Swal.fire('Thất bại', $catchMessage(error), 'error')
+            Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
           })
         }
       })
@@ -205,19 +205,19 @@
       let ids = getIds()
 
       if (ids.length === 0) {
-        Swal.fire('Thất bại', '{{ __t('Vui lòng chọn ít nhất 1 dòng để xóa') }}', 'error')
+        Swal.fire('ล้มเหลว', '{{ __t('กรุณาเลือกอย่างน้อย 1 แถวเพื่อลบ') }}', 'error')
         return
       }
 
       const confirm = await Swal.fire({
-        title: '{{ __t('Bạn chắc chứ?') }}',
-        text: "{{ __t('Bạn sẽ không thể khôi phục lại dữ liệu này!') }}",
+        title: '{{ __t('คุณแน่ใจหรือไม่?') }}',
+        text: "{{ __t('คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!') }}",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: '{{ __t('Xóa') }}',
-        cancelButtonText: '{{ __t('Hủy') }}'
+        confirmButtonText: '{{ __t('ลบ') }}',
+        cancelButtonText: '{{ __t('ยกเลิก') }}'
       })
 
       if (!confirm.isConfirmed)
@@ -232,11 +232,11 @@
           ids
         })
 
-        Swal.fire('Thành công', result.message, 'success').then(() => {
+        Swal.fire('สำเร็จ', result.message, 'success').then(() => {
           window.location.reload();
         })
       } catch (error) {
-        Swal.fire('Thất bại', $catchMessage(error), 'error')
+        Swal.fire('ล้มเหลว', $catchMessage(error), 'error')
       }
     }
   </script>

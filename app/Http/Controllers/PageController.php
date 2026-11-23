@@ -110,7 +110,7 @@ class PageController extends Controller
     }
 
     return view('pages.statistics', [
-      'pageTitle' => 'Statistics',
+      'pageTitle' => __t('Statistics'),
     ], compact('totalDepositInMonth', 'percentDeposit', 'totalOrderInMonth', 'percentOrder', 'chartCategories', 'chartPieColors', 'chartPieLabels', 'chartPieData', 'chartOrders', 'chartOrdersColors', 'chartCount', 'chartSpent', 'chartDeposit'));
   }
 
@@ -135,7 +135,7 @@ class PageController extends Controller
   public function apiDocs(Request $request)
   {
     return view('pages.api_docs', [
-      'pageTitle' => 'API Docs',
+      'pageTitle' => __t('API Docs'),
     ]);
   }
 
@@ -152,14 +152,14 @@ class PageController extends Controller
     }
 
     return view('pages.services', [
-      'pageTitle' => 'Services',
+      'pageTitle' => __t('Services'),
     ], compact('groupped'));
   }
 
   public function termsOfService(Request $reqeust)
   {
     return view('pages.terms_of_service', [
-      'pageTitle' => 'Terms of Service',
+      'pageTitle' => __t('Terms of Service'),
     ]);
   }
 }
