@@ -5,7 +5,7 @@ import {
   fromMicro,
   subDecimal,
   toMicro,
-} from '../../server/src/utils/decimal';
+} from './decimal';
 
 export const DEFAULT_RANK_TIERS: RankTierConfig[] = [
   { rank: 'member', label: 'Member', discountPercent: 0, minSpentThreshold: 0 },
