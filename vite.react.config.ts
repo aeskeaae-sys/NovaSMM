@@ -10,7 +10,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   root: path.resolve(__dirname, 'resources/react-app'),
-  base: '/app/',
+  base: process.env.GITHUB_PAGES === '1' ? '/NovaSMM/' : '/app/',
   publicDir: false,
   build: {
     outDir: path.resolve(__dirname, 'public/app'),
@@ -23,3 +23,4 @@ export default defineConfig({
     },
   },
 });
+
