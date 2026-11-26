@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -12,10 +12,19 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->validateCsrfTokens(except: ['api/*']);
         $middleware->alias([
             'cron.secret' => \App\Http\Middleware\VerifyCronSecret::class,
+        ]);
+        $middleware->appendToGroup('api', [
+            \Illuminate\Cookie\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \App\Http\Middleware\ApiSpaSessionAuth::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+
+

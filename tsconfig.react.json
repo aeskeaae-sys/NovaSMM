@@ -1,0 +1,17 @@
+﻿{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": false,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": { "@/*": ["resources/react/*"] }
+  },
+  "include": ["resources/react/**/*", "resources/react-app/**/*", "shared/**/*", "vite.react.config.ts"]
+}

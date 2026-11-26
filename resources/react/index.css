@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+:root {
+  --nova-bg: #f4f8fd;
+  --nova-bg-soft: #eaf2fb;
+  --nova-surface: #ffffff;
+  --nova-surface-hover: #f8fbff;
+  --nova-border: #dbe7f3;
+  --nova-blue: #2563eb;
+  --nova-cyan: #0ea5e9;
+  --nova-text: #1e3a5f;
+  --nova-muted: #64748b;
+  --nova-gradient: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+}
+
+html.dark {
+  --nova-bg: #0b1220;
+  --nova-bg-soft: #132036;
+  --nova-surface: #111b2e;
+  --nova-surface-hover: #17233b;
+  --nova-border: #23334d;
+  --nova-text: #e2e8f0;
+  --nova-muted: #94a3b8;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: var(--nova-bg);
+  color: var(--nova-text);
+  font-family: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark .bg-white {
+  background-color: var(--nova-surface) !important;
+}
+
+html.dark .bg-white\/95,
+html.dark .bg-white\/75,
+html.dark .bg-white\/70 {
+  background-color: rgba(17, 27, 46, 0.92) !important;
+}
+
+html.dark .bg-\[\#f4f8fd\],
+html.dark .bg-\[\#f8fbff\],
+html.dark .bg-\[\#eaf2fb\],
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 {
+  background-color: var(--nova-bg-soft) !important;
+}
+
+html.dark .bg-blue-50,
+html.dark .bg-blue-100 {
+  background-color: rgba(37, 99, 235, 0.18) !important;
+}
+
+html.dark .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.14) !important;
+}
+
+html.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.14) !important;
+}
+
+html.dark .bg-rose-50 {
+  background-color: rgba(244, 63, 94, 0.14) !important;
+}
+
+html.dark .border-\[\#dbe7f3\],
+html.dark .border-slate-100,
+html.dark .border-slate-200 {
+  border-color: var(--nova-border) !important;
+}
+
+html.dark .border-amber-200 {
+  border-color: rgba(245, 158, 11, 0.35) !important;
+}
+
+html.dark .border-emerald-200 {
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+
+html.dark .border-rose-200 {
+  border-color: rgba(244, 63, 94, 0.35) !important;
+}
+
+html.dark .text-\[\#1e3a5f\],
+html.dark .text-slate-700,
+html.dark .text-slate-600 {
+  color: var(--nova-text) !important;
+}
+
+html.dark .text-blue-700,
+html.dark .text-blue-800,
+html.dark .text-blue-900 {
+  color: #93c5fd !important;
+}
+
+html.dark .text-amber-700,
+html.dark .text-amber-800 {
+  color: #fcd34d !important;
+}
+
+html.dark .text-emerald-700,
+html.dark .text-emerald-800 {
+  color: #6ee7b7 !important;
+}
+
+html.dark .text-rose-600,
+html.dark .text-rose-700 {
+  color: #fda4af !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: var(--nova-muted) !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border-color: #293954;
+}
+
+code,
+pre,
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+.nova-gradient-text {
+  background: var(--nova-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nova-gradient-bg {
+  background: var(--nova-gradient);
+}
+
+@layer components {
+  .nova-card {
+    background: var(--nova-surface);
+    border: 1px solid var(--nova-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  }
+}
+
+.nova-mock-tilt {
+  transform: perspective(1200px) rotateY(-5deg) rotateX(2deg);
+  transition: transform 0.35s ease;
+}
+
+.nova-mock-tilt:hover {
+  transform: perspective(1200px) rotateY(-1deg) rotateX(0.5deg);
+}
+
+@media (max-width: 1024px) {
+  .nova-mock-tilt {
+    transform: none;
+  }
+}

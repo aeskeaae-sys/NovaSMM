@@ -1,118 +1,111 @@
-<?php
+﻿<?php
 
 use App\Http\Middleware\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\NodeApiController;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| NovaSMM Node-compat API (primary)
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
 */
+Route::get('/health', [NodeApiController::class,'health']);
+Route::get('/bootstrap', [NodeApiController::class,'bootstrap']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-  $user = $request->user();
+Route::post('/auth/setup-admin', [NodeApiController::class,'setupAdmin']);
+Route::post('/auth/register', [NodeApiController::class,'register']);
+Route::post('/auth/login', [NodeApiController::class,'login']);
+Route::post('/auth/logout', [NodeApiController::class,'logout']);
+Route::post('/auth/forgot-password', [NodeApiController::class,'forgotPassword']);
+Route::post('/auth/reset-password', [NodeApiController::class,'resetPassword']);
+Route::get('/auth/me', [NodeApiController::class,'me']);
 
-  $user->balance_formatted = formatCurrencyF($user->balance);
+Route::middleware([\App\Http\Middleware\ApiSpaSessionAuth::class, 'web'])->group(function () {
+  Route::get('/user', [NodeApiController::class,'meUser']);
+  Route::post('/profile/update', [NodeApiController::class,'profileUpdate']);
+  Route::post('/profile/password', [NodeApiController::class,'profilePassword']);
+  Route::post('/profile/token', [NodeApiController::class,'profileToken']);
+  Route::post('/profile/token/revoke', [NodeApiController::class,'profileTokenRevoke']);
 
-  return $user;
+  Route::get('/orders', [NodeApiController::class,'listOrders']);
+  Route::post('/orders', [NodeApiController::class,'createOrder']);
+  Route::post('/orders/store', [NodeApiController::class,'createOrder']); // legacy
+  Route::get('/orders/get-by-id', [NodeApiController::class,'getOrderById']);
+  Route::get('/orders/get-by-ids', [NodeApiController::class,'getOrdersByIds']);
+  Route::post('/orders/{id}/sync', [NodeApiController::class,'syncOrder']);
+  Route::post('/orders/{id}/refill', [NodeApiController::class,'refillOrder']);
+  Route::post('/orders/{id}/cancel', [NodeApiController::class,'cancelOrder']);
+  Route::post('/orders/{id}/{action}', [NodeApiController::class,'orderAction']);
+
+  Route::get('/deposits', [NodeApiController::class,'deposits']);
+  Route::post('/deposits/invoice', [NodeApiController::class,'createInvoice']);
+  Route::post('/deposits/voucher', [NodeApiController::class,'redeemVoucher']);
+
+  Route::get('/transactions', [NodeApiController::class,'transactions']);
+  Route::get('/affiliates', [NodeApiController::class,'affiliates']);
+  Route::post('/affiliates/withdraw', [NodeApiController::class,'affiliateWithdraw']);
+  Route::get('/notifications', [NodeApiController::class,'notifications']);
+  Route::post('/notifications/read', [NodeApiController::class,'notificationsRead']);
+  Route::get('/search', [NodeApiController::class,'search']);
+
+  // legacy users routes
+  Route::get('/users/histories', [NodeApiController::class,'userHistories']);
+  Route::get('/users/transactions', [NodeApiController::class,'transactions']);
+  Route::get('/users/invoices', [NodeApiController::class,'userInvoices']);
+  Route::post('/users/invoices', [NodeApiController::class,'createInvoice']);
+  Route::get('/users/invoices/{id}', [NodeApiController::class,'userInvoiceShow']);
+  Route::get('/users/banks', [NodeApiController::class,'banks']);
+  Route::post('/users/affiliates/withdraw', [NodeApiController::class,'affiliateWithdraw']);
+  Route::post('/users/vouchers/redeem', [NodeApiController::class,'redeemVoucher']);
+  Route::get('/users/card-list', fn() => response()->json(['data'=>[],'status'=>200,'message'=>'Card gateway not configured']));
+  Route::post('/users/send-card', fn() => response()->json(['status'=>501,'message'=>'Card deposit not configured'],501));
+  Route::post('/deposit/paypal-confirm', fn() => response()->json(['status'=>501,'message'=>'PayPal not configured'],501));
 });
 
-// Deposit Routes
-Route::middleware('auth:sanctum')->prefix('/deposit')->group(function () {
-  Route::post('/paypal-confirm', [App\Http\Controllers\Api\Deposit\PaypalController::class, 'index']);
-});
+Route::post('/deposits/webhook', [NodeApiController::class,'depositWebhook']);
 
-// Routes Services
+// Preset / tools / v2 compat
 Route::prefix('/preset-data')->group(function () {
-  Route::get('/platforms', [App\Http\Controllers\Api\Preset\PlatformController::class, 'index']);
-  Route::get('/services', [App\Http\Controllers\Api\Preset\ServiceController::class, 'index']);
-  Route::get('/service-info', [App\Http\Controllers\Api\Preset\ServiceController::class, 'info']);
-  Route::get('/categories', [App\Http\Controllers\Api\Preset\CategoryController::class, 'index']);
+  Route::get('/platforms', [NodeApiController::class,'presetPlatforms']);
+  Route::get('/categories', [NodeApiController::class,'presetCategories']);
+  Route::get('/services', [NodeApiController::class,'listServices']);
+  Route::get('/service-info', [NodeApiController::class,'presetServiceInfo']);
 });
-
-
-// Users Routes
-Route::middleware('auth:sanctum')->prefix('/users')->group(function () {
-  // Profiles Routes
-  Route::get('/histories', [App\Http\Controllers\Api\User\HistoryController::class, 'index']);
-  Route::get('/transactions', [App\Http\Controllers\Api\User\TransactionController::class, 'index']);
-  // Invoices Routes
-  Route::get('/invoices', [App\Http\Controllers\Api\User\InvoiceController::class, 'index']);
-  Route::get('/invoices/{id}', [App\Http\Controllers\Api\User\InvoiceController::class, 'show']);
-  Route::post('/invoices', [App\Http\Controllers\Api\User\InvoiceController::class, 'store']);
-  // Banking For Deposit Routes
-  Route::get('/banks', [App\Http\Controllers\Api\User\BankingController::class, 'index']);
-
-  // Affiliate Routes
-  Route::prefix('/affiliates')->group(function () {
-    Route::post('/withdraw', [App\Http\Controllers\Api\User\AffiliateController::class, 'withdraw']);
-  });
-
-  // Vouchers Routes
-  Route::prefix('/vouchers')->group(function () {
-    Route::post('/redeem', [App\Http\Controllers\Api\User\VoucherController::class, 'redeem']);
-  });
-
-  // Deposits Routes
-  Route::get('/card-list', [App\Http\Controllers\Api\User\DepositController::class, 'cardList']);
-  Route::post('/send-card', [App\Http\Controllers\Api\User\DepositController::class, 'sendCard']);
-});
-
-// Orders Controller
-Route::middleware('auth:sanctum')->prefix('/orders')->group(function () {
-  // [GET] /api/orders - get orders
-  Route::get('/', [App\Http\Controllers\Api\Service\OrderController::class, 'index']);
-  // [GET] /api/orders/get-by-id - get order by id
-  Route::get('/get-by-id', [App\Http\Controllers\Api\Service\OrderController::class, 'getById']);
-  // [GET] /api/orders/get-by-ids - get orders by ids
-  Route::get('/get-by-ids', [App\Http\Controllers\Api\Service\OrderController::class, 'getByIds']);
-  // [POST] /api/orders/store - store order
-  Route::post('/store', [App\Http\Controllers\Api\Service\OrderController::class, 'store']);
-  // [POST/GET] /api/orders/:id/:action - action order
-  Route::post('/{id}/{action}', [App\Http\Controllers\Api\Service\OrderController::class, 'action']);
-});
-
-// ToolController
 Route::prefix('/tools')->group(function () {
-  // [GET] /api/tools/facebook/get-uid
-  Route::get('/facebook/get-uid', [App\Http\Controllers\Api\ToolController::class, 'getUidFacebook']);
-  // [GET] /api/tools/get-form/:form_type
-  Route::get('/get-form/{form_type}', [App\Http\Controllers\Api\ToolController::class, 'getForm']);
-  // [POST] /api/tools/calculate
-  Route::post('/calculate', [App\Http\Controllers\Api\ToolController::class, 'calculate']);
+  Route::post('/calculate', [NodeApiController::class,'calculate']);
+  Route::get('/facebook/get-uid', fn() => response()->json(['status'=>501,'message'=>'Not configured'],501));
+  Route::get('/get-form/{form_type}', fn($form_type) => response()->json(['status'=>200,'data'=>['form_type'=>$form_type,'html'=>'']]));
 });
+Route::match(['get','post'],'/v2', [NodeApiController::class,'v2']);
 
-// Admin Routes
+// Admin
 Route::middleware(['auth:sanctum', Admin::class])->prefix('/admin')->group(function () {
-  // User Routes
-  Route::prefix('/users')->group(function () {
-    Route::get('/', [App\Http\Controllers\Api\Admin\UserController::class, 'index']);
-  });
-  // Transaction Routes
-  Route::prefix('/transactions')->group(function () {
-    Route::get('/', [App\Http\Controllers\Api\Admin\TransactionController::class, 'index']);
-    Route::get('/list-card', [App\Http\Controllers\Api\Admin\TransactionController::class, 'listCard']);
-  });
-  // History Routes
-  Route::prefix('/histories')->group(function () {
-    Route::get('/', [App\Http\Controllers\Api\Admin\HistoryController::class, 'index']);
-  });
-  // Service Routes
-  Route::prefix('/services')->group(function () {
-    Route::get('/', [App\Http\Controllers\Api\Admin\ServiceController::class, 'index']);
-  });
-  // Tools Routes
-  Route::prefix('/tools')->group(function () {
-    Route::post('/upload', [App\Http\Controllers\Api\Tools\UploadController::class, 'index']);
-  });
+  Route::get('/overview', [NodeApiController::class,'adminOverview']);
+  Route::post('/orders/{id}/status', [NodeApiController::class,'adminOrderStatus']);
+  Route::post('/invoices/{id}/approve', [NodeApiController::class,'adminInvoiceApprove']);
+  Route::post('/invoices/{id}/reject', [NodeApiController::class,'adminInvoiceReject']);
+  Route::post('/services', [NodeApiController::class,'adminCreateService']);
+  Route::put('/services/{id}', [NodeApiController::class,'adminUpdateService']);
+  Route::delete('/services/{id}', [NodeApiController::class,'adminDeleteService']);
+  Route::post('/platforms', [NodeApiController::class,'adminCreatePlatform']);
+  Route::post('/categories', [NodeApiController::class,'adminCreateCategory']);
+  Route::post('/users/{id}/balance', [NodeApiController::class,'adminAdjustUser']);
+  Route::post('/users/{id}/reset-token', [NodeApiController::class,'adminResetToken']);
+  Route::post('/banks', [NodeApiController::class,'adminCreateBank']);
+  Route::put('/banks/{id}', [NodeApiController::class,'adminUpdateBank']);
+  Route::delete('/banks/{id}', [NodeApiController::class,'adminDeleteBank']);
+  Route::post('/vouchers', [NodeApiController::class,'adminCreateVoucher']);
+  Route::delete('/vouchers/{id}', [NodeApiController::class,'adminDeleteVoucher']);
+  Route::post('/providers', [NodeApiController::class,'adminCreateProvider']);
+  Route::post('/providers/{id}/toggle', [NodeApiController::class,'adminToggleProvider']);
+  Route::post('/providers/{id}/balance', [NodeApiController::class,'adminProviderBalance']);
+  Route::post('/providers/{id}/sync', [NodeApiController::class,'adminProviderSync']);
+  Route::post('/announcements', [NodeApiController::class,'adminCreateAnnouncement']);
+  Route::delete('/announcements/{id}', [NodeApiController::class,'adminDeleteAnnouncement']);
+  Route::post('/settings', [NodeApiController::class,'adminSettings']);
 });
 
-// SMM Panel API v2
-Route::get('/v2', [App\Http\Controllers\Api\V2Controller::class, 'process'])->name('api.v2.get');
-Route::post('/v2', [App\Http\Controllers\Api\V2Controller::class, 'process'])->name('api.v2');
+Route::post('/cron/sync-orders', [NodeApiController::class,'cronSyncOrders']);
+
+
